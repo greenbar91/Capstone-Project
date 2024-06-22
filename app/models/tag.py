@@ -19,3 +19,35 @@ class Tag(db.Model):
             "book_title": self.book.title,
             "tag_name": self.tag_name
         }
+
+
+# Anti-Hero Lead
+# Dungeon
+# Dystopia
+# Female Lead
+# GameLit
+# Genetically Engineered
+# Grimdark
+# High Fantasy
+# LitRPG
+# Low Fantasy
+# Magic
+# Male Lead
+# Martial Arts
+# Multiple Lead Characters
+# Mythos
+# Non-Human Lead
+# Progression
+# Reincarnation
+# Secret Identity
+# Slice of Life
+# Strategy
+# Strong Lead
+# Supernatural
+# Time Loop
+# Time Travel
+# Urban Fantasy
+# Villainous Lead
+# War and Military
+# Wuxia
+# Xianxia
