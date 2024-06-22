@@ -10,7 +10,7 @@ class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     title = db.Column(db.String(255), nullable=False)
-    blurb = db.Column(db.String(1000), nullable=False)
+    blurb = db.Column(db.String(4000), nullable=False)
     cover_art = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone.utc))
 
