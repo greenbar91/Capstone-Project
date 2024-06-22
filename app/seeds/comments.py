@@ -379,14 +379,14 @@ def seed_comments():
     ]
 
     for data in comments_data:
-            created_at = datetime.strptime(data["created_at"], "%Y-%m-%dT%H:%M:%SZ")
-            chapter = Comment(
-                user_id=data["user_id"],
-                chapter_id=data["chapter_id"],
-                body=data["body"],
-                created_at=created_at
-            )
-            db.session.add(chapter)
+        created_at = datetime.strptime(data["created_at"], "%Y-%m-%dT%H:%M:%SZ")
+        chapter = Comment(
+            user_id=data["user_id"],
+            chapter_id=data["chapter_id"],
+            body=data["body"],
+            created_at=created_at
+        )
+        db.session.add(chapter)
 
     db.session.commit()
 
