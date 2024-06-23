@@ -29,5 +29,8 @@ class Book(db.Model):
             "title": self.title,
             "blurb": self.blurb,
             "cover_art": self.cover_art,
-            "created_at": self.created_at
+            "created_at": self.created_at,
+            "tags": [tag.to_dict() for tag in self.tags],
+            "favorites": [favorite.to_dict() for favorite in self.favorites],
+            "reviews": [review.to_dict() for review in self.reviews]
         }
