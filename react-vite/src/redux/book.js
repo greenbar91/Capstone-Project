@@ -15,7 +15,7 @@ const postBook = (book) => ({
 });
 
 export const getAllBooksThunk = () => async (dispatch) => {
-  const res = await fetch("/api/books");
+  const res = await fetch("/api/books/");
 
   if (res.ok) {
     const data = await res.json();
