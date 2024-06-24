@@ -13,7 +13,7 @@ def get_all_books():
     books = Book.query.all()
 
     if not books:
-        return jsonify({"errors":"No books found"}), 404
+        return jsonify({"errors":"Books not found"}), 404
 
     book_list = []
 
@@ -75,7 +75,7 @@ def post_book():
         return jsonify(book.to_dict()), 201
 
 
-    return jsonify({"errors": "Failed to post Book"}), 500
+    return jsonify({"errors":"Failed to post Book"}), 500
 
 
 # Edit Book by ID
@@ -96,4 +96,22 @@ def update_book(bookId):
 
         return jsonify(book_to_update.to_dict()), 200
 
-    return jsonify({"errors": "Failed to update Book"}), 500
+    return jsonify({"errors":"Failed to update Book"}), 400
+
+# Delete Book by ID
+@book_routes.route("/<int:bookId>", methods=["DELETE"])
+@login_required
+def delete_book(bookId):
+
+    book_to_delete = Book.query.get(bookId)
+
+    if not book_to_delete:
+        return jsonify({"errors":"Book not found"}), 404
+
+    if not book_to_delete.author_id==current_user.id:
+        return jsonify({"errors":"Unauthorized to delete"}), 401
+
+    db.session.delete(book_to_delete)
+    db.session.commit()
+
+    return jsonify({"message":"Successfully deleted"}), 200

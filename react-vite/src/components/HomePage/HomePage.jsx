@@ -8,11 +8,36 @@ export default function HomePage() {
   const [title, setTitle] = useState("");
   const [blurb, setBlurb] = useState("");
   const [coverArt, setCoverArt] = useState("");
+  const [userBooks,setUserBooks] = useState([])
+  const [bookById, setBookById] = useState({})
 
   const dispatch = useDispatch();
   const books = useSelector(selectAllBooks);
   // const user = useSelector((state)=> state.session.user)
 
+  useEffect(()=> {
+    const fetchBookById = async() => {
+      const res = await fetch(`/api/books/${5}`)
+
+      if(res.ok){
+        const data = await res.json()
+        setBookById(data.Book)
+      }
+    }
+    fetchBookById()
+  },[ books])
+
+  useEffect(()=> {
+    const fetchUserBooks = async () => {
+      const res = await fetch("/api/books/my_books")
+
+      if(res.ok){
+        const data = await res.json()
+        setUserBooks(data.Books)
+      }
+    }
+    fetchUserBooks()
+  },[dispatch,books])
 
   useEffect(() => {
     dispatch(getAllBooksThunk());
@@ -23,6 +48,7 @@ export default function HomePage() {
     const newBook = {title, blurb, cover_art: coverArt };
     dispatch(postBookThunk(newBook));
   };
+  // console.log(userBooks)
 
   return (
     <div>
@@ -32,7 +58,15 @@ export default function HomePage() {
           <li key={book.id}>{book.title}</li>
         ))}
       </ul>
+      <h1>Current User Books</h1>
+        <ul>
+          {userBooks && userBooks?.map((book) => (
+            <li key={book.id}>{book.title}<img src={book.cover_art}></img></li>
 
+          ))}
+        </ul>
+      <h1>Book by Id</h1>
+      {bookById && (<div>{bookById.title}</div>)}
       <h2>Add a New Book</h2>
       <form onSubmit={handleSubmit}>
         <div>
