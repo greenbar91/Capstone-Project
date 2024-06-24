@@ -1,7 +1,8 @@
 import  { useState, useEffect } from "react";
 import "./HomePage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllBooksThunk, postBookThunk } from "../../redux/book";
+import { getAllBooksThunk, postBookThunk, selectAllBooks} from "../../redux/book";
+
 
 export default function HomePage() {
   const [title, setTitle] = useState("");
@@ -9,7 +10,7 @@ export default function HomePage() {
   const [coverArt, setCoverArt] = useState("");
 
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books.allBooks.map(id => state.books.byBookId[id]));
+  const books = useSelector(selectAllBooks);
   // const user = useSelector((state)=> state.session.user)
 
 

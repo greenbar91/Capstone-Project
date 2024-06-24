@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+import { createSelector } from 'reselect';
 
 const GET_ALL_BOOKS = "book/getAllBooks";
 const POST_BOOK = "book/postBook";
@@ -81,3 +82,12 @@ function bookReducer(state = initialState, action) {
   }
 
 export default bookReducer;
+
+
+
+const selectBooksState = (state) => state.books;
+
+export const selectAllBooks = createSelector(
+  [selectBooksState],
+  (booksState) => booksState.allBooks.map(id => booksState.byBookId[id])
+);

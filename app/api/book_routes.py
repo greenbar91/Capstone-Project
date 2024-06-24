@@ -53,10 +53,10 @@ def get_current_user_books():
     return jsonify({"Books":user_book_list}), 200
 
 # Post Book
-#! Doesn't work
 @book_routes.route("/", methods=["POST"])
 @login_required
 def post_book():
+
     form = BookForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     user_id = current_user.id
@@ -73,6 +73,7 @@ def post_book():
         db.session.add(book)
         db.session.commit()
         return jsonify(book.to_dict()), 201
+
 
     return jsonify({"errors": "Failed to post Book"}), 500
 

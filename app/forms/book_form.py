@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField
-from wtforms.validators import DataRequired, ValidationError, URL
+from wtforms.validators import DataRequired, ValidationError
 
 def image_url(form, field):
     if not (field.data.endswith('.png') or field.data.endswith('.jpg') or field.data.endswith('.jpeg')):
@@ -10,4 +10,4 @@ def image_url(form, field):
 class BookForm(FlaskForm):
     title = StringField("title", validators=[DataRequired()])
     blurb = TextAreaField("blurb", validators=[DataRequired()])
-    cover_art = StringField("cover_art", validators=[DataRequired(), URL(), image_url])
+    cover_art = StringField("cover_art", validators=[DataRequired(), image_url])
