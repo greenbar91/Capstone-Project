@@ -9,7 +9,7 @@ chapter_routes = Blueprint('chapters', __name__)
 
 # Get chapters by Book Id
 @chapter_routes.route("/<int:bookId>/chapters")
-@login_required
+# @login_required
 def get_chapters_by_book_id(bookId):
 
     book = Book.query.get(bookId)
@@ -17,7 +17,7 @@ def get_chapters_by_book_id(bookId):
     if not book:
         return jsonify({"errors":"Book not found"}),404
 
-    chapters = Chapter.query.filter_by(book_id=book.id).all()
+    chapters = Chapter.query.filter_by(book_id=bookId).all()
 
     if not chapters:
         return jsonify({"errors":"Chapters not found"}),404
@@ -89,7 +89,7 @@ def delete_chapter(bookId, chapterId):
         return jsonify({"errors":"Unauthorized to delete"}), 401
 
     if not chapter_to_delete.book_id==bookId:
-        return jsonify({"errors":"Book/Chapter mismatch"})
+        return jsonify({"errors":"Book/Chapter mismatch"}), 400
 
     db.session.delete(chapter_to_delete)
     db.session.commit()

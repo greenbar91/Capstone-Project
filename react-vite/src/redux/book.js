@@ -91,9 +91,11 @@ export const deleteBookThunk = (bookId) => async (dispatch) => {
   }
 };
 
+
+
 const initialState = {
   byBookId: {},
-  allBooks: [],
+  allBooks: new Set(),
 };
 
 function bookReducer(state = initialState, action) {
@@ -110,7 +112,7 @@ function bookReducer(state = initialState, action) {
       return {
         ...state,
         byBookId,
-        allBooks: Array.from(allBooks),
+        allBooks: new Set(allBooks),
       };
     }
     case POST_BOOK: {
@@ -118,7 +120,7 @@ function bookReducer(state = initialState, action) {
       return {
         ...state,
         byBookId: { ...state.byBookId, [book.id]: book },
-        allBooks: [...new Set([...state.allBooks, book.id])],
+        allBooks: new Set([...state.allBooks, book.id]),
       };
     }
     case UPDATE_BOOK: {
@@ -132,10 +134,12 @@ function bookReducer(state = initialState, action) {
       const bookId = action.payload;
       // eslint-disable-next-line no-unused-vars
       const { [bookId]: _, ...newByBookId } = state.byBookId;
+      const allBooks = new Set(state.allBooks);
+      allBooks.delete(bookId);
       return {
         ...state,
         byBookId: newByBookId,
-        allBooks: state.allBooks.filter((id) => id !== bookId),
+        allBooks,
       };
     }
     default:
@@ -147,9 +151,10 @@ export default bookReducer;
 
 
 
+
 const selectBooksState = (state) => state.books;
 
 export const selectAllBooks = createSelector(
   [selectBooksState],
-  (booksState) => booksState.allBooks.map(id => booksState.byBookId[id])
+  (booksState) => Array.from(booksState.allBooks).map(id => booksState.byBookId[id])
 );

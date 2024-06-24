@@ -1,29 +1,33 @@
 import { useState, useEffect } from "react";
 import "./HomePage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllBooksThunk, postBookThunk, putBookThunk, deleteBookThunk, selectAllBooks } from "../../redux/book";
+import {
+  getAllBooksThunk,
+  postBookThunk,
+  putBookThunk,
+  deleteBookThunk,
+  selectAllBooks,
+} from "../../redux/book";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [title, setTitle] = useState("");
   const [blurb, setBlurb] = useState("");
   const [coverArt, setCoverArt] = useState("");
   const [userBooks, setUserBooks] = useState([]);
-  const [bookById, setBookById] = useState({});
+  // const [bookById, setBookById] = useState({});
   const [editBookId, setEditBookId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
   const [editBlurb, setEditBlurb] = useState("");
   const [editCoverArt, setEditCoverArt] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const books = useSelector(selectAllBooks);
+  // console.log(books)
 
-  const handleDetailsClick = async (bookId) => {
-      const res = await fetch(`/api/books/${bookId}`);
-
-      if (res.ok) {
-        const data = await res.json();
-        setBookById(data.Book);
-      }
+  const handleDetailsClick = (bookId) => {
+    navigate(`books/${bookId}`);
   };
 
   useEffect(() => {
@@ -50,7 +54,11 @@ export default function HomePage() {
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    const updatedBook = { title: editTitle, blurb: editBlurb, cover_art: editCoverArt };
+    const updatedBook = {
+      title: editTitle,
+      blurb: editBlurb,
+      cover_art: editCoverArt,
+    };
     dispatch(putBookThunk(editBookId, updatedBook));
     setEditBookId(null);
     setEditTitle("");
@@ -74,8 +82,10 @@ export default function HomePage() {
       <h1>Books List</h1>
       <ul>
         {books.map((book) => (
-          <li key={book.id} onClick={() => handleDetailsClick(book.id)}>
-            {book.title} by {book.author_name}
+          <li key={book.id}>
+            <div onClick={() => handleDetailsClick(book.id)}>
+              {book.title} by {book.author_name}
+            </div>
             <button onClick={() => handleEditClick(book)}>Edit</button>
             <button onClick={() => handleDeleteClick(book.id)}>Delete</button>
           </li>
@@ -83,15 +93,22 @@ export default function HomePage() {
       </ul>
       <h1>Current User Books</h1>
       <ul>
-        {userBooks && userBooks.map((book) => (
-          <li key={book.id}>
-            {book.title}
-            {/* <img src={book.cover_art} alt={book.title} /> */}
-          </li>
-        ))}
+        {userBooks &&
+          userBooks.map((book) => (
+            <li key={book.id}>
+              <div onClick={() => handleDetailsClick(book.id)}>
+                {book.title}
+              </div>
+              {/* <img src={book.cover_art} alt={book.title} /> */}
+            </li>
+          ))}
       </ul>
-      <h1>Book by Id</h1>
-      {bookById && (<div>{bookById.title} by {bookById.author_name}</div>)}
+      {/* <h1>Book by Id</h1>
+      {bookById && (
+        <div>
+          {bookById.title} by {bookById.author_name}
+        </div>
+      )} */}
       <h2>Add a New Book</h2>
       <form onSubmit={handleSubmit}>
         <div>

@@ -6,425 +6,287 @@ def seed_reviews():
    review_data = [
     {
         "book_id": 1,
-        "user_id": 2,
-        "body": "This book started off a bit slow but really picked up towards the middle. The characters are well-developed, and the plot twists kept me hooked. Definitely worth the read!",
-        "star_rating": 4,
-        "created_at": "2020-06-23T10:00:00Z"
+        "user_id": 1,
+        "body": "Dragons of Ansalon is a thrilling epic that dives deep into political intrigue and ancient prophecies. The characters Kara and Lorien are compelling, and their journey is filled with suspense and bravery.",
+        "star_rating": 5,
+        "created_at": "2020-06-19T15:45:30Z"
     },
     {
         "book_id": 1,
-        "user_id": 3,
-        "body": "I loved the intricate details and the depth of the story. The author's writing style is captivating. Can't wait for the next installment!",
-        "star_rating": 5,
-        "created_at": "2020-06-24T14:30:00Z"
-    },
-    {
-        "book_id": 1,
-        "user_id": 4,
-        "body": "The book has a lot of potential, but I felt that some parts dragged on a bit too long. Overall, a good read.",
-        "star_rating": 3,
-        "created_at": "2020-06-25T09:00:00Z"
-    },
-    {
-        "book_id": 2,
-        "user_id": 1,
-        "body": "An intense and thrilling read from start to finish. The battle scenes were particularly well done. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2021-06-21T16:00:00Z"
+        "user_id": 2,
+        "body": "Dragons of Ansalon transports readers to a vivid world where magic and destiny collide. The plot twists and character development keep you hooked from start to finish.",
+        "star_rating": 4,
+        "created_at": "2020-06-19T15:45:30Z"
     },
     {
         "book_id": 2,
         "user_id": 3,
-        "body": "The characters are well-developed and the story is engaging. There were a few slow parts, but overall a great book.",
+        "body": "Defenders of the Citadel continues the gripping saga with intense action and deepening character arcs. Elyndra and Seraphina's leadership shines in the face of relentless challenges.",
         "star_rating": 4,
-        "created_at": "2021-06-22T11:30:00Z"
+        "created_at": "2021-06-19T15:45:30Z"
     },
     {
         "book_id": 2,
         "user_id": 4,
-        "body": "I enjoyed the book but felt that the ending was a bit rushed. Looking forward to the next one.",
-        "star_rating": 4,
-        "created_at": "2021-06-23T08:45:00Z"
+        "body": "Defenders of the Citadel is a masterful blend of adventure and strategy. The plot twists and turns kept me on the edge of my seat throughout.",
+        "star_rating": 5,
+        "created_at": "2021-06-19T15:45:30Z"
     },
     {
         "book_id": 3,
-        "user_id": 1,
-        "body": "A beautifully written book with a compelling storyline. The Pool of Seeing is a fascinating concept. Can't wait for more!",
+        "user_id": 5,
+        "body": "Echoes of Destiny intricately weaves together multiple storylines against a backdrop of ancient prophecies. Lyriel and Gareth's journey is captivating and filled with unexpected twists.",
         "star_rating": 5,
-        "created_at": "2022-06-21T15:45:00Z"
+        "created_at": "2022-06-19T15:45:30Z"
     },
     {
         "book_id": 3,
-        "user_id": 2,
-        "body": "The descriptions in this book are so vivid, I felt like I was there. A great read!",
+        "user_id": 6,
+        "body": "Echoes of Destiny is a mesmerizing tale of adventure and discovery. The characters' growth and the vivid world-building make this a must-read for fantasy enthusiasts.",
         "star_rating": 4,
-        "created_at": "2022-06-22T10:00:00Z"
-    },
-    {
-        "book_id": 3,
-        "user_id": 4,
-        "body": "The storyline is engaging, and the characters are well-developed. Some parts felt a bit slow, but overall, a good book.",
-        "star_rating": 4,
-        "created_at": "2022-06-23T09:30:00Z"
+        "created_at": "2022-06-19T15:45:30Z"
     },
     {
         "book_id": 4,
-        "user_id": 1,
-        "body": "A gripping story with well-developed characters. The descriptions are so vivid, I felt like I was there. Highly recommend!",
+        "user_id": 7,
+        "body": "Echoes of the Ancients delves into a world of dark sorcery and treacherous alliances. Lia and Thane's quest is thrilling and thought-provoking, with twists that kept me guessing until the end.",
         "star_rating": 5,
-        "created_at": "2022-01-02T14:00:00Z"
+        "created_at": "2022-01-01T15:45:30Z"
     },
     {
         "book_id": 4,
-        "user_id": 2,
-        "body": "The story is engaging, and the characters are well-developed. Some parts felt a bit slow, but overall, a good book.",
+        "user_id": 8,
+        "body": "Echoes of the Ancients captivated me with its rich storytelling and intricate plot. The characters' depth and the magical world they inhabit make this book a standout in fantasy literature.",
         "star_rating": 4,
-        "created_at": "2022-01-03T10:30:00Z"
-    },
-    {
-        "book_id": 4,
-        "user_id": 3,
-        "body": "An intense and thrilling read from start to finish. Can't wait for the next installment!",
-        "star_rating": 5,
-        "created_at": "2022-01-04T09:45:00Z"
+        "created_at": "2022-01-01T15:45:30Z"
     },
     {
         "book_id": 5,
-        "user_id": 1,
-        "body": "A beautifully written book with a compelling storyline. The setting is so unique, I loved it!",
-        "star_rating": 5,
-        "created_at": "2022-01-02T14:30:00Z"
-    },
-    {
-        "book_id": 5,
-        "user_id": 2,
-        "body": "The characters are well-developed, and the story is engaging. Some parts felt a bit slow, but overall, a great book.",
-        "star_rating": 4,
-        "created_at": "2022-01-03T11:00:00Z"
-    },
-    {
-        "book_id": 5,
-        "user_id": 3,
-        "body": "I loved the setting and the unique storyline. Can't wait for the next installment!",
-        "star_rating": 5,
-        "created_at": "2022-01-04T10:00:00Z"
-    },
-    {
-        "book_id": 6,
-        "user_id": 1,
-        "body": "A relatable and engaging story. The office scenes are so well described. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2021-03-12T14:30:00Z"
-    },
-    {
-        "book_id": 6,
-        "user_id": 2,
-        "body": "The characters are well-developed, and the story is engaging. Some parts felt a bit slow, but overall, a good book.",
-        "star_rating": 4,
-        "created_at": "2021-03-13T11:15:00Z"
-    },
-    {
-        "book_id": 6,
-        "user_id": 3,
-        "body": "A great read with a relatable storyline. Can't wait for the next one!",
-        "star_rating": 4,
-        "created_at": "2021-03-14T10:45:00Z"
-    },
-    {
-        "book_id": 7,
         "user_id": 9,
-        "body": "A fascinating story with a unique setting. Poor Lindon! Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2019-07-13T14:30:00Z"
-    },
-    {
-        "book_id": 7,
-        "user_id": 10,
-        "body": "The characters are well-developed, and the story is engaging. Can't wait for the next installment!",
+        "body": "The Guardian and the Magician is a magical journey of friendship and discovery. Arin and Alexei's quest to unravel ancient mysteries is both enchanting and inspiring.",
         "star_rating": 4,
-        "created_at": "2019-07-14T11:00:00Z"
+        "created_at": "2022-01-01T15:45:30Z"
+    },
+    {
+        "book_id": 5,
+        "user_id": 10,
+        "body": "The Guardian and the Magician immerses readers in a world of wonder and danger. The characters' growth and the intricate magic system make this a compelling read.",
+        "star_rating": 5,
+        "created_at": "2022-01-01T15:45:30Z"
+    },
+    {
+        "book_id": 6,
+        "user_id": 11,
+        "body": "The Initiation of Shadows introduces readers to a world of mystery and magic. Lena's journey of self-discovery, alongside Elliot and Aelarion, is both thrilling and thought-provoking.",
+        "star_rating": 4,
+        "created_at": "2022-03-01T15:45:30Z"
+    },
+    {
+        "book_id": 6,
+        "user_id": 12,
+        "body": "The Initiation of Shadows is a captivating tale of adventure and friendship. The characters' dynamics and the magical challenges they face kept me engaged throughout.",
+        "star_rating": 5,
+        "created_at": "2022-03-01T15:45:30Z"
     },
     {
         "book_id": 7,
-        "user_id": 11,
-        "body": "A great start to the series. Lindon's journey is so compelling!",
+        "user_id": 13,
+        "body": "Whispering Tree Chronicles: Quest for the Lunar Lotus is a beautifully written tale of courage and perseverance. Aria and Renna's journey through mystical forests is both enchanting and thrilling.",
         "star_rating": 5,
-        "created_at": "2019-07-15T10:45:00Z"
+        "created_at": "2019-07-12T15:45:30Z"
+    },
+    {
+        "book_id": 7,
+        "user_id": 1,
+        "body": "Whispering Tree Chronicles: Quest for the Lunar Lotus captivated me with its vivid descriptions and heartfelt characters. Aria and Renna's bravery in the face of danger left a lasting impression.",
+        "star_rating": 4,
+        "created_at": "2019-07-12T15:45:30Z"
     },
     {
         "book_id": 8,
+        "user_id": 2,
+        "body": "Secrets of Eldarion is a captivating blend of mystery and adventure. Kael and Elara's quest to unravel ancient secrets kept me eagerly turning pages.",
+        "star_rating": 4,
+        "created_at": "2020-07-12T15:45:30Z"
+    },
+    {
+        "book_id": 8,
+        "user_id": 3,
+        "body": "Secrets of Eldarion is a spellbinding journey through magical ruins and political intrigue. The characters' resilience and the richly detailed world-building make this a standout fantasy read.",
+        "star_rating": 5,
+        "created_at": "2020-07-12T15:45:30Z"
+    },
+    {
+        "book_id": 9,
+        "user_id": 4,
+        "body": "Shadows of the Black Serpent is a gripping tale of political intrigue and supernatural threats. Prince Elian's journey is both thrilling and thought-provoking, with twists that kept me on edge.",
+        "star_rating": 5,
+        "created_at": "2023-10-21T15:45:30Z"
+    },
+    {
+        "book_id": 9,
+        "user_id": 5,
+        "body": "Shadows of the Black Serpent immerses readers in a world of danger and deception. The characters' struggles and the intricate plot make this a must-read for fantasy enthusiasts.",
+        "star_rating": 4,
+        "created_at": "2023-10-21T15:45:30Z"
+    },
+    {
+        "book_id": 10,
+        "user_id": 6,
+        "body": "Whispers of the Necropolis explores forbidden magic and the pursuit of knowledge beyond conventional boundaries. Lysandra and Corvin's journey is both thrilling and thought-provoking.",
+        "star_rating": 4,
+        "created_at": "2019-11-24T15:45:30Z"
+    },
+    {
+        "book_id": 10,
+        "user_id": 7,
+        "body": "Whispers of the Necropolis captivated me with its dark magic and intricate world-building. The characters' quests for forbidden knowledge kept me hooked until the final page.",
+        "star_rating": 5,
+        "created_at": "2019-11-24T15:45:30Z"
+    },
+    {
+        "book_id": 11,
+        "user_id": 8,
+        "body": "Shadows of the Desert is a compelling tale of resilience and redemption. Liora's journey through the harsh desert landscape is both empowering and captivating.",
+        "star_rating": 5,
+        "created_at": "2020-11-24T15:45:30Z"
+    },
+    {
+        "book_id": 11,
         "user_id": 9,
-        "body": "Yerin and Lindon's dynamic is so interesting. A great read!",
-        "star_rating": 5,
-        "created_at": "2020-07-13T14:30:00Z"
+        "body": "Shadows of the Desert immerses readers in a world of survival and courage. The characters' growth and the vivid descriptions make this book a standout in fantasy literature.",
+        "star_rating": 4,
+        "created_at": "2020-11-24T15:45:30Z"
     },
     {
-        "book_id": 8,
+        "book_id": 12,
         "user_id": 10,
-        "body": "The descriptions of the madra and the wilds are so vivid. Highly recommend!",
+        "body": "Whispers of the Forest is a beautifully crafted tale of friendship and bravery. Kara and Aiden's journey through the mystical forest is enchanting, filled with moments of wonder.",
         "star_rating": 5,
-        "created_at": "2020-07-14T11:00:00Z"
-    },
-    {
-        "book_id": 8,
-        "user_id": 11,
-        "body": "A compelling story with well-developed characters. Can't wait for the next one!",
-        "star_rating": 4,
-        "created_at": "2020-07-15T10:45:00Z"
-    },
-    {
-        "book_id": 9,
-        "user_id": 10,
-        "body": "This book was intense. The ethical dilemmas Kylar faces are so compelling. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2023-10-22T14:30:00Z"
-    },
-    {
-        "book_id": 9,
-        "user_id": 11,
-        "body": "A great read with a complex and engaging storyline. Can't wait for the next installment!",
-        "star_rating": 4,
-        "created_at": "2023-10-23T11:00:00Z"
-    },
-    {
-        "book_id": 9,
-        "user_id": 12,
-        "body": "The characters are well-developed, and the story is engaging. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2023-10-24T10:45:00Z"
-    },
-    {
-        "book_id": 10,
-        "user_id": 11,
-        "body": "Gideon's escape was thrilling and so well-written. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2019-11-25T14:30:00Z"
-    },
-    {
-        "book_id": 10,
-        "user_id": 12,
-        "body": "The descriptions of the Ninth House are so vivid. Can't wait for the next one!",
-        "star_rating": 4,
-        "created_at": "2019-11-26T11:00:00Z"
-    },
-    {
-        "book_id": 10,
-        "user_id": 13,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2019-11-27T10:45:00Z"
-    },
-    {
-        "book_id": 11,
-        "user_id": 12,
-        "body": "The complexities of Harrow's journey are so well-written. Can't wait for the next one!",
-        "star_rating": 5,
-        "created_at": "2020-11-25T14:30:00Z"
-    },
-    {
-        "book_id": 11,
-        "user_id": 13,
-        "body": "The descriptions and character development are top-notch. Highly recommend!",
-        "star_rating": 4,
-        "created_at": "2020-11-26T11:00:00Z"
-    },
-    {
-        "book_id": 11,
-        "user_id": 1,
-        "body": "A beautifully written book with a compelling storyline. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2020-11-27T10:45:00Z"
+        "created_at": "2021-11-24T15:45:30Z"
     },
     {
         "book_id": 12,
+        "user_id": 11,
+        "body": "Whispers of the Forest captivated me with its magical atmosphere and heartfelt characters. The journey of friendship and courage left a lasting impression.",
+        "star_rating": 4,
+        "created_at": "2021-11-24T15:45:30Z"
+    },
+    {
+        "book_id": 13,
+        "user_id": 12,
+        "body": "The Heartstone Chronicles: The Year of No One is an epic fantasy filled with heroic quests and magical trials. Rhiannon's journey is both exhilarating and heartwarming, making this a must-read for fantasy fans.",
+        "star_rating": 5,
+        "created_at": "2011-11-24T15:45:30Z"
+    },
+    {
+        "book_id": 13,
         "user_id": 13,
-        "body": "The Recorder session is such a unique concept. Can't wait for the next one!",
-        "star_rating": 5,
-        "created_at": "2021-11-25T14:30:00Z"
-    },
-    {
-        "book_id": 12,
-        "user_id": 1,
-        "body": "The blend of daily routine and underlying tension is so well done. Highly recommend!",
+        "body": "The Heartstone Chronicles: The Year of No One captivated me with its rich storytelling and dynamic characters. The blend of adventure and emotion makes this book a standout in fantasy literature.",
         "star_rating": 4,
-        "created_at": "2021-11-26T11:00:00Z"
-    },
-    {
-        "book_id": 12,
-        "user_id": 2,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2021-11-27T10:45:00Z"
-    },
-    {
-        "book_id": 13,
-        "user_id": 1,
-        "body": "The reflection and routine transition is so well done. Can't wait for the next one!",
-        "star_rating": 5,
-        "created_at": "2021-11-25T14:30:00Z"
-    },
-    {
-        "book_id": 13,
-        "user_id": 2,
-        "body": "The characters are well-developed, and the story is engaging. Highly recommend!",
-        "star_rating": 4,
-        "created_at": "2021-11-26T11:00:00Z"
-    },
-    {
-        "book_id": 13,
-        "user_id": 3,
-        "body": "A compelling story with a unique concept. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2021-11-27T10:45:00Z"
+        "created_at": "2011-11-24T15:45:30Z"
     },
     {
         "book_id": 14,
         "user_id": 1,
-        "body": "The map room at Aslevjal is so vividly described. Can't wait for the next one!",
-        "star_rating": 5,
-        "created_at": "2013-02-25T14:30:00Z"
-    },
-    {
-        "book_id": 14,
-        "user_id": 2,
-        "body": "The lore in this chapter is so rich and intriguing. Highly recommend!",
+        "body": "The Eldara Chronicles is a mesmerizing tale of ancient magic and perilous adventures. Elara's quest to protect her city from darkness is riveting, showcasing her courage and determination.",
         "star_rating": 4,
-        "created_at": "2013-02-26T11:00:00Z"
+        "created_at": "2013-03-24T15:45:30Z"
     },
     {
         "book_id": 14,
-        "user_id": 3,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2013-02-27T10:45:00Z"
-    },
-    {
-        "book_id": 15,
         "user_id": 2,
-        "body": "Amara's mission is off to a tense start. Can't wait to see what happens next!",
+        "body": "The Eldara Chronicles immerses readers in a world of mystery and magic. The characters' journey through ancient ruins and treacherous landscapes kept me engaged until the very end.",
         "star_rating": 5,
-        "created_at": "2009-08-12T14:30:00Z"
+        "created_at": "2013-03-24T15:45:30Z"
     },
     {
         "book_id": 15,
         "user_id": 3,
-        "body": "The description of the setting is so immersive. Highly recommend!",
-        "star_rating": 4,
-        "created_at": "2009-08-13T11:00:00Z"
+        "body": "The Veil of Shadows is a thrilling adventure through forbidden forests and ancient curses. Lyra and Rowan's journey is filled with twists and turns that kept me on the edge of my seat.",
+        "star_rating": 5,
+        "created_at": "2009-08-11T15:45:30Z"
     },
     {
         "book_id": 15,
         "user_id": 4,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2009-08-14T10:45:00Z"
+        "body": "The Veil of Shadows captivated me with its dark atmosphere and compelling characters. The blend of mystery and magic makes this a must-read for fantasy enthusiasts.",
+        "star_rating": 4,
+        "created_at": "2009-08-11T15:45:30Z"
     },
     {
         "book_id": 16,
-        "user_id": 2,
-        "body": "Tavi's ingenuity is really shining through in this chapter. Can't wait for the next one!",
+        "user_id": 5,
+        "body": "The Shattered Relic: Quest of Elara and Finn is a compelling tale of adventure and redemption. Elara and Finn's journey through realms of magic and danger kept me hooked from start to finish.",
         "star_rating": 5,
-        "created_at": "2010-08-12T14:30:00Z"
+        "created_at": "2010-08-11T15:45:30Z"
     },
     {
         "book_id": 16,
-        "user_id": 3,
-        "body": "The historical references add so much depth to the story. Highly recommend!",
+        "user_id": 6,
+        "body": "The Shattered Relic: Quest of Elara and Finn is a thrilling adventure filled with twists and turns. The characters' bravery and determination shine throughout their quest.",
         "star_rating": 4,
-        "created_at": "2010-08-13T11:00:00Z"
-    },
-    {
-        "book_id": 16,
-        "user_id": 4,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2010-08-14T10:45:00Z"
+        "created_at": "2010-08-11T15:45:30Z"
     },
     {
         "book_id": 17,
-        "user_id": 1,
-        "body": "Calandra's attention to detail is fascinating. Can't wait for the next one!",
-        "star_rating": 5,
-        "created_at": "2005-02-18T14:30:00Z"
+        "user_id": 7,
+        "body": "Secrets of the Astral Key is an enchanting journey through ancient cities and mystical realms. Isla and Liora's quest for forbidden knowledge is filled with intrigue and discovery.",
+        "star_rating": 4,
+        "created_at": "2005-02-17T15:45:30Z"
     },
     {
         "book_id": 17,
-        "user_id": 2,
-        "body": "The family dynamics in this chapter are so well written. Highly recommend!",
-        "star_rating": 4,
-        "created_at": "2005-02-19T11:00:00Z"
-    },
-    {
-        "book_id": 17,
-        "user_id": 3,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
+        "user_id": 8,
+        "body": "Secrets of the Astral Key captivated me with its magical world and intricate plot. The characters' quest for ancient secrets kept me engrossed until the very end.",
         "star_rating": 5,
-        "created_at": "2005-02-20T10:45:00Z"
+        "created_at": "2005-02-17T15:45:30Z"
     },
     {
         "book_id": 18,
-        "user_id": 1,
-        "body": "The atmosphere in Kairn Telest is so haunting. Can't wait for the next one!",
-        "star_rating": 5,
-        "created_at": "2006-02-18T14:30:00Z"
+        "user_id": 9,
+        "body": "The Forbidden Grove is a tale of magic and courage set in an ancient forest. Elysia's journey to protect her village from dark forces is both poignant and empowering.",
+        "star_rating": 4,
+        "created_at": "2006-02-17T15:45:30Z"
     },
     {
         "book_id": 18,
-        "user_id": 2,
-        "body": "The relationship between the king and Edmund is really compelling. Highly recommend!",
+        "user_id": 10,
+        "body": "The Forbidden Grove captivated me with its rich descriptions and heartfelt characters. The journey of courage and sacrifice left a lasting impression.",
+        "star_rating": 5,
+        "created_at": "2006-02-17T15:45:30Z"
+    },
+    {
+        "book_id": 19,
+        "user_id": 11,
+        "body": "The Lost Heir is an epic adventure of self-discovery and destiny. Lyria's journey to reclaim her throne is filled with twists and turns, showcasing her bravery and determination.",
+        "star_rating": 5,
+        "created_at": "2007-02-17T15:45:30Z"
+    },
+    {
+        "book_id": 19,
+        "user_id": 12,
+        "body": "The Lost Heir captivated me with its gripping storyline and dynamic characters. The blend of adventure and intrigue kept me eagerly turning pages.",
         "star_rating": 4,
-        "created_at": "2006-02-19T11:00:00Z"
+        "created_at": "2007-02-17T15:45:30Z"
     },
     {
-        "book_id": 18,
-        "user_id": 3,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2006-02-20T10:45:00Z"
-    },
-    {
-        "book_id": 19,
-        "user_id": 1,
-        "body": "Haplo's internal struggle is so intense. Can't wait for the next one!",
-        "star_rating": 5,
-        "created_at": "2007-02-18T14:30:00Z"
-    },
-    {
-        "book_id": 19,
-        "user_id": 2,
-        "body": "The descriptions of the ship and the journey are so vivid. Highly recommend!",
+        "book_id": 20,
+        "user_id": 13,
+        "body": "The Crystal of Drakar's Hollow is a captivating tale of magic and ambition. Alara's journey to protect a powerful crystal from exploitation is riveting, highlighting themes of courage and responsibility.",
         "star_rating": 4,
-        "created_at": "2007-02-19T11:00:00Z"
-    },
-    {
-        "book_id": 19,
-        "user_id": 3,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2007-02-20T10:45:00Z"
+        "created_at": "2008-02-17T15:45:30Z"
     },
     {
         "book_id": 20,
         "user_id": 1,
-        "body": "Haplo's escape from Surunan is so thrilling. Can't wait for the next one!",
+        "body": "The Crystal of Drakar's Hollow immerses readers in a world of mystery and danger. The characters' quest for justice and protection kept me engaged from start to finish.",
         "star_rating": 5,
-        "created_at": "2008-02-18T14:30:00Z"
-    },
-    {
-        "book_id": 20,
-        "user_id": 2,
-        "body": "The descriptions of the submerged city are so vivid. Highly recommend!",
-        "star_rating": 4,
-        "created_at": "2008-02-19T11:00:00Z"
-    },
-    {
-        "book_id": 20,
-        "user_id": 3,
-        "body": "A compelling story with well-developed characters. Highly recommend!",
-        "star_rating": 5,
-        "created_at": "2008-02-20T10:45:00Z"
+        "created_at": "2008-02-17T15:45:30Z"
     }
-    ]
+]
+
+
 
    for data in review_data:
         created_at = datetime.strptime(data["created_at"], "%Y-%m-%dT%H:%M:%SZ")
