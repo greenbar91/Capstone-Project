@@ -4,6 +4,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import HomePage from '../components/HomePage';
 import BookDetails from '../components/BookDetails';
+import AuthorHomePage from '../components/AuthorHomePage';
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path:"/books/:bookId",
         element: <BookDetails/>
+      },
+      {
+        path:"/books/my_books",
+        element: <AuthorHomePage/>
       }
     ],
   },
