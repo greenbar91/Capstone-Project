@@ -32,6 +32,10 @@ const BookDetails = () => {
     }));
   };
 
+  const convertNewlinesToBr = (text) => {
+    return text.replace(/\n/g, "<br>");
+  };
+
   return (
     <div>
       <h1>Book Details</h1>
@@ -50,7 +54,9 @@ const BookDetails = () => {
             <div onClick={() => toggleChapterVisibility(chapter.id)} style={{ cursor: 'pointer', color: 'blue' }}>
               {chapter.title}
             </div>
-            {visibleChapters[chapter.id] && <div>{chapter.body}</div>}
+            {visibleChapters[chapter.id] && (
+              <div dangerouslySetInnerHTML={{ __html: convertNewlinesToBr(chapter.body) }} />
+            )}
           </li>
         ))}
       </ul>

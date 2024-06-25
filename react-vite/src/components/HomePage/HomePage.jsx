@@ -24,6 +24,7 @@ export default function HomePage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const books = useSelector(selectAllBooks);
+  const user = useSelector((state) => state.session.user);
   // console.log(books)
 
   const handleDetailsClick = (bookId) => {
@@ -84,10 +85,16 @@ export default function HomePage() {
         {books.map((book) => (
           <li key={book.id}>
             <div onClick={() => handleDetailsClick(book.id)}>
-              {book.title} by {book.author_name}
+              <div>
+                {book.title} by {book.author_name}
+              </div>
             </div>
-            <button onClick={() => handleEditClick(book)}>Edit</button>
-            <button onClick={() => handleDeleteClick(book.id)}>Delete</button>
+            {book?.author_id == user?.id && (
+              <button onClick={() => handleEditClick(book)}>Edit</button>
+            )}
+            {book?.author_id == user?.id && (
+              <button onClick={() => handleDeleteClick(book.id)}>Delete</button>
+            )}
           </li>
         ))}
       </ul>
