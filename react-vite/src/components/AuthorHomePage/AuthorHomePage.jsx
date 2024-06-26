@@ -14,7 +14,7 @@ import {
   deleteChapterThunk,
   selectAllChapters,
 } from "../../redux/chapter";
-import OpenModalButton from "../OpenModalButton/OpenModalButton";
+// import OpenModalButton from "../OpenModalButton/OpenModalButton";
 
 const AuthorHomePage = () => {
   const dispatch = useDispatch();
