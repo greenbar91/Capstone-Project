@@ -103,24 +103,26 @@ export const deleteChapterThunk = (bookId, chapterId) => async (dispatch) => {
 
 const initialState = {
   byChapterId: {},
-  allChapters: new Set(),
+  allChapters: [],
 };
 
 function chapterReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_CHAPTERS: {
       const byChapterId = { ...state.byChapterId };
-      const allChapters = new Set(state.allChapters);
+      const allChapters = [...state.allChapters];
 
       action.payload.forEach((chapter) => {
         byChapterId[chapter.id] = chapter;
-        allChapters.add(chapter.id);
+        if (!allChapters.includes(chapter.id)) {
+          allChapters.push(chapter.id);
+        }
       });
 
       return {
         ...state,
         byChapterId,
-        allChapters: new Set(allChapters),
+        allChapters,
       };
     }
     case POST_CHAPTER: {
@@ -128,7 +130,7 @@ function chapterReducer(state = initialState, action) {
       return {
         ...state,
         byChapterId: { ...state.byChapterId, [chapter.id]: chapter },
-        allChapters: new Set([...state.allChapters, chapter.id]),
+        allChapters: state.allChapters.includes(chapter.id) ? state.allChapters : [...state.allChapters, chapter.id],
       };
     }
     case UPDATE_CHAPTER: {
@@ -142,8 +144,7 @@ function chapterReducer(state = initialState, action) {
       const chapterId = action.payload;
       // eslint-disable-next-line no-unused-vars
       const { [chapterId]: _, ...newByChapterId } = state.byChapterId;
-      const allChapters = new Set(state.allChapters);
-      allChapters.delete(chapterId);
+      const allChapters = state.allChapters.filter(id => id !== chapterId);
       return {
         ...state,
         byChapterId: newByChapterId,
@@ -164,7 +165,5 @@ const selectChaptersState = (state) => state.chapters;
 export const selectAllChapters = createSelector(
   [selectChaptersState],
   (chaptersState) =>
-    Array.from(chaptersState.allChapters).map(
-      (id) => chaptersState.byChapterId[id]
-    )
+    chaptersState.allChapters.map((id) => chaptersState.byChapterId[id])
 );

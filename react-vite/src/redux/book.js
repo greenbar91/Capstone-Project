@@ -95,24 +95,26 @@ export const deleteBookThunk = (bookId) => async (dispatch) => {
 
 const initialState = {
   byBookId: {},
-  allBooks: new Set(),
+  allBooks: [],
 };
 
 function bookReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_BOOKS: {
       const byBookId = { ...state.byBookId };
-      const allBooks = new Set(state.allBooks);
+      const allBooks = [...state.allBooks];
 
       action.payload.forEach((book) => {
         byBookId[book.id] = book;
-        allBooks.add(book.id);
+        if (!allBooks.includes(book.id)) {
+          allBooks.push(book.id);
+        }
       });
 
       return {
         ...state,
         byBookId,
-        allBooks: new Set(allBooks),
+        allBooks,
       };
     }
     case POST_BOOK: {
@@ -120,7 +122,7 @@ function bookReducer(state = initialState, action) {
       return {
         ...state,
         byBookId: { ...state.byBookId, [book.id]: book },
-        allBooks: new Set([...state.allBooks, book.id]),
+        allBooks: state.allBooks.includes(book.id) ? state.allBooks : [...state.allBooks, book.id],
       };
     }
     case UPDATE_BOOK: {
@@ -134,8 +136,7 @@ function bookReducer(state = initialState, action) {
       const bookId = action.payload;
       // eslint-disable-next-line no-unused-vars
       const { [bookId]: _, ...newByBookId } = state.byBookId;
-      const allBooks = new Set(state.allBooks);
-      allBooks.delete(bookId);
+      const allBooks = state.allBooks.filter(id => id !== bookId);
       return {
         ...state,
         byBookId: newByBookId,
@@ -149,12 +150,9 @@ function bookReducer(state = initialState, action) {
 
 export default bookReducer;
 
-
-
-
 const selectBooksState = (state) => state.books;
 
 export const selectAllBooks = createSelector(
   [selectBooksState],
-  (booksState) => Array.from(booksState.allBooks).map(id => booksState.byBookId[id])
+  (booksState) => booksState.allBooks.map(id => booksState.byBookId[id])
 );

@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { getAllChaptersThunk, selectAllChapters } from "../../redux/chapter";
 
 const BookDetails = () => {
   const [book, setBook] = useState({});
-  const [visibleChapters, setVisibleChapters] = useState({});
   const dispatch = useDispatch();
   const { bookId } = useParams();
   const chapters = useSelector(selectAllChapters);
@@ -25,16 +24,6 @@ const BookDetails = () => {
     dispatch(getAllChaptersThunk(bookId));
   }, [bookId, dispatch]);
 
-  const toggleChapterVisibility = (chapterId) => {
-    setVisibleChapters((prevState) => ({
-      ...prevState,
-      [chapterId]: !prevState[chapterId],
-    }));
-  };
-
-  const convertNewlinesToBr = (text) => {
-    return text.replace(/\n/g, "<br>");
-  };
 
   return (
     <div>
@@ -50,14 +39,9 @@ const BookDetails = () => {
       <h2>Chapters</h2>
       <ul>
         {chapters.map((chapter) => (
-          <li key={chapter.id}>
-            <div onClick={() => toggleChapterVisibility(chapter.id)} style={{ cursor: 'pointer', color: 'blue' }}>
-              {chapter.title}
-            </div>
-            {visibleChapters[chapter.id] && (
-              <div dangerouslySetInnerHTML={{ __html: convertNewlinesToBr(chapter.body) }} />
-            )}
-          </li>
+          <NavLink to={`/books/${bookId}/chapters/${chapter.id}`} key={chapter.id}>
+            {chapter.title}<br></br>
+          </NavLink>
         ))}
       </ul>
     </div>
