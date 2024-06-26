@@ -30,6 +30,22 @@ def get_chapters_by_book_id(bookId):
 
     return jsonify({"Chapters": chapter_list}),200
 
+
+# Get Chapter Details by Chapter Id
+@chapter_routes.route("/<int:bookId>/chapters/<int:chapterId>")
+def get_chapter_details(bookId,chapterId):
+
+    chapter = Chapter.query.get(chapterId)
+
+    if not chapter:
+        return jsonify({"errors":"Chapter not found"}),404
+
+    if not chapter.book_id==bookId:
+            return jsonify({"errors":"Book/Chapter mismatch"}), 400
+
+    return jsonify(chapter.to_dict())
+
+
 # Post a chapter by Book Id
 @chapter_routes.route("/<int:bookId>/chapters", methods=["POST"])
 @login_required
@@ -65,7 +81,7 @@ def update_chapter(bookId, chapterId):
 
 
         if not chapter_to_update.book_id==bookId:
-            return jsonify({"errors":"Book/Chapter mismatch"})
+            return jsonify({"errors":"Book/Chapter mismatch"}), 400
 
         chapter_to_update.title = form.data["title"]
         chapter_to_update.body = form.data["body"]
