@@ -10,6 +10,8 @@ import {
 import {
   getAllChaptersThunk,
   postChapterThunk,
+  updateChapterThunk,
+  deleteChapterThunk,
   selectAllChapters,
 } from "../../redux/chapter";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
@@ -26,6 +28,9 @@ const AuthorHomePage = () => {
   const [coverArt, setCoverArt] = useState("");
   const [chapterTitle, setChapterTitle] = useState("");
   const [chapterContent, setChapterContent] = useState("");
+  const [editChapterId, setEditChapterId] = useState(null);
+  const [editChapterTitle, setEditChapterTitle] = useState("");
+  const [editChapterContent, setEditChapterContent] = useState("");
   const books = useSelector(selectAllBooks);
   const chapters = useSelector(selectAllChapters);
 
@@ -79,10 +84,29 @@ const AuthorHomePage = () => {
 
   const handleChapterSubmit = (e) => {
     e.preventDefault();
-    const newChapter = { title: chapterTitle, content: chapterContent };
+    const newChapter = { title: chapterTitle, body: chapterContent };
     dispatch(postChapterThunk(editBookId, newChapter));
     setChapterTitle("");
     setChapterContent("");
+  };
+
+  const handleEditChapterClick = (chapter) => {
+    setEditChapterId(chapter.id);
+    setEditChapterTitle(chapter.title);
+    setEditChapterContent(chapter.body);
+  };
+
+  const handleEditChapterSubmit = (e) => {
+    e.preventDefault();
+    const updatedChapter = { title: editChapterTitle, body: editChapterContent };
+    dispatch(updateChapterThunk(editBookId, editChapterId, updatedChapter));
+    setEditChapterId(null);
+    setEditChapterTitle("");
+    setEditChapterContent("");
+  };
+
+  const handleDeleteChapterClick = (chapterId) => {
+    dispatch(deleteChapterThunk(editBookId, chapterId));
   };
 
   return (
@@ -154,16 +178,36 @@ const AuthorHomePage = () => {
             {chapters.map((chapter) => (
               <li key={chapter.id}>
                 <div>
-                  {chapter.title} <OpenModalButton buttonText={"Edit"} />
-                  <OpenModalButton buttonText={"Delete"} />
+                  {chapter.title}
+                  <button onClick={() => handleEditChapterClick(chapter)}>Edit</button>
+                  <button onClick={() => handleDeleteChapterClick(chapter.id)}>Delete</button>
                 </div>
-                {/* <div>{chapter.body}</div> */}
               </li>
             ))}
-            <li>
-              <OpenModalButton buttonText={"New Chapter"} />
-            </li>
           </ul>
+        </div>
+      )}
+      {editChapterId && (
+        <div>
+          <h2>Edit Chapter</h2>
+          <form onSubmit={handleEditChapterSubmit}>
+            <div>
+              <label>Chapter Title</label>
+              <input
+                type="text"
+                value={editChapterTitle}
+                onChange={(e) => setEditChapterTitle(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Chapter Content</label>
+              <textarea
+                value={editChapterContent}
+                onChange={(e) => setEditChapterContent(e.target.value)}
+              />
+            </div>
+            <button type="submit">Update Chapter</button>
+          </form>
         </div>
       )}
       <h2>Add a New Book</h2>

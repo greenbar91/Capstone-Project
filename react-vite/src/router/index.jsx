@@ -5,6 +5,7 @@ import Layout from './Layout';
 import HomePage from '../components/HomePage';
 import BookDetails from '../components/BookDetails';
 import AuthorHomePage from '../components/AuthorHomePage';
+import ChapterDetails from '../components/ChapterDetails/ChapterDetails';
 
 export const router = createBrowserRouter([
   {
@@ -23,12 +24,16 @@ export const router = createBrowserRouter([
         element: <SignupFormPage />,
       },
       {
+        path:"/books/my_books",
+        element: <AuthorHomePage/>
+      },
+      {
         path:"/books/:bookId",
         element: <BookDetails/>
       },
       {
-        path:"/books/my_books",
-        element: <AuthorHomePage/>
+        path:"/books/:bookId/chapters/:chapterId",
+        element: <ChapterDetails/>
       }
     ],
   },
