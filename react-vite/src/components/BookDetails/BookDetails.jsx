@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { getAllChaptersThunk, selectAllChapters } from "../../redux/chapter";
+import BookReviews from "../BookReviews/BookReviews";
 
 const BookDetails = () => {
   const [book, setBook] = useState({});
@@ -44,6 +45,8 @@ const BookDetails = () => {
           </NavLink>
         ))}
       </ul>
+      <h2>Reviews</h2>
+      <BookReviews bookId={bookId}/>
     </div>
   );
 };
