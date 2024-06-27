@@ -5,7 +5,7 @@ const GET_ALL_REVIEWS = "reviews/getAllReviews";
 const POST_REVIEW = "reviews/postReview";
 const UPDATE_REVIEW = "reviews/updateReview";
 const DELETE_REVIEW = "reviews/deleteReview";
-const CLEAR_REVIEWS = "reviews/clearReviews"
+const CLEAR_REVIEWS = "reviews/clearReviews";
 
 const getAllReviews = (reviews) => ({
   type: GET_ALL_REVIEWS,
@@ -28,11 +28,11 @@ const deleteReview = (reviewId) => ({
 });
 
 const clearReviews = () => ({
-    type:CLEAR_REVIEWS
-})
+  type: CLEAR_REVIEWS,
+});
 
 export const getAllReviewsThunk = (bookId) => async (dispatch) => {
-    dispatch(clearReviews())
+  dispatch(clearReviews());
   const res = await fetch(`/api/books/${bookId}/reviews`);
 
   if (res.ok) {
@@ -130,7 +130,9 @@ function reviewsReducer(state = initialState, action) {
       return {
         ...state,
         byReviewId: { ...state.byReviewId, [review.id]: review },
-        allReviews: state.allReviews.includes(review.id) ? state.allReviews : [...state.allReviews, review.id],
+        allReviews: state.allReviews.includes(review.id)
+          ? state.allReviews
+          : [...state.allReviews, review.id],
       };
     }
     case UPDATE_REVIEW: {
@@ -144,7 +146,7 @@ function reviewsReducer(state = initialState, action) {
       const reviewId = action.payload;
       // eslint-disable-next-line no-unused-vars
       const { [reviewId]: _, ...newByReviewId } = state.byReviewId;
-      const allReviews = state.allReviews.filter(id => id !== reviewId);
+      const allReviews = state.allReviews.filter((id) => id !== reviewId);
       return {
         ...state,
         byReviewId: newByReviewId,
@@ -152,7 +154,7 @@ function reviewsReducer(state = initialState, action) {
       };
     }
     case CLEAR_REVIEWS:
-        return initialState
+      return initialState;
     default:
       return state;
   }

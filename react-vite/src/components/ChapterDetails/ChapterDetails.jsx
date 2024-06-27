@@ -1,6 +1,7 @@
 import "./ChapterDetails.css";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Comments from "../Comments";
 
 function ChapterDetails() {
   const [chapterObject, setChapterObject] = useState({});
@@ -67,6 +68,9 @@ function ChapterDetails() {
         <button onClick={handlePreviousClick} disabled={!previousChapterId}>Previous</button>
         <button onClick={handleNextClick} disabled={!nextChapterId}>Next</button>
         <button onClick={handleBackToIndexClick}>Back to Index</button>
+      </div>
+      <div>
+        <Comments chapterId={chapterObject.id}/>
       </div>
     </div>
   );
