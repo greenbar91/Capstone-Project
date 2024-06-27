@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import bookReducer from "./book";
 import chapterReducer from "./chapter";
+import reviewsReducer from "./review";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   books: bookReducer,
-  chapters: chapterReducer
+  chapters: chapterReducer,
+  reviews:reviewsReducer
 });
 
 let enhancer;
