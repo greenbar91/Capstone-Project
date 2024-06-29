@@ -1,3 +1,21 @@
-.profile-dropdown {
-  position: absolute;
+
+
+.nav-header-container{
+  background-color: white;
+  height: 10vh;
+
+}
+
+.nav-home-link {
+  height: 5vh;
+
+}
+.nav-home-container{
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar {
+  height: 5vh;
+  background-color: rgb(68, 75, 118);
 }

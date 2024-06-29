@@ -110,7 +110,7 @@ const AuthorHomePage = () => {
   };
 
   return (
-    <div>
+    <div className="page-container">
       <h1>Current User Books</h1>
       <ul>
         {userBooks &&
