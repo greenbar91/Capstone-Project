@@ -10,13 +10,15 @@ import bookReducer from "./book";
 import chapterReducer from "./chapter";
 import reviewsReducer from "./review";
 import commentsReducer from "./comment";
+import favoritesReducer from "./favorite";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   books: bookReducer,
   chapters: chapterReducer,
   reviews:reviewsReducer,
-  comments:commentsReducer
+  comments:commentsReducer,
+  favorites:favoritesReducer
 });
 
 let enhancer;

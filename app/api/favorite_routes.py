@@ -5,6 +5,23 @@ from app.models import User, Book, Chapter, Comment , Tag, Favorite, Review, db
 
 favorite_routes = Blueprint("favorites", __name__)
 
+# Get all Favorites
+@favorite_routes.route("/")
+def get_all_favorites():
+    favorites = Favorite.query.all()
+
+    if not favorites:
+        return jsonify({"errors":"Favorites not found"}),404
+
+    favorite_list = []
+
+    for favorite in favorites:
+        favorite_dict = favorite.to_dict()
+        favorite_list.append(favorite_dict)
+
+    return jsonify({"Favorites": favorite_list})
+
+
 # Get current user Favorites
 @favorite_routes.route("/my_favorites")
 @login_required
@@ -38,7 +55,8 @@ def post_favorite(bookId):
 
     db.session.add(favorite)
     db.session.commit()
-    return jsonify(favorite.to_dict()), 200
+    return jsonify(favorite.to_dict()), 201
+
 
 # Un-Favorite a Book
 @favorite_routes.route("/<int:bookId>", methods=["DELETE"])

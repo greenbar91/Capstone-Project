@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { getAllChaptersThunk, selectAllChapters } from "../../redux/chapter";
 import BookReviews from "../BookReviews/BookReviews";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
+
 
 const BookDetails = () => {
   const [book, setBook] = useState({});
@@ -37,6 +39,7 @@ const BookDetails = () => {
           <img src={book.cover_art} alt={book.title} />
         </div>
       )}
+      <FavoriteButton book={book}/>
       <h2>Chapters</h2>
       <ul>
         {chapters.map((chapter) => (
