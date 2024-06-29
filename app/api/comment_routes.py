@@ -83,5 +83,10 @@ def delete_comment(chapterId, commentId):
     if not comment_to_delete.user_id==current_user.id:
         return jsonify({"errors":"Unauthorized to delete"}), 401
 
+    if not comment_to_delete.chapter_id==chapterId:
+        return jsonify({"errors":"Chapter/Comment mismatch"}), 400
+
     db.session.delete(comment_to_delete)
     db.session.commit()
+
+    return jsonify("Successfully Deleted"),200

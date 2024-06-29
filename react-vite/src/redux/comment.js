@@ -67,7 +67,7 @@ export const postCommentThunk =
 
 export const updateCommentThunk =
   (chapterId, commentId, commentData) => async (dispatch) => {
-    const res = csrfFetch(`/api/chapters/${chapterId}/comments/${commentId}`, {
+    const res = await csrfFetch(`/api/chapters/${chapterId}/comments/${commentId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -96,6 +96,7 @@ export const deleteCommentThunk =
         },
       }
     );
+    console.log(res)
 
     if (res.ok) {
       dispatch(deleteComment(commentId));
