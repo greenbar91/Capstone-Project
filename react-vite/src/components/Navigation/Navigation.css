@@ -3,10 +3,19 @@
 .nav-header-container{
   background-color: white;
   height: 10vh;
+  justify-content: center;
+  display: flex;
+}
 
+.nav-header{
+  /* width: 1000px; */
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .nav-home-link {
+  text-align: center;
+  width: 46.5%;
   height: 5vh;
 
 }
@@ -18,4 +27,5 @@
 .nav-bar {
   height: 5vh;
   background-color: rgb(68, 75, 118);
+  width: 100vw
 }

@@ -18,7 +18,7 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="home-page-container">
       <h1>Books List</h1>
       <ul>
         {books.map((book) => (
