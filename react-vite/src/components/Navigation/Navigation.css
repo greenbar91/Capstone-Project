@@ -29,3 +29,8 @@
   background-color: rgb(68, 75, 118);
   width: 100vw
 }
+
+.profile-dropdown{
+  position: absolute;
+  top: 0;
+}
