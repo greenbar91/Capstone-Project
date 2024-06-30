@@ -6,32 +6,39 @@ from app.models import User, Book, Chapter, Comment , Tag, Favorite, Review, db
 
 tag_routes = Blueprint('tags', __name__)
 
-# Post Tag to a Book
-@tag_routes.route("/<int:bookId>", methods=["POST"])
-@login_required
-def post_tag(bookId):
+
+# Get a Book's Tags
+@tag_routes.route("/<int:bookId>")
+def get_book_tags(bookId):
     book = Book.query.get(bookId)
 
     if not book:
-        return jsonify({"errors":"Book not found"}),404
+        return jsonify({"errors": "Book not found"}), 404
 
-    if not book.author_id==current_user.id:
-        return jsonify({"errors":"Unauthorized to post"}), 401
-
-    form = TagForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+    tags = Tag.query.filter_by(book_id=bookId).all()
+    return jsonify({"Tags": [tag.to_dict() for tag in tags]}), 200
 
 
-    if form.validate_on_submit():
-        new_tag = Tag(
-            book_id=bookId,
-            tag_name=form.data["tag_name"]
-        )
-        db.session.add(new_tag)
-        db.session.commit()
-        return jsonify(new_tag.to_dict()),200
+@tag_routes.route("/<int:bookId>", methods=["POST"])
+@login_required
+def post_tags(bookId):
+    book = Book.query.get(bookId)
 
-    return jsonify({"errors":"Failed to post Tag"}), 500
+    if not book:
+        return jsonify({"errors": "Book not found"}), 404
+
+    if book.author_id != current_user.id:
+        return jsonify({"errors": "Unauthorized to post"}), 401
+
+    data = request.get_json()
+    tags = data['tags']
+
+    new_tags = [Tag(book_id=bookId, tag_name=tag) for tag in tags]
+
+    db.session.bulk_save_objects(new_tags)
+    db.session.commit()
+
+    return jsonify([tag.to_dict() for tag in new_tags]), 200
 
 
 # Delete Tag from a Book

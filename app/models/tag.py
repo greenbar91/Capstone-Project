@@ -16,7 +16,7 @@ class Tag(db.Model):
         return {
             "id": self.id,
             "book_id": self.book_id,
-            "book_title": self.book.title,
+            # "book_title": self.book.title,
             "tag_name": self.tag_name
         }
 

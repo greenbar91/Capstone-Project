@@ -14,10 +14,13 @@ import {
   deleteChapterThunk,
   selectAllChapters,
 } from "../../redux/chapter";
+
+import { useNavigate } from "react-router-dom";
 // import OpenModalButton from "../OpenModalButton/OpenModalButton";
 
 const AuthorHomePage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [userBooks, setUserBooks] = useState([]);
   const [editBookId, setEditBookId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
@@ -51,10 +54,11 @@ const AuthorHomePage = () => {
     fetchUserBooks();
   }, [dispatch, books]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newBook = { title, blurb, cover_art: coverArt };
-    dispatch(postBookThunk(newBook));
+    const bookData = await dispatch(postBookThunk(newBook));
+    navigate(`/books/${bookData.id}/tags`)
   };
 
   const handleEditClick = (book) => {
@@ -76,10 +80,11 @@ const AuthorHomePage = () => {
       cover_art: editCoverArt,
     };
     dispatch(putBookThunk(editBookId, updatedBook));
-    setEditBookId(null);
     setEditTitle("");
     setEditBlurb("");
     setEditCoverArt("");
+    navigate(`/books/${editBookId}/tags/edit`)
+    // setEditBookId(null);
   };
 
   const handleChapterSubmit = (e) => {
@@ -236,6 +241,7 @@ const AuthorHomePage = () => {
             onChange={(e) => setCoverArt(e.target.value)}
           />
         </div>
+
         <button type="submit">Add Book</button>
       </form>
     </div>
