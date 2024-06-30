@@ -12,6 +12,7 @@ from .api.chapter_routes import chapter_routes
 from .api.review_routes import review_routes
 from .api.comment_routes import comment_routes
 from .api.favorite_routes import favorite_routes
+from .api.tag_routes import tag_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -38,6 +39,7 @@ app.register_blueprint(chapter_routes, url_prefix='/api/books')
 app.register_blueprint(review_routes, url_prefix='/api/books')
 app.register_blueprint(comment_routes, url_prefix='/api/chapters')
 app.register_blueprint(favorite_routes, url_prefix='/api/favorites')
+app.register_blueprint(tag_routes, url_prefix="api/tags")
 db.init_app(app)
 Migrate(app, db)
 
