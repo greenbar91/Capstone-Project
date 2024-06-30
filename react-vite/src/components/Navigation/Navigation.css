@@ -1,36 +1,126 @@
+/* Navigation.css */
 
-
-.nav-header-container{
+.nav-header-container {
   background-color: white;
   height: 10vh;
-  justify-content: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.nav-header{
-  /* width: 1000px; */
+.nav-header {
   margin-left: 0;
   margin-right: 0;
 }
 
 .nav-home-link {
   text-align: center;
-  width: 46.5%;
+  width: 47%;
   height: 5vh;
-
 }
-.nav-home-container{
+
+.nav-home-container {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .nav-bar {
   height: 5vh;
-  background-color: rgb(68, 75, 118);
-  width: 100vw
+  background-color: rgb(145, 149, 172);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-dropdown{
+
+.nav-bar-buttons div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 65px;
+}
+
+.nav-bar-buttons div:hover{
+  background-color: rgb(155, 159, 187);
+  cursor: pointer;
+}
+
+.search-bar:hover{
+  background-color:rgb(145, 149, 172) !important;
+  cursor: default !important;
+}
+
+.profile-button-container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+.author-navlink-container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.author-navlink {
+  height: 20px;
+  width: 20px;
+
+}
+
+.profile-button {
+  background-color: rgb(68, 75, 118);
+  border: none;
+
+}
+
+
+.profile-dropdown {
   position: absolute;
-  top: 0;
+  top: 101%;
+  left: 82%;
+  transform: translateX(-50%);
+  background-color: rgb(158, 168, 182);
+  color:black;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  z-index: 1;
+  /* font-weight: 600; */
+}
+
+.profile-dropdown li {
+  padding: 10px;
+
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.profile-dropdown li:hover {
+  background-color: rgb(110, 116, 156);
+}
+
+.profile-dropdown button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile-dropdown button:hover {
+  background-color: rgb(106, 113, 159);
 }
