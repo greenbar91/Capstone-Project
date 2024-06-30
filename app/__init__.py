@@ -39,7 +39,7 @@ app.register_blueprint(chapter_routes, url_prefix='/api/books')
 app.register_blueprint(review_routes, url_prefix='/api/books')
 app.register_blueprint(comment_routes, url_prefix='/api/chapters')
 app.register_blueprint(favorite_routes, url_prefix='/api/favorites')
-app.register_blueprint(tag_routes, url_prefix="api/tags")
+app.register_blueprint(tag_routes, url_prefix="/api/tags")
 db.init_app(app)
 Migrate(app, db)
 
