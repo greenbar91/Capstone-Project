@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle } from "react-icons/fa";
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { useNavigate } from "react-router-dom";
 
 function ProfileButton() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function ProfileButton() {
   const ulRef = useRef();
 
   const toggleMenu = (e) => {
-    e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
+    e.stopPropagation();
     setShowMenu(!showMenu);
   };
 
@@ -38,20 +39,29 @@ function ProfileButton() {
     dispatch(thunkLogout());
     closeMenu();
   };
+  const navigate = useNavigate();
+  const handleAuthorClick = () => {
+    navigate("/books/my_books");
+    closeMenu();
+  };
 
   return (
-    <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
-      </button>
+    <div className="profile-button-container" onClick={toggleMenu}>
+      <FaUserCircle
+        
+        style={{ width: "20px", height: "20px", cursor: "pointer" }}
+      />
+
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
             <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
+              <li style={{ cursor: "pointer" }} onClick={handleAuthorClick}>
+                Author Dashboard
+              </li>
+              <li style={{ cursor: "pointer" }}>Favorites</li>
+              <li onClick={logout} style={{ cursor: "pointer" }}>
+                Log Out
               </li>
             </>
           ) : (
@@ -70,7 +80,7 @@ function ProfileButton() {
           )}
         </ul>
       )}
-    </>
+    </div>
   );
 }
 
