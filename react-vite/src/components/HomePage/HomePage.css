@@ -1,3 +1,30 @@
-.home-page-container{
-    height: 100%;
+.home-page-container {
+  height: 100vh;
+  width: 44.5vw;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.newsfeed-grid-container {
+  grid-area: 1 / 1 / 3 / 7;
+  border: 1px solid black;
+}
+.recommended-books-grid-container {
+  grid-area: 3 / 1 / 4 / 7;
+  border: 1px solid black;
+}
+.popular-books-grid-container {
+  grid-area: 4 / 1 / 5 / 7;
+  border: 1px solid black;
+}
+.recently-updated-grid-container {
+  grid-area: 5 / 1 / 9 / 4;
+  border: 1px solid black;
+}
+.heavily-discussed-grid-container {
+  grid-area: 5 / 4 / 9 / 7;
+  border: 1px solid black;
 }

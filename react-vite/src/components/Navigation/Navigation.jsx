@@ -13,12 +13,21 @@ function Navigation() {
     navigate("/books/my_books");
   };
 
+  const handleReadClick = () => {
+    navigate("/books/all_books");
+  };
+
   return (
     <div className="nav-header-container">
       <div className="nav-header">
         <div className="nav-home-container">
           <div className="nav-home-link">
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">
+              <img
+                src="https://i.imgur.com/F7CSJLN.png"
+                style={{ maxHeight: "5vh" }}
+              />
+            </NavLink>
           </div>
         </div>
         {/* <div className="nav-bar-container"> */}
@@ -45,6 +54,7 @@ function Navigation() {
               <ProfileButton />
             </div>
             <div
+              onClick={handleReadClick}
               className="author-navlink-container"
               style={{
                 gridColumn: "2 / 3",
@@ -77,17 +87,20 @@ function Navigation() {
                 <p style={{ color: "black", paddingLeft: "5px" }}>Write</p>
               </div>
             )}
-                <div className="search-bar" style={{
-                  gridColumn: "12/13",
-                  display: "flex",
-                  alignItems: "center",
-                  color: "black",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  paddingLeft:"30px"
-                }}>
-                 <input placeholder="Search title..."></input>
-                </div>
+            <div
+              className="search-bar"
+              style={{
+                gridColumn: "12/13",
+                display: "flex",
+                alignItems: "center",
+                color: "black",
+                justifyContent: "center",
+                textAlign: "center",
+                paddingLeft: "30px",
+              }}
+            >
+              <input placeholder="Search title..."></input>
+            </div>
           </div>
         </div>
       </div>
