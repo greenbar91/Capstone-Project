@@ -1,17 +1,14 @@
 import { useEffect } from "react";
 import "./HomePage.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllBooksThunk, selectAllBooks } from "../../redux/book";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getAllBooksThunk } from "../../redux/book";
+
+import NewsFeed from "../NewsFeed";
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const books = useSelector(selectAllBooks);
 
-  const handleDetailsClick = (bookId) => {
-    navigate(`books/${bookId}`);
-  };
+
 
   useEffect(() => {
     dispatch(getAllBooksThunk());
@@ -19,19 +16,12 @@ export default function HomePage() {
 
   return (
     <div className="home-page-container">
-      <h1>Books List</h1>
-      <ul>
-        {books.map((book) => (
-          <li key={book.id}>
-            <div onClick={() => handleDetailsClick(book.id)}>
-              <div>
-                {book.title} by {book.author_name}
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <NavLink to={"/books/my_books"}>Author Home Page</NavLink>
+      <div className="newsfeed-grid-container"><NewsFeed/> </div>
+      <div className="recommended-books-grid-container"> </div>
+      <div className="popular-books-grid-container"> </div>
+      <div className="recently-updated-grid-container"> </div>
+      <div className="heavily-discussed-grid-container"> </div>
+
     </div>
   );
 }

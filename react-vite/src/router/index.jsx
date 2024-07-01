@@ -7,6 +7,7 @@ import BookDetails from '../components/BookDetails';
 import AuthorHomePage from '../components/AuthorHomePage';
 import ChapterDetails from '../components/ChapterDetails/ChapterDetails';
 import Tags from '../components/Tags';
+import AllBooksPage from '../components/AllBooksPage';
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       },
       {path:"/books/:bookId/tags/edit",
         element: <Tags type="delete"/>
+      },
+      {
+        path:"/books/all_books",
+        element:<AllBooksPage/>
       }
     ],
   },
