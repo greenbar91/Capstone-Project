@@ -115,3 +115,38 @@ def delete_book(bookId):
     db.session.commit()
 
     return jsonify({"message":"Successfully deleted"}), 200
+
+
+# Get Recommended Books
+@book_routes.route("/my_recommended")
+@login_required
+def get_recommended_books():
+    my_favorites = Favorite.query.filter_by(user_id=current_user.id).all()
+
+    favorite_tags = set()
+    for favorite in my_favorites:
+        favorite_book = Book.query.get(favorite.book_id)
+        for tag in favorite_book.tags:
+            favorite_tags.add(tag.tag_name)
+
+    all_books = Book.query.all()
+
+    if not all_books:
+        return jsonify({"errors":"Books not found"}), 404
+
+    recommendations = []
+    for book in all_books:
+        if book.id in [favorite.book_id for favorite in my_favorites]:
+            continue
+        matching_tags_count = sum(tag.tag_name in favorite_tags for tag in book.tags)
+        if matching_tags_count > 0:
+            recommendations.append((book.to_dict(), matching_tags_count))
+
+    recommendations.sort(key=lambda x: x[1], reverse=True)
+
+    top_recommendations = [book for book, _ in recommendations[:10]]
+
+    if not top_recommendations:
+        return jsonify({"errors":"No recommended Books found"}), 404
+
+    return jsonify({"Books":top_recommendations}), 200

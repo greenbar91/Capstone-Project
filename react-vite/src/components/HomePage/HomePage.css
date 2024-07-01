@@ -1,5 +1,5 @@
 .home-page-container {
-  height: 100vh;
+  height: 140vh;
   width: 44.5vw;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -27,4 +27,10 @@
 .heavily-discussed-grid-container {
   grid-area: 5 / 4 / 9 / 7;
   border: 1px solid black;
+}
+
+.adds-for-lurkers{
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
 }

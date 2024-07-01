@@ -36,7 +36,7 @@ const BookDetails = () => {
           <h2>{book.title}</h2>
           <p>{book.author_name}</p>
           <p>{book.blurb}</p>
-          <img src={book.cover_art} alt={book.title} />
+          <img src={book.cover_art} alt={book.title} className="book-details-cover-art" style={{ width: "200px", height: "320px" }}/>
         </div>
       )}
       <FavoriteButton book={book}/>
