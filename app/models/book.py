@@ -19,7 +19,7 @@ class Book(db.Model):
     reviews = db.relationship('Review', back_populates='book', cascade='all, delete-orphan')
     tags = db.relationship('Tag', back_populates='book', cascade='all, delete-orphan')
     favorites = db.relationship('Favorite', back_populates='book', cascade='all, delete-orphan')
-
+    # https://imgur.com/a/WCaZRtz
 
     def to_dict(self):
         return {
