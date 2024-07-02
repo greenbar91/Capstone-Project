@@ -5,21 +5,34 @@ import { NavLink } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
-function RecommendedBooks() {
+function RecommendedBooks({ type }) {
   const [books, setBooks] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const fetchRecommendedBooks = async () => {
-      const res = await csrfFetch("/api/books/my_recommended");
+    if (type == "recommended") {
+      const fetchRecommendedBooks = async () => {
+        const res = await csrfFetch("/api/books/my_recommended");
 
-      if (res.ok) {
-        const data = await res.json();
-        setBooks(data.Books);
+        if (res.ok) {
+          const data = await res.json();
+          setBooks(data.Books);
+        }
+      };
+
+      fetchRecommendedBooks();
+    }
+    if (type == "popular"){
+      const fetchPopularBooks = async () => {
+        const res = await fetch("/api/books/popular")
+
+        if(res.ok){
+          const data = await res.json()
+          setBooks(data.Books)
+        }
       }
-    };
-
-    fetchRecommendedBooks();
+      fetchPopularBooks()
+    }
   }, []);
 
   const handlePrev = () => {
@@ -32,7 +45,9 @@ function RecommendedBooks() {
 
   return (
     <div>
-      <h2 style={{ textAlign: "center", backgroundColor:"aliceblue" }}>Recommended Books</h2>
+      {/* <h2 style={{ textAlign: "center", backgroundColor: "aliceblue" }}>
+        Recommended Books
+      </h2> */}
       <div className="recommended-books">
         <button
           onClick={handlePrev}

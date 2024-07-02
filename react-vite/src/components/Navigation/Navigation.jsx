@@ -68,7 +68,7 @@ function Navigation() {
                 className="author-navlink"
                 style={{ height: "20px", width: "20px" }}
               />
-              <p style={{ color: "black", paddingLeft: "5px" }}>Read</p>
+              <p style={{ color: "black", paddingLeft: "5px", fontWeight:"bold" }}>Read</p>
             </div>
             {user && (
               <div
@@ -84,7 +84,7 @@ function Navigation() {
                 onClick={handleAuthorClick}
               >
                 <FaPencil />
-                <p style={{ color: "black", paddingLeft: "5px" }}>Write</p>
+                <p style={{ color: "black", paddingLeft: "5px", fontWeight:"bold" }}>Write</p>
               </div>
             )}
             <div

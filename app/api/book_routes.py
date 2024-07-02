@@ -150,3 +150,20 @@ def get_recommended_books():
         return jsonify({"errors":"No recommended Books found"}), 404
 
     return jsonify({"Books":top_recommendations}), 200
+
+
+# Get Popular Books
+@book_routes.route("/popular")
+def get_popular_books():
+    all_books = Book.query.all()
+
+    if not all_books:
+        return jsonify({"errors":"Books not found"}), 404
+
+    sorted_books = sorted(all_books, key=lambda book: len(book.favorites), reverse=True)
+
+    top_10_books = sorted_books[:10]
+
+    top_books_dicts = [book.to_dict() for book in top_10_books]
+
+    return jsonify({"Books":top_books_dicts}), 200

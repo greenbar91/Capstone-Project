@@ -48,7 +48,7 @@ function ProfileButton() {
   return (
     <div className="profile-button-container" onClick={toggleMenu}>
       <FaUserCircle
-        
+
         style={{ width: "20px", height: "20px", cursor: "pointer" }}
       />
 
@@ -56,11 +56,11 @@ function ProfileButton() {
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
             <>
-              <li style={{ cursor: "pointer" }} onClick={handleAuthorClick}>
+              <li style={{ cursor: "pointer" , fontWeight:"bold"}} onClick={handleAuthorClick}>
                 Author Dashboard
               </li>
-              <li style={{ cursor: "pointer" }}>Favorites</li>
-              <li onClick={logout} style={{ cursor: "pointer" }}>
+              <li style={{ cursor: "pointer" , fontWeight:"bold"}}>Favorites</li>
+              <li onClick={logout} style={{ cursor: "pointer" , fontWeight:"bold"}}>
                 Log Out
               </li>
             </>
@@ -70,6 +70,7 @@ function ProfileButton() {
                 itemText="Log In"
                 onItemClick={closeMenu}
                 modalComponent={<LoginFormModal />}
+                
               />
               <OpenModalMenuItem
                 itemText="Sign Up"

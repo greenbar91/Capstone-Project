@@ -27,7 +27,7 @@
 
 .nav-bar {
   height: 5vh;
-  background-color: rgb(145, 149, 172);
+  background-color: #E0E2DB;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -44,12 +44,12 @@
 }
 
 .nav-bar-buttons div:hover{
-  background-color: rgb(155, 159, 187);
+  background-color: #bebfba;
   cursor: pointer;
 }
 
 .search-bar:hover{
-  background-color:rgb(145, 149, 172) !important;
+  background-color:#E0E2DB!important;
   cursor: default !important;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .profile-button {
-  background-color: rgb(68, 75, 118);
+  background-color: #E0E2DB;
   border: none;
 
 }
@@ -87,7 +87,7 @@
   top: 101%;
   left: 82%;
   transform: translateX(-50%);
-  background-color: rgb(158, 168, 182);
+  background-color: #E0E2DB;
   color:black;
   list-style: none;
   margin: 0;
@@ -109,7 +109,7 @@
 }
 
 .profile-dropdown li:hover {
-  background-color: rgb(110, 116, 156);
+  background-color: #bebfba;
 }
 
 .profile-dropdown button {
@@ -122,5 +122,5 @@
 }
 
 .profile-dropdown button:hover {
-  background-color: rgb(106, 113, 159);
+  background-color: #bebfba;
 }
