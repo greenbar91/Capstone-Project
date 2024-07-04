@@ -25,6 +25,7 @@ class Chapter(db.Model):
             "book_id": self.book_id,
             "user_id":self.user_id,
             "book_title": self.book.title,
+            "cover_art": self.book.cover_art,
             "author_name": self.user.username,
             "title": self.title,
             "body": self.body,

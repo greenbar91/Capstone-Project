@@ -111,3 +111,25 @@ def delete_chapter(bookId, chapterId):
     db.session.commit()
 
     return jsonify({"message":"Successfully deleted"}), 200
+
+
+# Get recently updated chapters
+@chapter_routes.route("/recently_updated")
+def get_recently_updated():
+
+    all_chapters = Chapter.query.order_by(Chapter.created_at.desc()).all()
+
+    top_chapters = []
+    book_ids = set()
+
+    for chapter in all_chapters:
+        if chapter.book_id not in book_ids:
+            top_chapters.append(chapter)
+            book_ids.add(chapter.book_id)
+
+        if len(top_chapters) == 4:
+            break
+
+    top_chapters_dicts = [chapter.to_dict() for chapter in top_chapters]
+
+    return jsonify(top_chapters_dicts),200
