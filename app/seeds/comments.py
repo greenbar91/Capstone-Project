@@ -4,7 +4,7 @@ from sqlalchemy.sql import text
 
 def seed_comments():
     comments_data = [
-   {
+{
     "user_id": 2,
     "chapter_id": 1,
     "body": "I'm really intrigued by Kara's determination. I hope the council sees the value in her strategy!",
@@ -17,217 +17,265 @@ def seed_comments():
     "created_at": "2020-06-21T08:15:00Z"
 },
 {
+    "user_id": 11,
+    "chapter_id": 1,
+    "body": "Loved the setup to Kara's realization in the next chapter.",
+    "created_at": "2020-06-21T08:15:00Z"
+},
+{
+    "user_id": 12,
+    "chapter_id": 1,
+    "body": "Not sure if I like Kara yet, maybe try and make her less quiet?.",
+    "created_at": "2020-06-21T08:15:00Z"
+},
+{
     "user_id": 4,
     "chapter_id": 1,
     "body": "The description of Silvanesti and the council dynamics is so vivid. Excellent start!",
     "created_at": "2020-06-22T09:45:00Z"
-},{
+},
+{
         "user_id": 3,
         "chapter_id": 2,
         "body": "The intensity of the storm and Lorien's determination really set the stage for an epic tale of survival and sacrifice.",
         "created_at": "2020-07-22T09:30:00Z"
-    },
-    {
+},
+{
         "user_id": 5,
         "chapter_id": 2,
         "body": "The imagery of the storm and its aftermath is vivid and haunting. Lorien's journey through adversity is gripping.",
         "created_at": "2020-07-20T11:15:00Z"
-    },
-    {
+},
+{
         "user_id": 4,
         "chapter_id": 2,
         "body": "Lorien's character development in the face of tragedy is compelling. I'm eager to see how he rises from this moment.",
         "created_at": "2020-07-21T08:45:00Z"
-    },
-    {
-        "user_id": 5,
-        "chapter_id": 3,
-        "body": "The bravery of Elyndra and her companions is truly inspiring. This chapter vividly captures the chaos and determination in the face of overwhelming odds.",
-        "created_at": "2021-06-22T10:30:00Z"
-    },
-    {
+},
+{
         "user_id": 9,
         "chapter_id": 3,
         "body": "I was on the edge of my seat throughout this chapter! The imagery of the battle and Elyndra's resilience really pulled me into the story.",
         "created_at": "2021-06-21T16:45:00Z"
-    },
-    {
+},
+{
+        "user_id": 7,
+        "chapter_id": 3,
+        "body": "Great story so far, I like this better then your other book!",
+        "created_at": "2021-06-21T16:45:00Z"
+},
+{
+        "user_id": 6,
+        "chapter_id": 3,
+        "body": "Shame there aren't any dragons like in your previous book",
+        "created_at": "2021-06-21T16:45:00Z"
+},
+{
+        "user_id": 4,
+        "chapter_id": 3,
+        "body": "Could use a little editing (sp)",
+        "created_at": "2021-06-21T16:45:00Z"
+},
+{
+        "user_id": 5,
+        "chapter_id": 3,
+        "body": "The bravery of Elyndra and her companions is truly inspiring. This chapter vividly captures the chaos and determination in the face of overwhelming odds.",
+        "created_at": "2021-06-22T10:30:00Z"
+},
+{
+        "user_id": 9,
+        "chapter_id": 3,
+        "body": "I was on the edge of my seat throughout this chapter! The imagery of the battle and Elyndra's resilience really pulled me into the story.",
+        "created_at": "2021-06-21T16:45:00Z"
+},
+
+{
         "user_id": 11,
         "chapter_id": 3,
         "body": "The interaction between Elyndra and the draconian soldier was a poignant moment amidst the chaos of battle. Looking forward to seeing how this conflict unfolds!",
         "created_at": "2021-06-20T09:15:00Z"
-    },
-    {
+},
+{
         "user_id": 6,
         "chapter_id": 4,
         "body": "Seraphina's leadership and Kael's mysterious presence added a compelling layer to this intense battle scene. I'm eager to see how they'll strategize and overcome the dragons' onslaught.",
         "created_at": "2021-07-22T08:00:00Z"
-    },
-    {
+},
+{
         "user_id": 10,
         "chapter_id": 4,
         "body": "The description of the battle and the characters' determination kept me glued to every word. This chapter brilliantly captures the tension and heroism of defending against overwhelming forces.",
         "created_at": "2021-07-21T13:30:00Z"
-    },
-    {
+},
+{
         "user_id": 13,
         "chapter_id": 4,
         "body": "I was particularly drawn to Elara's bravery and quick thinking amidst the chaos. Her actions added a personal touch to the larger narrative of the Citadel's defense.",
         "created_at": "2021-07-20T09:45:00Z"
-    },
-    {
+},
+{
         "user_id": 4,
         "chapter_id": 5,
         "body": "The introduction of Lyriel and Gareth sets a promising tone for this new adventure. I'm intrigued by the convergence of their paths and the looming threat from Neraka.",
         "created_at": "2022-06-22T10:15:00Z"
-    },
-    {
+},
+{
         "user_id": 7,
         "chapter_id": 5,
         "body": "The contrast between Lyriel's curiosity and Gareth's sense of duty adds depth to their characters. I'm curious to see how their journeys will intertwine in the face of impending danger.",
         "created_at": "2022-06-21T14:30:00Z"
-    },
-    {
+},
+{
         "user_id": 11,
         "chapter_id": 5,
         "body": "The mysterious figure in Neraka adds an intriguing layer of suspense. I'm eager to learn more about their role in the unfolding events of Krynn's fate.",
         "created_at": "2022-06-20T09:45:00Z"
-    }
-    ,
-    {
+},
+{
         "user_id": 2,
         "chapter_id": 6,
         "body": "The dynamic between Lyra and Kalen is captivating, especially their bond as siblings facing danger together. The introduction of the dark mage adds a thrilling twist to their quest.",
         "created_at": "2022-07-22T08:30:00Z"
-    },
-    {
+},
+{
         "user_id": 8,
         "chapter_id": 6,
         "body": "I enjoyed the mix of magic and adventure in this chapter. Lyra's determination and Thalanis's wisdom make for a strong team. Looking forward to seeing how they handle the crystal orb.",
         "created_at": "2022-07-20T12:45:00Z"
-    },
-    {
+},
+{
         "user_id": 12,
         "chapter_id": 6,
         "body": "The temple scene was intense! The battle against the dark mage kept me on the edge of my seat. I'm curious to see what role the crystal orb will play in the unfolding story.",
         "created_at": "2022-07-21T09:00:00Z"
-    }
-    ,
-      {
+},
+{
         "user_id": 4,
         "chapter_id": 7,
         "body": "Lia's escape was thrilling to read! The tension and atmosphere of the misty forest were vividly described, making the scene feel immersive and urgent.",
         "created_at": "2022-01-04T10:30:00Z"
-    },
-    {
+},
+{
         "user_id": 9,
         "chapter_id": 7,
         "body": "Maldrake's introduction was chilling. The way Lia used her magic to escape was clever and intense. I'm intrigued to see how she and Thane will confront the Nightshades next.",
         "created_at": "2022-01-03T16:45:00Z"
-    },
-    {
+},
+{
+        "user_id": 10,
+        "chapter_id": 7,
+        "body": "Lia is just my faaaavorite!",
+        "created_at": "2022-01-03T16:45:00Z"
+},
+{
+        "user_id": 4,
+        "chapter_id": 7,
+        "body": "Great magic system!",
+        "created_at": "2022-01-03T16:45:00Z"
+},
+{
         "user_id": 11,
         "chapter_id": 7,
         "body": "The teleportation twist was unexpected and added a thrilling element to the escape. Lia and Thane's determination to fight back against Maldrake sets up an exciting conflict ahead.",
         "created_at": "2022-01-02T14:15:00Z"
-    },
-     {
+},
+{
         "user_id": 2,
         "chapter_id": 8,
         "body": "Lyra's connection with the guardian and the discovery of the artifact added an intriguing mystical element to the story. The tension during the battle with the guardian and the impending threat of the Night Brigade kept me on the edge of my seat!",
         "created_at": "2022-02-04T09:30:00Z"
-    },
-    {
+},
+{
         "user_id": 5,
         "chapter_id": 8,
         "body": "The temple setting was vividly described, and the stakes felt high throughout the chapter. Lyra's determination and Elysia's bravery made for a compelling duo in their fight against the Night Brigade.",
         "created_at": "2022-02-03T14:45:00Z"
-    },
-    {
+},
+{
         "user_id": 10,
         "chapter_id": 8,
         "body": "I loved how Lyra's character developed through her connection with the guardian and the artifact. The scene where they make their escape amidst the chaos of battle was exhilarating and left me eager for more.",
         "created_at": "2022-02-02T11:15:00Z"
-    },
-     {
+},
+{
         "user_id": 4,
         "chapter_id": 9,
         "body": "Arin's connection with the enchanted glade and her deep bond with nature make for a captivating read. The descriptions of Elantris evoke a sense of wonder and mystery, drawing me into the magical world she protects.",
         "created_at": "2022-01-04T08:30:00Z"
-    },
-    {
+},
+{
         "user_id": 8,
         "chapter_id": 9,
         "body": "I was enchanted by Arin's serene yet powerful presence in the forest. The contrast between the magical glade and the ordinary world outside adds depth to the narrative, highlighting the importance of her role as guardian.",
         "created_at": "2022-01-03T14:45:00Z"
-    },
-    {
+},
+{
         "user_id": 11,
         "chapter_id": 9,
         "body": "The concept of Elantris as a sanctuary filled with ancient magic is intriguing. Arin's dedication to her duty and her connection with the Great Tree paint a vivid picture of a guardian deeply rooted in her environment.",
         "created_at": "2022-01-02T11:15:00Z"
-    },
-     {
+},
+{
         "user_id": 7,
         "chapter_id": 10,
         "body": "Alexei and Liora's partnership in blending druidic and arcane magic is inspiring. Their story illustrates the power of collaboration and acceptance of different magical traditions within the academy.",
         "created_at": "2022-02-04T09:15:00Z"
-    },
-    {
+},
+{
         "user_id": 12,
         "chapter_id": 10,
         "body": "I enjoyed reading about Alexei's journey to embrace his druidic heritage amidst the structured environment of the magical academy. The contrast between his peaceful garden work and the trials adds depth to his character.",
         "created_at": "2022-02-03T16:30:00Z"
-    },
-    {
+},
+{
         "user_id": 9,
         "chapter_id": 10,
         "body": "Liora's character development alongside Alexei's journey was well portrayed. Their friendship and mutual respect for each other's magical abilities make this chapter a delightful read.",
         "created_at": "2022-02-02T11:45:00Z"
-    },
-     {
+},
+{
         "user_id": 3,
         "chapter_id": 11,
         "body": "The introduction of Aelarion and the mysterious quest for 'The Chronicle of Shadows' immediately captured my imagination. I'm curious to see how Lena and Elliot's journey unfolds in this magical adventure.",
         "created_at": "2022-03-03T08:30:00Z"
-    },
-    {
+},
+{
         "user_id": 10,
         "chapter_id": 11,
         "body": "Lena's encounter with Aelarion brings an intriguing blend of mystery and fantasy to the story. The dynamic between the characters promises an exciting exploration into unknown realms.",
         "created_at": "2022-03-02T14:45:00Z"
-    },
-    {
+},
+{
         "user_id": 5,
         "chapter_id": 11,
         "body": "The setting of 'The Wandering Quill' and the introduction of Aelarion set a vivid stage for what promises to be a captivating adventure. I'm excited to follow Lena and Elliot's journey into the world of magic and myth.",
         "created_at": "2022-03-02T10:15:00Z"
-    },
-     {
+},
+{
         "user_id": 4,
         "chapter_id": 12,
         "body": "Lena's unexpected journey into 'The System' is a thrilling twist! The introduction of classes and skills adds a fascinating layer to the story. I'm eager to see how she navigates this new reality as a Mage.",
         "created_at": "2022-04-03T10:00:00Z"
-    },
-    {
+},
+{
         "user_id": 9,
         "chapter_id": 12,
         "body": "The concept of 'The System' and Lena's transformation into a Mage are gripping. It's like stepping into a whole new world of possibilities. I can't wait to follow her adventures through this mysterious tutorial.",
         "created_at": "2022-04-02T15:30:00Z"
-    },
-    {
+},
+{
         "user_id": 11,
         "chapter_id": 12,
         "body": "Chapter Two's introduction of Lena's encounter with 'The System' is brilliantly executed. The blend of fantasy and game-like elements is refreshing. I'm intrigued to see how Lena's character develops in this intriguing setup.",
         "created_at": "2022-04-01T18:45:00Z"
-    },
-    {
+},
+{
     "user_id": 3,
     "chapter_id": 13,
     "body": "Aria's journey through the Mystic Woods is captivating! I love how she defies expectations and discovers her true potential.",
     "created_at": "2019-07-15T00:00:00Z"
-  },
-  {
+},
+{
     "user_id": 9,
     "chapter_id": 13,
     "body": "The Whispering Tree scene gave me chills! Aria's determination to find her path is truly inspiring.",
@@ -279,6 +327,18 @@ def seed_comments():
     "user_id": 5,
     "chapter_id": 16,
     "body": "Kael and Elara's exploration of the ancient ruins was thrilling! The encounter with the spectral guardians was particularly gripping.",
+    "created_at": "2020-08-15T00:00:00Z"
+  },
+     {
+    "user_id": 1,
+    "chapter_id": 16,
+    "body": "Not sure if I like the duo's style, maybe it will grow on me later.",
+    "created_at": "2020-08-15T00:00:00Z"
+  },
+     {
+    "user_id": 2,
+    "chapter_id": 16,
+    "body": "Eh, maybe an editor can help for spelling/grammar?",
     "created_at": "2020-08-15T00:00:00Z"
   },
   {
@@ -473,6 +533,24 @@ def seed_comments():
     "body": "Rhiannon's leadership and unwavering determination shine in this chapter as she faces the trials required to unlock the Heartstone's power. The description of the shadow realm and her battle with the dark figure are intense and captivating. I'm eager to see how she will restore Arathorn and lead her people forward.",
     "created_at": "2011-12-25T00:00:00Z"
   },
+    {
+    "user_id": 13,
+    "chapter_id": 26,
+    "body": "Great start!",
+    "created_at": "2011-12-25T00:00:00Z"
+  },
+    {
+    "user_id": 1,
+    "chapter_id": 26,
+    "body": "Love the characters so far",
+    "created_at": "2011-12-25T00:00:00Z"
+  },
+    {
+    "user_id": 9,
+    "chapter_id": 26,
+    "body": "One of my favorite chapters I've read this year.",
+    "created_at": "2011-12-25T00:00:00Z"
+  },
   {
     "user_id": 5,
     "chapter_id": 27,
@@ -507,6 +585,24 @@ def seed_comments():
     "user_id": 6,
     "chapter_id": 28,
     "body": "Elara's study of the ancient texts in the Tower of Whispers and her subsequent plans to protect Eldara showcase her intellect and bravery. The arrival of Aelric signals the beginning of a strategic alliance that promises exciting developments in the chapters to come.",
+    "created_at": "2013-04-25T00:00:00Z"
+  },
+   {
+    "user_id": 1,
+    "chapter_id": 28,
+    "body": "Great prose so far!",
+    "created_at": "2013-04-25T00:00:00Z"
+  },
+  {
+    "user_id": 5,
+    "chapter_id": 28,
+    "body": "Interesting plot, I dig it!",
+    "created_at": "2013-04-25T00:00:00Z"
+  },
+   {
+    "user_id": 13,
+    "chapter_id": 28,
+    "body": "10/10 so far on the character development",
     "created_at": "2013-04-25T00:00:00Z"
   },
   {
@@ -678,6 +774,12 @@ def seed_comments():
     "created_at": "2007-03-19T00:00:00Z"
   },
   {
+    "user_id": 5,
+    "chapter_id": 38,
+    "body": "Not bad for your first story!",
+    "created_at": "2007-03-19T00:00:00Z"
+  },
+  {
     "user_id": 8,
     "chapter_id": 38,
     "body": "The introduction of Thalor and the Heartstone adds a mystical depth to Lyria's quest. The forest setting and the trials she must face resonate with themes of courage and destiny, setting the stage for an epic adventure.",
@@ -707,7 +809,7 @@ def seed_comments():
     "body": "Alara's mastery of magic and her dedication to protecting the crystal showcase her character's strength and determination. The dynamic between her and Korrin adds depth to the narrative, highlighting the consequences of greed versus noble intent.",
     "created_at": "2008-02-18T00:00:00Z"
   },
-   {
+  {
     "user_id": 6,
     "chapter_id": 40,
     "body": "Alara's leadership and courage in protecting the crystal against Korrin's schemes are truly inspiring. The council's decision to entrust her with such a crucial task reflects her growing importance in the community.",
@@ -725,10 +827,6 @@ def seed_comments():
     "body": "Alara's journey from a curious mage to a leader protecting the crystal is compelling. The council's trust in her abilities sets the stage for further development as she faces new challenges ahead.",
     "created_at": "2008-03-20T00:00:00Z"
   }
-
-
-
-
     ]
 
     for data in comments_data:

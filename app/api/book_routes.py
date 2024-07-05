@@ -169,4 +169,40 @@ def get_popular_books():
     return jsonify({"Books":top_books_dicts}), 200
 
 
+# Get heavily discussed Books
+@book_routes.route("/heavily_discussed")
+def get_discussed_books():
+    books = Book.query.all()
 
+    book_comment_counts = []
+
+    for book in books:
+        comment_count = 0
+        for chapter in book.chapters:
+            comment_count += len(chapter.comments)
+
+        book_comment_counts.append((book, comment_count))
+
+
+    book_comment_counts.sort(key=lambda x: x[1], reverse=True)
+
+    top_books = book_comment_counts[:4]
+
+    result = [
+        {
+            "id": book.id,
+            "author_id": book.author_id,
+            "author_name": book.user.username,
+            "title": book.title,
+            "blurb": book.blurb,
+            "cover_art": book.cover_art,
+            "created_at": book.created_at,
+            "tags": [tag.to_dict() for tag in book.tags],
+            "favorites": [favorite.to_dict() for favorite in book.favorites],
+            "reviews": [review.to_dict() for review in book.reviews],
+            "comment_count": count
+        }
+        for book, count in top_books
+    ]
+
+    return jsonify(result), 200

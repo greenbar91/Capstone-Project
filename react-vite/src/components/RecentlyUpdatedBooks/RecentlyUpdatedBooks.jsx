@@ -11,7 +11,6 @@ function RecentlyUpdatedBooks() {
 
       if (res.ok) {
         const data = await res.json();
-        console.log(data);
         setBooks(data);
       }
     };
