@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  background-color: #E0E2DB;
+  /* background-color: #E0E2DB; */
 }
 
 .books-container {
@@ -23,8 +23,8 @@
 }
 
 .io-arrows {
-  background-color: #E0E2DB;
-  border: 1px solid #E0E2DB;
+  background-color: #f0f1ef;
+  border: 1px solid #f0f1ef;
   padding: 10px;
   cursor: pointer;
 }
@@ -36,7 +36,7 @@
 .io-arrows:disabled {
   opacity: 0.7;
   cursor: not-allowed;
-  background-color: #E0E2DB !important;
+  background-color: #f0f1ef;
 }
 
 .recommended-books-title-text {

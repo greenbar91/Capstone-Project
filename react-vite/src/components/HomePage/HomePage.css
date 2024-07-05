@@ -15,16 +15,18 @@
 .recommended-books-grid-container {
   grid-area: 3 / 1 / 4 / 7;
   border: 1px solid black;
+  background-color: #f0f1ef !important;
 }
 .popular-books-grid-container {
   grid-area: 4 / 1 / 5 / 7;
   border: 1px solid black;
+  background-color: #f0f1ef !important;
 }
 .recently-updated-grid-container {
   grid-area: 5 / 1 / 9 / 4;
   border: 1px solid black;
-  background-color: #E0E2DB;;
-  
+  background-color: #f0f1ef !important;
+
 }
 .heavily-discussed-grid-container {
   grid-area: 5 / 4 / 9 / 7;
