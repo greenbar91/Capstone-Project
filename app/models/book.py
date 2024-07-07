@@ -32,5 +32,6 @@ class Book(db.Model):
             "created_at": self.created_at,
             "tags": [tag.to_dict() for tag in self.tags],
             "favorites": [favorite.to_dict() for favorite in self.favorites],
-            "reviews": [review.to_dict() for review in self.reviews]
+            "reviews": [review.to_dict() for review in self.reviews],
+            "chapter_ids": [chapter.id for chapter in self.chapters] 
         }

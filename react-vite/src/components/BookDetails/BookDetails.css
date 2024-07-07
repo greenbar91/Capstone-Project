@@ -1,0 +1,83 @@
+.book-details-container {
+  /* width: 100%; */
+  display: flex;
+  justify-items: center;
+  padding: 20px;
+  flex-direction: column;
+  /* margin-left: 20px; */
+  /* margin-right: 20px; */
+  background-color: #eff3f8;
+}
+
+.book-details-book-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+  padding: 10px;
+}
+
+.book-details-cover-art {
+  justify-content: center;
+  align-self: center;
+  display: flex;
+
+  /* padding-left: 20px; */
+  /* padding-bottom: ; */
+}
+
+.book-details-cover {
+  background-color: #2a3642 !important;
+  grid-area: 1 / 1 / 2 / 7;
+  color: white;
+  /* height: 90%; */
+  padding-bottom: 20px;
+}
+.book-details-blurb {
+  grid-area: 2 / 1 / 4 / 7;
+  background-color: white;
+  /* padding-left: 20px;
+    padding-right: 20px; */
+  font-size: 13px;
+  height: 100%;
+}
+
+.TOC-container {
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.chapters-container {
+  background-color: white !important;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin-left: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.chapter-title {
+  grid-area: 1 / 1 / 4 / 7;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.chapter-release-date {
+  grid-area: 1 / 7 / 4 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 10px;
+  padding: 10px;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #c5c3c3;
+  font-style: italic;
+  font-size: 13px;
+}
+

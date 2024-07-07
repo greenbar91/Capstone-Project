@@ -27,14 +27,28 @@ const FavoriteButton = ({ book }) => {
 
   return (
     <div>
-      <div>{favorited ? "Unfavorite" : "Favorite"}</div>
-      <FaHeart
-        onClick={handleFavoriteToggle}
+      <div
         style={{
-          color: favorited ? "red" : "gray",
-          cursor: "pointer",
+          paddingBottom: "5px",
+          width: "50px",
+          display: "flex",
+          justifyContent: "center",
         }}
-      ></FaHeart>
+      >
+        {favorited ? "Unfavorite" : "Favorite"}
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <FaHeart
+          onClick={handleFavoriteToggle}
+          style={{
+            color: favorited ? "red" : "gray",
+            cursor: "pointer",
+            display: "flex",
+            justifyItems: "center",
+            paddingBottom: "10px",
+          }}
+        ></FaHeart>
+      </div>
     </div>
   );
 };

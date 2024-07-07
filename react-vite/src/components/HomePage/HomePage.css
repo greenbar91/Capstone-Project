@@ -14,28 +14,28 @@
 }
 .recommended-books-grid-container {
   grid-area: 3 / 1 / 4 / 7;
-  border: 1px solid black;
-  background-color: #f0f1ef !important;
+  border: 1px solid #e5e5e5;
+  background-color: #eff3f8 !important;
 }
 .popular-books-grid-container {
   grid-area: 4 / 1 / 5 / 7;
-  border: 1px solid black;
-  background-color: #f0f1ef !important;
+  border: 1px solid #e5e5e5;
+  background-color: #eff3f8 !important;
 }
 .recently-updated-grid-container {
   grid-area: 5 / 1 / 9 / 4;
-  border: 1px solid black;
-  background-color: #f0f1ef !important;
+  border: 1px solid #e5e5e5;
+  background-color: #eff3f8 !important;
 
 }
 .heavily-discussed-grid-container {
   grid-area: 5 / 4 / 9 / 7;
-  border: 1px solid black;
-  background-color: #f0f1ef !important;
+  border: 1px solid #e5e5e5;
+  background-color: #eff3f8 !important;
 }
 
 .adds-for-lurkers{
-  border: 1px solid black;
+  border: 1px solid #e5e5e5;
   height: 100%;
   width: 100%;
 }

@@ -1,0 +1,34 @@
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: white;
+  border-bottom: 1px solid #E5E5E5
+}
+
+.review-user {
+  grid-area: 1 / 1 / 2 / 2;
+  padding: 20px;
+}
+.review-body {
+  grid-area: 1 / 2 / 2 / 9;
+  padding: 20px;
+}
+
+.reviews{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+.review-button button{
+    width: 150px;
+    height: 40px;
+    background-color: rgb(245, 100, 107);
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
