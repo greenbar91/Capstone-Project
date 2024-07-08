@@ -1,0 +1,108 @@
+.chapter-details-container {
+  display: flex;
+  justify-items: center;
+  padding: 20px;
+  flex-direction: column;
+  background-color: #eff3f8;
+}
+
+.chapter-header-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: #2a3642;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.book-cover-art-container {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.book-and-chapter-header-info {
+  grid-area: 1 / 2 / 2 / 3;
+  color: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20px;
+
+}
+.donate-and-back-to-book-details {
+  grid-area: 1 / 3 / 2 / 4;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+    align-items: center;
+}
+
+.donate-and-back-to-book-details button{
+    width: 130px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #557492;
+    color: white;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.donate-button{
+    background-color: white !important;
+    color: black !important;
+}
+
+.index-button:hover{
+    background-color: #758da3;
+}
+
+.donate-button:hover{
+    background-color: #E0E2DB !important;
+}
+
+.chapter-body-container{
+    background-color: white;
+    padding: 40px;
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(160, 160, 160);
+
+
+}
+
+.chapter-navigation-container{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.chapter-navigation-container button{
+
+    width: 30%;
+    padding: 10px;
+    background-color: #3c84c3;
+    color: white;
+    border: none;
+    /* border-right: 1px solid #949494;
+    border-left: 1px solid #6e6e6e; */
+    cursor: pointer;
+    margin-right: 10px;
+}
+.chapter-navigation-container button:hover{
+
+   background-color:  #456e96
+}
+
+.chapter-navigation-container button:disabled{
+    background-color: #a0bcd4;
+    cursor:not-allowed
+}

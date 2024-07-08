@@ -1,6 +1,6 @@
 .home-page-container {
-  height: 140vh;
-  width: 44.5vw;
+  height: 150vh;
+  width: 44vw;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(8, 1fr);
