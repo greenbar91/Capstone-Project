@@ -5,42 +5,42 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Jacob Dietz', email='demo@aa.io', password='password', profile_pic="placeholder.png")
+        username='Jacob Dietz', email='demo@aa.io', password='password', profile_pic="https://i.imgur.com/IMbFAhO.png")
     elena = User(
-        username='Elena Rivers', email='elena@aa.io', password='password', profile_pic="placeholder.png"
+        username='Elena Rivers', email='elena@aa.io', password='password', profile_pic="https://i.imgur.com/L78qAS7.png"
     )
     arthur = User(
-        username='Arthur Greene', email='arthur@aa.io', password='password', profile_pic="placeholder.png"
+        username='Arthur Greene', email='arthur@aa.io', password='password', profile_pic="https://i.imgur.com/kMyOzh9.png"
     )
     lyla = User(
-        username="Lyla Morgan", email="lyla@aa.io", password="password", profile_pic="placeholder.png"
+        username="Lyla Morgan", email="lyla@aa.io", password="password", profile_pic="https://i.imgur.com/tSP9i2z.png"
     )
     thomas = User(
-        username="Thomas Knight", email="thomas@aa.io", password="password", profile_pic="placeholder.png"
+        username="Thomas Knight", email="thomas@aa.io", password="password", profile_pic="https://i.imgur.com/jJBAZYU.png"
     )
     evan = User(
-        username="Evan Blackwood", email="evan@aa.io", password="password", profile_pic="placeholder.png"
+        username="Evan Blackwood", email="evan@aa.io", password="password", profile_pic="https://i.imgur.com/rabxZL5.png"
     )
     amelia = User(
-        username="Amelia Silvermoon", email="amelia@aa.io", password="password", profile_pic="placeholder.png"
+        username="Amelia Silvermoon", email="amelia@aa.io", password="password", profile_pic="https://i.imgur.com/ppCbkEM.png"
     )
     damon = User(
-        username="Damon Darkwood", email="damon@aa.io", password="password", profile_pic="placeholder.png"
+        username="Damon Darkwood", email="damon@aa.io", password="password", profile_pic="https://i.imgur.com/axwpXKb.png"
     )
     eleanor = User(
-        username="Eleanor Sage", email="eleanor@aa.io", password="password", profile_pic="placeholder.png"
+        username="Eleanor Sage", email="eleanor@aa.io", password="password", profile_pic="https://i.imgur.com/1ZDZHYE.png"
     )
     marcus = User(
-        username="Marcus Storm", email="marcus@aa.io", password="password", profile_pic="placeholder.png"
+        username="Marcus Storm", email="marcus@aa.io", password="password", profile_pic="https://i.imgur.com/B8ULFSE.png"
     )
     jim = User(
-        username="Jim Gonzo", email="jim@aa.io", password="password", profile_pic="placeholder.png"
+        username="Jim Gonzo", email="jim@aa.io", password="password", profile_pic="https://i.imgur.com/nrBG1gy.png"
     )
     bobbie = User(
-        username="Bobbie Smith", email="bobbie@aa.io", password="password", profile_pic="placeholder.png"
+        username="Bobbie Smith", email="bobbie@aa.io", password="password", profile_pic="https://i.imgur.com/KdBuqAf.png"
     )
     sarah = User(
-        username="Sarah Stile", email="sarah@aa.io", password="password", profile_pic="placeholder.png"
+        username="Sarah Stile", email="sarah@aa.io", password="password", profile_pic="https://i.imgur.com/b5v6GCO.png"
     )
 
     db.session.add(demo)

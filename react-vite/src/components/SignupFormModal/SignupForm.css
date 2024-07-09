@@ -1,0 +1,28 @@
+.profile-pic-selection {
+    margin: 20px 0;
+  }
+
+  .profile-pic-options {
+    display: grid;
+    grid-template-columns: repeat(5, 110px);
+    grid-gap: 10px;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.2s, border 0.2s;
+    border-radius: 8px;
+    object-fit: cover;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  }
+
+  .profile-pic:hover {
+    transform: scale(1.1);
+  }
+
+  .profile-pic.selected {
+    border: 1px solid #2cfe4f;
+    transform: scale(1.2);
+  }

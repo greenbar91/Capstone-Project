@@ -17,6 +17,7 @@ const BookDetails = () => {
   const { bookId } = useParams();
   const chapters = useSelector(selectAllChapters);
   const reviews = useSelector(selectAllReviews)
+  const user = useSelector((state)=> state.session.user)
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -92,7 +93,7 @@ const BookDetails = () => {
             <div>
               <div style={{display:"flex", justifyContent:"center", marginBottom:"20px", fontSize:"20px",alignItems:"center"}}>
                 <StarRating rating={averageRating}/>
-      
+
               </div>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <button
@@ -120,7 +121,7 @@ const BookDetails = () => {
                   // paddingRight: "50px",
                 }}
               >
-                <FavoriteButton book={book} />
+                {user && (<FavoriteButton book={book} />)}
               </div>
             </div>
           </div>

@@ -146,6 +146,15 @@ def get_recommended_books():
 
     top_recommendations = [book for book, _ in recommendations[:10]]
 
+    if len(top_recommendations) < 5:
+            additional_books_needed = 10 - len(top_recommendations)
+            additional_books = [
+                book.to_dict() for book in all_books
+                if book.id not in [book['id'] for book in top_recommendations]
+            ][:additional_books_needed]
+
+            top_recommendations.extend(additional_books)
+
     if not top_recommendations:
         return jsonify({"errors":"No recommended Books found"}), 404
 

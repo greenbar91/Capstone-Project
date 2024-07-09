@@ -43,7 +43,7 @@ function Comments({ chapterId }) {
 
   return (
     <div className="comments-container">
-      <div className="post-comment-container">
+     {user && ( <div className="post-comment-container">
         <form onSubmit={handleOnSubmitComment}>
           <div>
             <label style={{ color: "gray" }}>Comments({comments.length})</label>
@@ -66,13 +66,13 @@ function Comments({ chapterId }) {
             </button>
           </div>
         </form>
-      </div>
+      </div>)}
       <div className="comments">
         {comments &&
           comments.map((comment) => (
             <div className="comment-container" key={comment.id}>
               <div className="comment-user">
-                <div>{comment.profile_pic}</div>
+                <div><img src={comment.profile_pic}/></div>
                 <div style={{fontSize:"13px", marginTop:"10px", color:"#456e96", fontWeight:"bold"}}>{comment.username}</div>
               </div>
               <div className="comment-body">
@@ -81,7 +81,7 @@ function Comments({ chapterId }) {
                   <div style={{display:"flex", justifyContent:"end", alignItems:"end", marginTop:"50px", fontStyle:"italic", color:"gray"}}>
                     {getTimeAgo(comment.created_at)}
                   </div>
-              {comment.user_id == user.id && (
+              {user && comment.user_id == user.id && (
                 <div className="edit-delete-button-container">
                   <OpenModalButton
                     buttonText={"Edit"}

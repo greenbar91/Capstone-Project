@@ -1,0 +1,70 @@
+.login-modal-container {
+  height: 450px;
+  width: 800px;
+  background-image: url(https://i.imgur.com/LRGNSPL.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-color: transparent;
+}
+
+.login-modal {
+  background-color: #eff3f8;
+  width: 300px;
+  height: 250px;
+  margin-left: 30px;
+
+}
+
+
+.login-header {
+  display: flex;
+  justify-content: start;
+  padding: 30px;
+  color: #000000;
+  font-size: 30px;
+}
+
+.email-container {
+  background-color: #eff3f8;
+  position: relative;
+  padding: 20px;
+
+}
+
+.password-container {
+  padding: 20px;
+  position: relative;
+  /* margin-top: 10px; */
+}
+
+.password-errors,
+.email-errors {
+  position: absolute;
+  left: 6%;
+  font-size: 13px;
+  color: rgb(233, 41, 41);
+}
+
+.login-button {
+  margin-top: 10px;
+  padding: 20px;
+}
+
+.login-button button {
+  width: 70px;
+  height: 30px;
+  background-color: #3c84c3;
+  border: 1px solid #e5e5e5;
+  color: white;
+  cursor: pointer;
+}
+
+.login-button button:hover {
+  background-color: #3598ee;
+}
+
+.login-button button:disabled {
+  background-color: #81a1bd;
+  cursor: not-allowed;
+}

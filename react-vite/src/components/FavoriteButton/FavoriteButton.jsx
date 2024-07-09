@@ -8,7 +8,7 @@ const FavoriteButton = ({ book }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
   const isFavorited = favorites?.some(
-    (favorite) => favorite.user_id === currentUser.id
+    (favorite) => favorite.user_id === currentUser?.id
   );
   const [favorited, setFavorited] = useState(isFavorited);
 

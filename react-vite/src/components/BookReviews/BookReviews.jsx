@@ -16,7 +16,7 @@ function BookReviews({ bookId }) {
   const reviews = useSelector(selectAllReviews);
   const user = useSelector((state) => state.session.user);
 
-  const userHasReviewed = reviews.some((review) => review.user_id === user.id);
+  // const userHasReviewed = reviews.some((review) => review.user_id === user?.id);
 
   useEffect(() => {
     dispatch(getAllReviewsThunk(bookId));
@@ -32,7 +32,7 @@ function BookReviews({ bookId }) {
 
   return (
     <div className="reviews">
-      {!userHasReviewed && (
+      {user && !(reviews.some((review) => review.user_id === user?.id)) && (
         <div style={{ display: "flex", justifyContent: "start" }}>
           <div
             className="review-button"
@@ -47,7 +47,7 @@ function BookReviews({ bookId }) {
               marginBottom: "10px",
             }}
           >
-            {!userHasReviewed && (
+            {user && !(reviews.some((review) => review.user_id === user?.id)) && (
               <OpenModalButton
                 buttonText={"Leave a Review"}
                 modalComponent={<ReviewModal type="Create" bookId={bookId} />}
@@ -73,7 +73,7 @@ function BookReviews({ bookId }) {
       {reviews.map((review) => (
         <div className="reviews-container" key={review.id}>
           <div className="review-user">
-            {review.profile_pic}
+            <img src={review.profile_pic}/>
             <div>
               <StarRating rating={review.star_rating} />
             </div>
@@ -109,7 +109,7 @@ function BookReviews({ bookId }) {
               </div>
             </div>
             <div>{review.body}</div>
-            {user.id === review.user_id && (
+            {user && user.id === review.user_id && (
               <div style={{ padding: "20px" }}>
                 <OpenModalButton
                   buttonText={"Edit"}

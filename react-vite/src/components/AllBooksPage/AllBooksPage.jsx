@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./AllBooksPage.css"
-import { NavLink, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { getAllBooksThunk, selectAllBooks } from "../../redux/book";
 import { useEffect } from "react";
 
@@ -34,7 +34,7 @@ function AllBooksPage(){
           </li>
         ))}
       </ul>
-      <NavLink to={"/books/my_books"}>Author Home Page</NavLink>
+
     </div>)
 }
 

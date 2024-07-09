@@ -29,32 +29,48 @@ function LoginFormModal() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
-      </form>
-    </>
+    <div className="login-modal-container">
+      <div className="login-header">
+        <h1 style={{ cursor: "default" }}>Log In</h1>
+      </div>
+      <div className="login-modal">
+        <form onSubmit={handleSubmit} className="login-form-container">
+          <div className="email-container">
+            <div>
+              <label style={{ fontSize: "20px" }}>Email</label>
+            </div>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="email-errors">
+            {errors.email && <p>* {errors.email}</p>}
+          </div>
+          <div className="password-container">
+            <div>
+              <label style={{ fontSize: "20px" }}>Password</label>
+            </div>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="password-errors">
+            {errors.password && <p>* {errors.password}</p>}
+          </div>
+          <div className="login-button">
+            <button type="submit" disabled={!email || !password}>
+              Log In
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 
