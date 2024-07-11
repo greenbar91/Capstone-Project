@@ -1,5 +1,26 @@
+.signup-container{
+  width: 40vw;
+  height: 72.5vh;
+  padding: 30px;
+}
+
+.signup-header-title{
+  background-color: #2a3642;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.signup-form-container{
+  background-color: #eff3f8;
+  padding: 20px;
+}
+
+
+
 .profile-pic-selection {
     margin: 20px 0;
+  padding-bottom: 10px;
   }
 
   .profile-pic-options {
@@ -15,7 +36,7 @@
     transition: transform 0.2s, border 0.2s;
     border-radius: 8px;
     object-fit: cover;
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    box-sizing: border-box;
   }
 
   .profile-pic:hover {
@@ -25,4 +46,13 @@
   .profile-pic.selected {
     border: 1px solid #2cfe4f;
     transform: scale(1.2);
+  }
+
+  .signup-button:hover{
+    background-color: #6a89ae !important;
+  }
+
+  .signup-button:disabled{
+    cursor: not-allowed !important;
+    background-color: #81a1bd !important;
   }

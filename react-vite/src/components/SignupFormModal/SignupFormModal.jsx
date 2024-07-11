@@ -35,7 +35,7 @@ function SignupFormModal() {
     "https://i.imgur.com/PRpyoZB.png",
     "https://i.imgur.com/axrI0KB.png",
     "https://i.imgur.com/a1igDPh.png",
-  ]
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,7 +52,7 @@ function SignupFormModal() {
         email,
         username,
         password,
-        profile_pic: profilePic
+        profile_pic: profilePic,
       })
     );
 
@@ -67,69 +67,167 @@ function SignupFormModal() {
     setProfilePic(pic);
   };
 
+  const isFormValid = email && username && password && confirmPassword && profilePic;
+
   return (
-    <>
-      <h1>Sign Up</h1>
+    <div className="signup-container">
+      <h1 className="signup-header-title">Sign Up</h1>
       {errors.server && <p>{errors.server}</p>}
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
+      <form className="signup-form-container" onSubmit={handleSubmit}>
+        <div>
+          <label style={{ fontWeight: "bold", fontSize: "18px" }}>
+            1. Email
+          </label>
+        </div>
+        <div style={{ paddingBottom: "30px" }}>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Please enter your email"
             required
           />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>
-          Username
+          {errors.email && (
+            <p
+              style={{
+                position: "absolute",
+                color: "red",
+                fontSize: "12px",
+                paddingTop: "5px",
+              }}
+            >
+              {errors.email}
+            </p>
+          )}
+        </div>
+        <div>
+          <label style={{ fontWeight: "bold", fontSize: "18px" }}>
+            2. Username
+          </label>
+        </div>
+        <div style={{ paddingBottom: "30px" }}>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            placeholder="Choose a username"
           />
-        </label>
-        {errors.username && <p>{errors.username}</p>}
-        <label>
-          Password
+          {errors.username && (
+            <p
+              style={{
+                position: "absolute",
+                color: "red",
+                fontSize: "12px",
+                paddingTop: "5px",
+              }}
+            >
+              {errors.username}
+            </p>
+          )}
+        </div>
+        <div>
+          <label style={{ fontWeight: "bold", fontSize: "18px" }}>
+            3. Password
+          </label>
+        </div>
+
+        <div style={{ paddingBottom: "30px" }}>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            placeholder="Choose your password"
           />
-        </label>
-        {errors.password && <p>{errors.password}</p>}
-        <label>
-          Confirm Password
+          {errors.password && (
+            <p
+              style={{
+                position: "absolute",
+                color: "red",
+                fontSize: "12px",
+                paddingTop: "5px",
+              }}
+            >
+              {errors.password}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <label style={{ fontWeight: "bold", fontSize: "18px" }}>
+            4. Confirm Password
+          </label>
+        </div>
+        <div style={{ paddingBottom: "20px" }}>
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
+            placeholder="Confirm your password"
           />
-        </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+          {errors.confirmPassword && (
+            <p
+              style={{
+                position: "absolute",
+                color: "red",
+                fontSize: "12px",
+                paddingTop: "5px",
+              }}
+            >
+              {errors.confirmPassword}
+            </p>
+          )}
+        </div>
         <div className="profile-pic-selection">
-          <h2>Select Profile Picture</h2>
+          <h3 style={{ paddingBottom: "10px", paddingTop: "10px" }}>
+            5. Select Profile Picture
+          </h3>
           <div className="profile-pic-options">
             {profilePics.map((pic, index) => (
               <img
                 key={index}
                 src={pic}
                 alt={`Profile ${index}`}
-                className={`profile-pic ${profilePic === pic ? "selected" : ""}`}
+                className={`profile-pic ${
+                  profilePic === pic ? "selected" : ""
+                }`}
                 onClick={() => handleProfilePicSelect(pic)}
               />
             ))}
+            {errors.profilePic && (
+              <p
+                style={{
+                  position: "absolute",
+                  color: "red",
+                  fontSize: "12px",
+                  paddingTop: "5px",
+                }}
+              >
+                {errors.profilePic}
+              </p>
+            )}
           </div>
-          {errors.profilePic && <p>{errors.profilePic}</p>}
         </div>
-        <button type="submit">Sign Up</button>
+        <button
+          className="signup-button"
+          style={{
+            width: "150px",
+            height: "40px",
+            backgroundColor: "#557492",
+            color: "white",
+            border: "none",
+            cursor: "pointer",
+            fontWeight: "bold",
+          }}
+          type="submit"
+          disabled={!isFormValid}
+        >
+          Sign Up
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 

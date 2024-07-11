@@ -44,6 +44,8 @@
   left: 6%;
   font-size: 13px;
   color: rgb(233, 41, 41);
+  padding-top: 5px;
+  padding-left: 5px;
 }
 
 .login-button {

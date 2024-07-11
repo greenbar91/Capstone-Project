@@ -44,10 +44,11 @@ function LoginFormModal() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Please enter your email"
             />
-          </div>
           <div className="email-errors">
-            {errors.email && <p>* {errors.email}</p>}
+            {errors.email && <p>{errors.email}</p>}
+          </div>
           </div>
           <div className="password-container">
             <div>
@@ -58,10 +59,11 @@ function LoginFormModal() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Please enter your password"
             />
-          </div>
           <div className="password-errors">
-            {errors.password && <p>* {errors.password}</p>}
+            {errors.password && <p>{errors.password}</p>}
+          </div>
           </div>
           <div className="login-button">
             <button type="submit" disabled={!email || !password}>
