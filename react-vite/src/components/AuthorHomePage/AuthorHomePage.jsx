@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 
 const AuthorHomePage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [userBooks, setUserBooks] = useState([]);
   const [editBookId, setEditBookId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
@@ -58,7 +58,7 @@ const AuthorHomePage = () => {
     e.preventDefault();
     const newBook = { title, blurb, cover_art: coverArt };
     const bookData = await dispatch(postBookThunk(newBook));
-    navigate(`/books/${bookData.id}/tags`)
+    navigate(`/books/${bookData.id}/tags`);
   };
 
   const handleEditClick = (book) => {
@@ -83,7 +83,7 @@ const AuthorHomePage = () => {
     setEditTitle("");
     setEditBlurb("");
     setEditCoverArt("");
-    navigate(`/books/${editBookId}/tags/edit`)
+    navigate(`/books/${editBookId}/tags/edit`);
     // setEditBookId(null);
   };
 
@@ -103,7 +103,10 @@ const AuthorHomePage = () => {
 
   const handleEditChapterSubmit = (e) => {
     e.preventDefault();
-    const updatedChapter = { title: editChapterTitle, body: editChapterContent };
+    const updatedChapter = {
+      title: editChapterTitle,
+      body: editChapterContent,
+    };
     dispatch(updateChapterThunk(editBookId, editChapterId, updatedChapter));
     setEditChapterId(null);
     setEditChapterTitle("");
@@ -115,83 +118,90 @@ const AuthorHomePage = () => {
   };
 
   return (
-    <div className="page-container">
-      <h1>Current User Books</h1>
-      <ul>
+    <div className="author-page-container">
+      <div className="author-stats-container"></div>
+      <div className="author-page-books-container">
+        <h3>Current User Books</h3>
         {userBooks &&
           userBooks.map((book) => (
-            <li key={book.id}>
+            <div key={book.id}>
               <div onClick={() => handleBookClick(book.id)}>{book.title}</div>
 
               <button onClick={() => handleEditClick(book)}>Edit</button>
 
               <button onClick={() => handleDeleteClick(book.id)}>Delete</button>
-            </li>
+            </div>
           ))}
-      </ul>
-      {editBookId && (
+      </div>
+
+      <div>
+        <h2>Edit Book</h2>
+        <form onSubmit={handleEditSubmit}>
+          <div>
+            <label>Title</label>
+            <input
+              type="text"
+              value={editTitle}
+              onChange={(e) => setEditTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Blurb</label>
+            <input
+              type="text"
+              value={editBlurb}
+              onChange={(e) => setEditBlurb(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Cover Art URL</label>
+            <input
+              type="text"
+              value={editCoverArt}
+              onChange={(e) => setEditCoverArt(e.target.value)}
+            />
+          </div>
+          <button type="submit">Update Book</button>
+        </form>
+
+        <h2>Add a New Chapter</h2>
+        <form onSubmit={handleChapterSubmit}>
+          <div>
+            <label>Chapter Title</label>
+            <input
+              type="text"
+              value={chapterTitle}
+              onChange={(e) => setChapterTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Chapter Content</label>
+            <textarea
+              value={chapterContent}
+              onChange={(e) => setChapterContent(e.target.value)}
+            />
+          </div>
+          <button type="submit">Add Chapter</button>
+        </form>
+
         <div>
-          <h2>Edit Book</h2>
-          <form onSubmit={handleEditSubmit}>
-            <div>
-              <label>Title</label>
-              <input
-                type="text"
-                value={editTitle}
-                onChange={(e) => setEditTitle(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Blurb</label>
-              <input
-                type="text"
-                value={editBlurb}
-                onChange={(e) => setEditBlurb(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Cover Art URL</label>
-              <input
-                type="text"
-                value={editCoverArt}
-                onChange={(e) => setEditCoverArt(e.target.value)}
-              />
-            </div>
-            <button type="submit">Update Book</button>
-          </form>
-          <h2>Add a New Chapter</h2>
-          <form onSubmit={handleChapterSubmit}>
-            <div>
-              <label>Chapter Title</label>
-              <input
-                type="text"
-                value={chapterTitle}
-                onChange={(e) => setChapterTitle(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Chapter Content</label>
-              <textarea
-                value={chapterContent}
-                onChange={(e) => setChapterContent(e.target.value)}
-              />
-            </div>
-            <button type="submit">Add Chapter</button>
-          </form>
           <h2>Chapters</h2>
-          <ul>
-            {chapters.map((chapter) => (
-              <li key={chapter.id}>
-                <div>
-                  {chapter.title}
-                  <button onClick={() => handleEditChapterClick(chapter)}>Edit</button>
-                  <button onClick={() => handleDeleteChapterClick(chapter.id)}>Delete</button>
-                </div>
-              </li>
-            ))}
-          </ul>
+          {chapters.map((chapter) => (
+            <div key={chapter.id}>
+              <div>
+                {chapter.title}
+                <button onClick={() => handleEditChapterClick(chapter)}>
+                  Edit
+                </button>
+                <button onClick={() => handleDeleteChapterClick(chapter.id)}>
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
+
       {editChapterId && (
         <div>
           <h2>Edit Chapter</h2>
@@ -215,6 +225,7 @@ const AuthorHomePage = () => {
           </form>
         </div>
       )}
+      
       <h2>Add a New Book</h2>
       <form onSubmit={handleSubmit}>
         <div>
