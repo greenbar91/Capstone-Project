@@ -43,7 +43,7 @@ def get_chapter_details(bookId,chapterId):
     if not chapter.book_id==bookId:
             return jsonify({"errors":"Book/Chapter mismatch"}), 400
 
-    return jsonify(chapter.to_dict())
+    return jsonify(chapter.to_dict()), 200
 
 
 # Post a chapter by Book Id
