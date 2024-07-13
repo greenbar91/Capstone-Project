@@ -33,5 +33,6 @@ class Book(db.Model):
             "tags": [tag.to_dict() for tag in self.tags],
             "favorites": [favorite.to_dict() for favorite in self.favorites],
             "reviews": [review.to_dict() for review in self.reviews],
-            "chapter_ids": [chapter.id for chapter in self.chapters] 
+            "chapter_ids": [chapter.id for chapter in self.chapters],
+            "chapter_count": len(self.chapters)
         }

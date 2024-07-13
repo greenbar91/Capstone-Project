@@ -1,1 +1,29 @@
+.author-page-container {
+  display: flex;
+  justify-items: center;
+  padding: 20px;
+  flex-direction: column;
+  background-color: #eff3f8;
+}
 
+.author-page-header {
+  background-color: #2a3642;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+}
+
+.author-stats-container {
+  background-color: #ffffff;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.author-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: bold;
+  /* margin-bottom: 20px; */
+  padding: 10px;
+}

@@ -46,6 +46,18 @@ def get_chapter_details(bookId,chapterId):
     return jsonify(chapter.to_dict()), 200
 
 
+# Get current user chapters
+@chapter_routes.route('/my_chapters', methods=['GET'])
+@login_required
+def get_user_chapters():
+
+    user_chapters = Chapter.query.filter_by(user_id=current_user.id).all()
+    chapters = [chapter.to_dict() for chapter in user_chapters]
+
+    return jsonify({"Chapters": chapters}), 200
+
+
+
 # Post a chapter by Book Id
 @chapter_routes.route("/<int:bookId>/chapters", methods=["POST"])
 @login_required

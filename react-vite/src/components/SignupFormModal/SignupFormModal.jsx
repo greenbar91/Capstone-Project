@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
 import "./SignupForm.css";
+import { useNavigate } from "react-router-dom";
 
 function SignupFormModal() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -61,6 +63,7 @@ function SignupFormModal() {
     } else {
       closeModal();
     }
+    navigate(``)
   };
 
   const handleProfilePicSelect = (pic) => {
