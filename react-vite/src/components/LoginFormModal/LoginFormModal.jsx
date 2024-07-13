@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -29,7 +29,18 @@ function LoginFormModal() {
       closeModal();
     }
 
-    navigate(``)
+    navigate(``);
+  };
+
+  const handleDemoUserLoginClick = () => {
+    dispatch(
+      thunkLogin({
+        email: "demo@aa.io",
+        password: "password",
+      })
+    );
+    closeModal()
+    navigate(``);
   };
 
   return (
@@ -50,9 +61,9 @@ function LoginFormModal() {
               required
               placeholder="Please enter your email"
             />
-          <div className="email-errors">
-            {errors.email && <p>{errors.email}</p>}
-          </div>
+            <div className="email-errors">
+              {errors.email && <p>{errors.email}</p>}
+            </div>
           </div>
           <div className="password-container">
             <div>
@@ -65,14 +76,22 @@ function LoginFormModal() {
               required
               placeholder="Please enter your password"
             />
-          <div className="password-errors">
-            {errors.password && <p>{errors.password}</p>}
-          </div>
+            <div className="password-errors">
+              {errors.password && <p>{errors.password}</p>}
+            </div>
           </div>
           <div className="login-button">
             <button type="submit" disabled={!email || !password}>
               Log In
             </button>
+            <div style={{ paddingLeft: "20px" }}>
+              <button
+                onClick={handleDemoUserLoginClick}
+                style={{ width: "100px" }}
+              >
+                Demo User
+              </button>
+            </div>
           </div>
         </form>
       </div>
