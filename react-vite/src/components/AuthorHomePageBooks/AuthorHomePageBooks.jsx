@@ -89,8 +89,9 @@ function AuthorHomePageBooks() {
                   {book.title}
                 </h5>
                 <div className="author-book-buttons">
-                  <button onClick={() => handleEditClick(book)}>Edit</button>
-                  <button onClick={() => handleDeleteClick(book.id)}>
+                  <button className="author-page-edit-buttons" onClick={() => handleEditClick(book)}>Edit</button>
+
+                  <button className="author-page-delete-buttons" style={{backgroundColor:"red"}} onClick={() => handleDeleteClick(book.id)}>
                     Delete
                   </button>
                 </div>
@@ -98,6 +99,7 @@ function AuthorHomePageBooks() {
             ))}
           <div className="add-book-button">
             <IoMdAddCircle
+            className="add-circle-button"
               style={{ cursor: "pointer" }}
               title="Add a new book"
               onClick={handleAddBookNavClick}
@@ -151,13 +153,15 @@ function AuthorHomePageBooks() {
                 <div className="chapter-release-date">
                   <div className="author-book-buttons" style={{paddingRight:"50px"}}>
                     <button
+                    className="author-page-edit-buttons"
                       onClick={() => handleEditChapterClick(bookId, chapter.id)}
                     >
                       Edit
                     </button>
                     <button
+                    className="author-page-delete-buttons"
                       onClick={() => handleDeleteChapterClick(chapter.id)}
-                      style={{backgroundColor:"rgb(245, 100, 107)", border:"none"}}
+                      style={{backgroundColor:"red", border:"none"}}
                     >
                       Delete
                     </button>
@@ -168,7 +172,7 @@ function AuthorHomePageBooks() {
             {bookId && (
               <div className="add-book-button" style={{padding:"20px", justifyContent:"start", fontSize:"32px"}}>
 
-                <IoMdAddCircle style={{cursor:"pointer"}} title="Add a new chapter" onClick={() => handleAddChapterNavClick(bookId)}>  </IoMdAddCircle>
+                <IoMdAddCircle className="add-circle-button" style={{cursor:"pointer"}} title="Add a new chapter" onClick={() => handleAddChapterNavClick(bookId)}>  </IoMdAddCircle>
               </div>
             )}
           </div>

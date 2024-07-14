@@ -25,7 +25,7 @@ function UpdateChapter() {
       }
     };
     fetchChapterDetails();
-  }, [bookId,chapterId]);
+  }, [bookId, chapterId]);
 
   const handleEditChapterSubmit = (e) => {
     e.preventDefault();
@@ -38,28 +38,40 @@ function UpdateChapter() {
   };
 
   return (
-    <div>
-      <div>
-        <h2>Edit Chapter</h2>
-        <form onSubmit={handleEditChapterSubmit}>
-          <div>
-            <label>Chapter Title</label>
-            <input
-              type="text"
-              value={editChapterTitle}
-              onChange={(e) => setEditChapterTitle(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Chapter Content</label>
-            <textarea
-              value={editChapterContent}
-              onChange={(e) => setEditChapterContent(e.target.value)}
-            />
-          </div>
-          <button type="submit">Update Chapter</button>
-        </form>
-      </div>
+    <div className="create-update-chapter-container">
+      <h2 className="create-update-chapter-header">Edit Chapter</h2>
+      <form onSubmit={handleEditChapterSubmit}>
+        <div className="create-update-chapter-title-container">
+          <h4 className="create-update-chapter-title">Chapter Title (255 char limit)</h4>
+          <input
+            className="create-update-chapter-input"
+            type="text"
+            value={editChapterTitle}
+            onChange={(e) => setEditChapterTitle(e.target.value)}
+          />
+        </div>
+        <div className="create-update-chapter-body-container">
+          <h3>Chapter Content (20,000 char limit)</h3>
+          <textarea
+            value={editChapterContent}
+            onChange={(e) => setEditChapterContent(e.target.value)}
+            className="create-update-chapter-textarea"
+          />
+        </div>
+        <div className="create-update-chapter-button-container">
+          <button
+            disabled={
+              !editChapterContent ||
+              !editChapterTitle ||
+              editChapterTitle.length > 255 ||
+              editChapterContent.length > 20000
+            }
+            type="submit"
+          >
+            Update Chapter
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

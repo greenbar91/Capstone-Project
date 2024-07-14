@@ -1,0 +1,90 @@
+.create-update-book-container{
+    background-color: #eff3f8;
+    padding: 20px;
+}
+
+
+.create-update-book-header{
+    background-color: #2a3642;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.create-update-book-title-container{
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-update-book-title{
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.create-update-book-input{
+    width: 20vw;
+    padding: 5px;
+    border: 1px solid rgb(199, 199, 199);
+}
+
+.create-update-book-input:focus{
+    outline: none;
+}
+
+.create-update-book-blurb-container{
+    width: 100%;
+    height: 42vh;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.create-update-book-textarea {
+
+    height: 35vh !important;
+    width: 90% !important;
+    resize: none;
+    border: 1px solid rgb(199, 199, 199);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.create-update-book-textarea:focus{
+    outline: none;
+}
+
+.create-update-book-button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+ .create-update-book-button-container button{
+    width: 150px;
+    height: 35px;
+    background-color: #3c84c3;
+    border: 1px solid #e5e5e5;
+    color: white;
+    cursor: pointer;
+ }
+
+ .create-update-book-button-container button:hover{
+
+     background-color:  #456e96
+ }
+ .create-update-book-button-container button:disabled{
+     background-color:  #a0bcd4;
+     cursor:not-allowed
+ }

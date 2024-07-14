@@ -1,6 +1,7 @@
 .author-page-books-container{
     background-color: white;
     margin-top: 20px;
+    cursor: default;
 }
 
 .author-books-container{
@@ -46,4 +47,17 @@
 .author-chapters-container{
     background-color: white;
     margin-top: 20px;
+    cursor: default;
+}
+
+.author-page-delete-buttons:hover{
+    background-color: rgb(200, 56, 56) !important;
+}
+
+.author-page-edit-buttons:hover{
+    background-color: #1b77c7 !important;
+}
+
+.add-circle-button:hover{
+    color: #3c84c3 !important;
 }

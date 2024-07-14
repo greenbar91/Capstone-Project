@@ -1,0 +1,91 @@
+.create-update-chapter-container{
+    background-color: #eff3f8;
+    padding: 20px;
+    cursor: default;
+}
+
+
+.create-update-chapter-header{
+    background-color: #2a3642;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.create-update-chapter-title-container{
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-update-chapter-title{
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.create-update-chapter-input{
+    width: 20vw;
+    padding: 5px;
+    border: 1px solid rgb(199, 199, 199);
+}
+
+.create-update-chapter-input:focus{
+    outline: none;
+}
+
+.create-update-chapter-body-container{
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.create-update-chapter-textarea {
+
+    height: 75vh !important;
+    width: 90% !important;
+    resize: none;
+    border: 1px solid rgb(199, 199, 199);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.create-update-chapter-textarea:focus{
+    outline: none;
+}
+
+.create-update-chapter-button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+ .create-update-chapter-button-container button{
+    width: 150px;
+    height: 35px;
+    background-color: #3c84c3;
+    border: 1px solid #e5e5e5;
+    color: white;
+    cursor: pointer;
+ }
+
+ .create-update-chapter-button-container button:hover{
+
+     background-color:  #456e96
+ }
+ .create-update-chapter-button-container button:disabled{
+     background-color:  #a0bcd4;
+     cursor:not-allowed
+ }

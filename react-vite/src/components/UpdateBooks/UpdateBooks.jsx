@@ -47,35 +47,58 @@ function UpdateBooks() {
     navigate(`/books/${bookId}/tags/edit`);
   };
 
+  const checkURL = (url) => {
+    const regex = /\.(png|jpg|jpeg)$/i;
+    return regex.test(url);
+  };
+
   return (
-    <div>
+    <div className="create-update-book-container">
+      <h2 className="create-update-book-header">Edit Book </h2>
       <form onSubmit={handleEditSubmit}>
-      <h2>Edit Book</h2>
-        <div>
-          <label>Title</label>
+        <div className="create-update-book-title-container">
+          <h4 className="create-update-book-title">Title (255 char limit)</h4>
           <input
+            className="create-update-book-input"
             type="text"
             value={editTitle}
             onChange={(e) => setEditTitle(e.target.value)}
           />
         </div>
-        <div>
-          <label>Blurb</label>
-          <textarea
-            type="text"
-            value={editBlurb}
-            onChange={(e) => setEditBlurb(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Cover Art URL</label>
+        <div className="create-update-book-title-container">
+          <h5 className="create-update-book-title">
+            Cover Art URL (only .png .jpg or .jpeg files)
+          </h5>
           <input
+            className="create-update-book-input"
             type="text"
             value={editCoverArt}
             onChange={(e) => setEditCoverArt(e.target.value)}
           />
         </div>
-        <button type="submit">Update Book</button>
+        <div className="create-update-book-blurb-container">
+          <h4 className="create-update-book-title">Blurb (4000 char limit)</h4>
+          <textarea
+            className="create-update-book-textarea"
+            value={editBlurb}
+            onChange={(e) => setEditBlurb(e.target.value)}
+          />
+        </div>
+        <div className="create-update-book-button-container">
+          <button
+            disabled={
+              !editTitle ||
+              !editBlurb ||
+              !editCoverArt ||
+              !checkURL(editCoverArt) ||
+              editTitle.length > 255 ||
+              editBlurb.length > 4000
+            }
+            type="submit"
+          >
+            Update Book
+          </button>
+        </div>
       </form>
     </div>
   );

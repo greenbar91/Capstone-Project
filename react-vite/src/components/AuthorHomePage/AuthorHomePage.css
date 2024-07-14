@@ -4,6 +4,7 @@
   padding: 20px;
   flex-direction: column;
   background-color: #eff3f8;
+  cursor: default;
 }
 
 .author-page-header {

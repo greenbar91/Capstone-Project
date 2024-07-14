@@ -33,7 +33,7 @@ function BookReviews({ bookId }) {
   return (
     <div className="reviews">
       {user && !(reviews.some((review) => review.user_id === user?.id)) && (
-        <div style={{ display: "flex", justifyContent: "start" }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <div
             className="review-button"
             style={{

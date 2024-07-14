@@ -31,4 +31,9 @@
     color: white;
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.review-button button:hover{
+  background-color: rgb(232, 63, 71) !important;
 }
