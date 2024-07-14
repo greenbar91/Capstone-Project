@@ -40,6 +40,7 @@ function Navigation() {
               gridGap: "2px",
               justifyContent: "center",
               alignItems: "center",
+              color:"white"
             }}
           >
             <div
@@ -68,7 +69,7 @@ function Navigation() {
                 className="author-navlink"
                 style={{ height: "20px", width: "20px" }}
               />
-              <p style={{ color: "black", paddingLeft: "5px", fontWeight:"bold" }}>Read</p>
+              <p style={{ color: "white", paddingLeft: "5px", fontWeight:"bold" }}>Read</p>
             </div>
             {user && (
               <div
@@ -83,8 +84,8 @@ function Navigation() {
                 }}
                 onClick={handleAuthorClick}
               >
-                <FaPencil />
-                <p style={{ color: "black", paddingLeft: "5px", fontWeight:"bold" }}>Write</p>
+                <FaPencil style={{color:"white"}} />
+                <p style={{ color: "white", paddingLeft: "5px", fontWeight:"bold" }}>Write</p>
               </div>
             )}
             <div

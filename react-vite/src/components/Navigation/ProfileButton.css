@@ -1,0 +1,14 @@
+.profile-dropdown{
+    background-color: #2a3642;
+    color: white;
+}
+
+.profile-dropdown li:hover{
+    background-color: #475a6d !important;
+}
+
+.login-signup-dropdown-container button{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}

@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .nav-header {
@@ -27,7 +28,8 @@
 
 .nav-bar {
   height: 5vh;
-  background-color: #E0E2DB;
+  background-color: #2a3642;
+  color: white;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -44,17 +46,17 @@
 }
 
 .nav-bar-buttons div:hover{
-  background-color: #bebfba;
+  background-color: #475a6d;
   cursor: pointer;
 }
 
 .search-bar:hover{
-  background-color:#E0E2DB!important;
+  background-color:#2a3642!important;
   cursor: default !important;
 }
 
 .profile-button-container {
-
+  background-color:#2a3642;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,17 +101,12 @@
 
 .profile-dropdown li {
   padding: 10px;
-
   text-align: center;
   cursor: pointer;
 }
 
 .profile-dropdown li:last-child {
   border-bottom: none;
-}
-
-.profile-dropdown li:hover {
-  background-color: #bebfba;
 }
 
 .profile-dropdown button {
