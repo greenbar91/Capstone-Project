@@ -42,8 +42,8 @@ def get_current_user_books():
     user_id = current_user.id
     user_books = Book.query.filter_by(author_id=user_id).all()
 
-    if not user_books:
-        return jsonify({"errors":"User has no books"}), 404
+    # if not user_books:
+    #     return jsonify({"errors":"User has no books"}), 404
 
     user_book_list = []
     for book in user_books:
