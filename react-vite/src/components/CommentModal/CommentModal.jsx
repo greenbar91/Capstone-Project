@@ -10,7 +10,6 @@ import { useDispatch } from "react-redux";
 function CommentModal({ comment }) {
   const { id, chapter_id, body } = comment;
   const dispatch = useDispatch();
-  console.log(comment)
 
   useEffect(() => {
     dispatch(getChapterCommentsThunk(chapter_id));
@@ -27,17 +26,17 @@ function CommentModal({ comment }) {
   };
 
   return (
-    <div>
+    <div className="comment-modal">
       <h2>Edit Comment</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Comment</label>
+
           <textarea
             value={editBody}
             onChange={(e) => setEditBody(e.target.value)}
           />
         </div>
-        <button type="submit">Update comment</button>
+        <button disabled={!editBody.length} type="submit">Update comment</button>
       </form>
     </div>
   );

@@ -64,9 +64,9 @@ function ProfileButton() {
               >
                 Author Dashboard
               </li>
-              <li style={{ cursor: "pointer", fontWeight: "bold" }}>
+              {/* <li style={{ cursor: "pointer", fontWeight: "bold" }}>
                 Favorites
-              </li>
+              </li> */}
               <li
                 onClick={logout}
                 style={{ cursor: "pointer", fontWeight: "bold" }}

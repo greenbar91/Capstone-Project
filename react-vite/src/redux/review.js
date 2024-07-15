@@ -84,7 +84,7 @@ export const updateReviewThunk =
     }
   };
 
-export const deleteReviewThunk = (bookId, reviewId) => async (dispatch) => {
+export const deleteReviewThunk = ({bookId, reviewId}) => async (dispatch) => {
   const res = await csrfFetch(`/api/books/${bookId}/reviews/${reviewId}`, {
     method: "DELETE",
     headers: {

@@ -126,7 +126,7 @@ const Tags = ({ type }) => {
       </div>
       <div className="submit-tags-container">
         <button
-          disabled={selectedTags.length > 3}
+          disabled={selectedTags.length > 3 || selectedTags.length < 1}
           type="submit"
           onClick={handleSubmit}
         >

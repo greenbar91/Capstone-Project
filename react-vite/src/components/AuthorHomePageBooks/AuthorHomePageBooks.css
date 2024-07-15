@@ -35,8 +35,6 @@
   background-color: #3c84c3;
   color: white;
   border: none;
-  /* border-right: 1px solid #949494;
-    border-left: 1px solid #6e6e6e; */
   cursor: pointer;
   margin-right: 10px;
 }
@@ -47,7 +45,11 @@
   cursor: default;
 }
 
-.author-page-delete-buttons:hover {
+.author-page-delete-buttons button {
+  background-color: red;
+}
+
+.author-page-delete-buttons button:hover {
   background-color: rgb(200, 56, 56) !important;
 }
 

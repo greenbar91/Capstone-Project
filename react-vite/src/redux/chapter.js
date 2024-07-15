@@ -84,7 +84,7 @@ export const updateChapterThunk =
     }
   };
 
-export const deleteChapterThunk = (bookId, chapterId) => async (dispatch) => {
+export const deleteChapterThunk = ({bookId, chapterId}) => async (dispatch) => {
   const res = await csrfFetch(`/api/books/${bookId}/chapters/${chapterId}`, {
     method: "DELETE",
     headers: {

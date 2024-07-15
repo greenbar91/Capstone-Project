@@ -10,6 +10,7 @@ import ReviewModal from "../ReviewModal.jsx";
 import "./BookReviews.css";
 import { formatDistanceToNow } from "date-fns";
 import StarRating from "../StarRating/StarRating.jsx";
+import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal.jsx";
 
 function BookReviews({ bookId }) {
   const dispatch = useDispatch();
@@ -22,9 +23,9 @@ function BookReviews({ bookId }) {
     dispatch(getAllReviewsThunk(bookId));
   }, [bookId, dispatch]);
 
-  const handleDeleteReviewClick = (reviewId) => {
-    dispatch(deleteReviewThunk(bookId, reviewId));
-  };
+  // const handleDeleteReviewClick = (reviewId) => {
+  //   dispatch(deleteReviewThunk(bookId, reviewId));
+  // };
 
   const getTimeAgo = (createdAt) => {
     return formatDistanceToNow(new Date(createdAt), { addSuffix: true });
@@ -32,7 +33,7 @@ function BookReviews({ bookId }) {
 
   return (
     <div className="reviews">
-      {user && !(reviews.some((review) => review.user_id === user?.id)) && (
+      {user && !reviews.some((review) => review.user_id === user?.id) && (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div
             className="review-button"
@@ -47,7 +48,7 @@ function BookReviews({ bookId }) {
               marginBottom: "10px",
             }}
           >
-            {user && !(reviews.some((review) => review.user_id === user?.id)) && (
+            {user && !reviews.some((review) => review.user_id === user?.id) && (
               <OpenModalButton
                 buttonText={"Leave a Review"}
                 modalComponent={<ReviewModal type="Create" bookId={bookId} />}
@@ -73,7 +74,7 @@ function BookReviews({ bookId }) {
       {reviews.map((review) => (
         <div className="reviews-container" key={review.id}>
           <div className="review-user">
-            <img src={review.profile_pic}/>
+            <img src={review.profile_pic} />
             <div>
               <StarRating rating={review.star_rating} />
             </div>
@@ -96,7 +97,15 @@ function BookReviews({ bookId }) {
                 >
                   BY
                 </h5>
-                <div style={{ fontSize: "14px", color:"#456e96", fontWeight:"bold" }}>{review.username}</div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: "#456e96",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {review.username}
+                </div>
               </div>
               <div
                 style={{
@@ -108,21 +117,32 @@ function BookReviews({ bookId }) {
                 {getTimeAgo(review.created_at)}
               </div>
             </div>
-            <div style={{fontSize:"14px"}}>{review.body}</div>
+            <div style={{ fontSize: "14px" }}>{review.body}</div>
             {user && user.id === review.user_id && (
-              <div className="review-edit-delete-buttons" >
-                <div style={{paddingRight:"10px"}}>
-
-                <OpenModalButton
-                  buttonText={"Edit"}
-                  modalComponent={
-                    <ReviewModal type="Edit" review={review} bookId={bookId} />
-                  }
-                />
+              <div className="review-edit-delete-buttons">
+                <div style={{ paddingRight: "10px" }}>
+                  <OpenModalButton
+                    buttonText={"Edit"}
+                    modalComponent={
+                      <ReviewModal
+                        type="Edit"
+                        review={review}
+                        bookId={bookId}
+                      />
+                    }
+                  />
                 </div>
-                <button className="review-delete-button" onClick={() => handleDeleteReviewClick(review.id)}>
-                  Delete
-                </button>
+                <div className="review-delete-button">
+                  <OpenModalButton
+                    buttonText={"Delete"}
+                    modalComponent={
+                      <DeleteConfirmModal
+                        identifiers={{ bookId, reviewId: review.id }}
+                        deleteAction={deleteReviewThunk}
+                      />
+                    }
+                  />
+                </div>
               </div>
             )}
           </div>

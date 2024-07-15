@@ -59,10 +59,10 @@
   background-color: #3b96e5;
 }
 
-.review-delete-button{
+.review-delete-button button{
   background-color: red !important;
 }
 
-.review-delete-button:hover{
+.review-delete-button button:hover{
   background-color: rgb(211, 58, 58) !important;
 }

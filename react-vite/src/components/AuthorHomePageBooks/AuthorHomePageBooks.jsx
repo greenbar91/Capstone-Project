@@ -11,6 +11,8 @@ import "./AuthorHomePageBooks.css";
 import { IoMdAddCircle } from "react-icons/io";
 
 import StarRating from "../StarRating/StarRating";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal";
 
 function AuthorHomePageBooks() {
   const dispatch = useDispatch();
@@ -46,20 +48,12 @@ function AuthorHomePageBooks() {
     navigate(`/books/my_books/edit/${book.id}`);
   };
 
-  const handleDeleteClick = (bookId) => {
-    dispatch(deleteBookThunk(bookId));
-  };
-
   const handleAddChapterNavClick = (bookId) => {
     navigate(`/books/my_books/add_chapter/${bookId}`);
   };
 
   const handleEditChapterClick = (bookId, chapterId) => {
     navigate(`/books/my_books/${bookId}/edit_chapter/${chapterId}`);
-  };
-
-  const handleDeleteChapterClick = (chapterId) => {
-    dispatch(deleteChapterThunk(bookId, chapterId));
   };
 
   const getAverageRating = (reviews) => {
@@ -131,14 +125,17 @@ function AuthorHomePageBooks() {
                     >
                       Edit
                     </button>
-
-                    <button
-                      className="author-page-delete-buttons"
-                      style={{ backgroundColor: "red" }}
-                      onClick={() => handleDeleteClick(book.id)}
-                    >
-                      Delete
-                    </button>
+                    <div className="author-page-delete-buttons">
+                      <OpenModalButton
+                        buttonText={"Delete"}
+                        modalComponent={
+                          <DeleteConfirmModal
+                            identifiers={book.id}
+                            deleteAction={deleteBookThunk}
+                          />
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
               );
@@ -209,13 +206,17 @@ function AuthorHomePageBooks() {
                     >
                       Edit
                     </button>
-                    <button
-                      className="author-page-delete-buttons"
-                      onClick={() => handleDeleteChapterClick(chapter.id)}
-                      style={{ backgroundColor: "red", border: "none" }}
-                    >
-                      Delete
-                    </button>
+                    <div className="author-page-delete-buttons">
+                      <OpenModalButton
+                        buttonText={"Delete"}
+                        modalComponent={
+                          <DeleteConfirmModal
+                            identifiers={{ bookId, chapterId: chapter.id }}
+                            deleteAction={deleteChapterThunk}
+                          />
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
