@@ -1,0 +1,28 @@
+.tags-container{
+    background-color: #eff3f8;
+    font-size: 14px;
+    padding: 20px;
+}
+
+.submit-tags-container{
+    display: flex;
+    justify-content: center;
+}
+
+.submit-tags-container button{
+    width: 150px;
+    height: 35px;
+    background-color: #3c84c3;
+    border: 1px solid #e5e5e5;
+    color: white;
+    cursor: pointer;
+}
+
+.submit-tags-container button:hover{
+
+    background-color:  #456e96
+}
+.submit-tags-container button:disabled{
+    background-color:  #a0bcd4;
+    cursor:not-allowed
+}

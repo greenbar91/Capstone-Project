@@ -37,3 +37,32 @@
 .review-button button:hover{
   background-color: rgb(232, 63, 71) !important;
 }
+
+.review-edit-delete-buttons {
+  display: flex;
+  justify-content: end;
+  padding-top: 20px;
+
+}
+
+.review-edit-delete-buttons button{
+  width: 60px;
+  padding: 10px;
+  background-color: #3c84c3;
+  color: white;
+  border: none;
+
+  cursor: pointer;
+}
+
+.review-edit-delete-buttons button:hover{
+  background-color: #3b96e5;
+}
+
+.review-delete-button{
+  background-color: red !important;
+}
+
+.review-delete-button:hover{
+  background-color: rgb(211, 58, 58) !important;
+}

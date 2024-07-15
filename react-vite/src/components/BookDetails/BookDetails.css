@@ -81,3 +81,7 @@
   font-size: 13px;
 }
 
+.start-reading-button button:hover{
+  background-color: #4f7eae !important;
+ 
+}

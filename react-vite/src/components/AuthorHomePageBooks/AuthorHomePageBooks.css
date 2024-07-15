@@ -1,63 +1,60 @@
-.author-page-books-container{
-    background-color: white;
-    margin-top: 20px;
-    cursor: default;
+.author-page-books-container {
+  background-color: white;
+  margin-top: 20px;
+  cursor: default;
 }
 
-.author-books-container{
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    text-align: center;
-    flex-wrap: wrap;
-
+.author-books-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
-.add-book-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    padding-bottom: 30px;
-    color: #2A3642
+.add-book-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  padding-bottom: 30px;
+  color: #2a3642;
 }
 
-.author-book-buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    padding-left: 20px;
+.author-book-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  padding-left: 20px;
 }
 
-
-.author-book-buttons button{
-    width: 50px;
-    padding: 5px;
-    background-color: #3c84c3;
-    color: white;
-    border: none;
-    /* border-right: 1px solid #949494;
+.author-book-buttons button {
+  width: 50px;
+  padding: 5px;
+  background-color: #3c84c3;
+  color: white;
+  border: none;
+  /* border-right: 1px solid #949494;
     border-left: 1px solid #6e6e6e; */
-    cursor: pointer;
-    margin-right: 10px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
-
-.author-chapters-container{
-    background-color: white;
-    margin-top: 20px;
-    cursor: default;
+.author-chapters-container {
+  background-color: white;
+  margin-top: 20px;
+  cursor: default;
 }
 
-.author-page-delete-buttons:hover{
-    background-color: rgb(200, 56, 56) !important;
+.author-page-delete-buttons:hover {
+  background-color: rgb(200, 56, 56) !important;
 }
 
-.author-page-edit-buttons:hover{
-    background-color: #1b77c7 !important;
+.author-page-edit-buttons:hover {
+  background-color: #1b77c7 !important;
 }
 
-.add-circle-button:hover{
-    color: #3c84c3 !important;
+.add-circle-button:hover {
+  color: #3c84c3 !important;
 }

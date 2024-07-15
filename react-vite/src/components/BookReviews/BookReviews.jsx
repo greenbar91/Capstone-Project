@@ -96,7 +96,7 @@ function BookReviews({ bookId }) {
                 >
                   BY
                 </h5>
-                <div style={{ fontSize: "13px" }}>{review.username}</div>
+                <div style={{ fontSize: "14px", color:"#456e96", fontWeight:"bold" }}>{review.username}</div>
               </div>
               <div
                 style={{
@@ -108,16 +108,19 @@ function BookReviews({ bookId }) {
                 {getTimeAgo(review.created_at)}
               </div>
             </div>
-            <div>{review.body}</div>
+            <div style={{fontSize:"14px"}}>{review.body}</div>
             {user && user.id === review.user_id && (
-              <div style={{ padding: "20px" }}>
+              <div className="review-edit-delete-buttons" >
+                <div style={{paddingRight:"10px"}}>
+
                 <OpenModalButton
                   buttonText={"Edit"}
                   modalComponent={
                     <ReviewModal type="Edit" review={review} bookId={bookId} />
                   }
                 />
-                <button onClick={() => handleDeleteReviewClick(review.id)}>
+                </div>
+                <button className="review-delete-button" onClick={() => handleDeleteReviewClick(review.id)}>
                   Delete
                 </button>
               </div>

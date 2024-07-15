@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { csrfFetch } from "../../redux/csrf";
+import "./Tags.css";
 
 const Tags = ({ type }) => {
   const { bookId } = useParams();
@@ -98,28 +99,40 @@ const Tags = ({ type }) => {
   };
 
   return (
-    <div>
+    <div className="tags-container">
+      <h2 style={{ padding: "20px", textAlign: "center" }}>
+        Choose up to 3 tags
+      </h2>
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: "10px",
+          padding: "5px",
         }}
       >
         {allTags.map((tag) => (
           <label key={tag}>
-            <input
-              type="checkbox"
-              checked={selectedTags.includes(tag)}
-              onChange={() => handleToggle(tag)}
-            />
-            {tag}
+            <div style={{ padding: "5px" }}>
+              <input
+                type="checkbox"
+                checked={selectedTags.includes(tag)}
+                onChange={() => handleToggle(tag)}
+              />{" "}
+              {tag}
+            </div>
           </label>
         ))}
       </div>
-      <button type="submit" onClick={handleSubmit}>
-        Submit
-      </button>
+      <div className="submit-tags-container">
+        <button
+          disabled={selectedTags.length > 3}
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 };

@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import "./AuthorHomePageBooks.css";
 import { IoMdAddCircle } from "react-icons/io";
 
+import StarRating from "../StarRating/StarRating";
+
 function AuthorHomePageBooks() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -60,6 +62,15 @@ function AuthorHomePageBooks() {
     dispatch(deleteChapterThunk(bookId, chapterId));
   };
 
+  const getAverageRating = (reviews) => {
+    if (!reviews || reviews.length === 0) return 0;
+    const totalRating = reviews.reduce(
+      (acc, review) => acc + review.star_rating,
+      0
+    );
+    return totalRating / reviews.length;
+  };
+
   return (
     <div>
       <div className="author-page-books-container">
@@ -75,31 +86,66 @@ function AuthorHomePageBooks() {
         </h3>
         <div className="author-books-container">
           {userBooks &&
-            userBooks.map((book) => (
-              <div key={book.id} className="author-book">
-                <img
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleBookClick(book.id)}
-                  src={book.cover_art}
-                />
-                <h5
-                  style={{ cursor: "pointer", fontSize: "12px" }}
-                  onClick={() => handleBookClick(book.id)}
-                >
-                  {book.title}
-                </h5>
-                <div className="author-book-buttons">
-                  <button className="author-page-edit-buttons" onClick={() => handleEditClick(book)}>Edit</button>
+            userBooks.map((book) => {
+              const averageRating = getAverageRating(book.reviews);
 
-                  <button className="author-page-delete-buttons" style={{backgroundColor:"red"}} onClick={() => handleDeleteClick(book.id)}>
-                    Delete
-                  </button>
+              return (
+                <div key={book.id} className="author-book">
+                  <h5
+                    style={{
+                      cursor: "pointer",
+                      fontSize: "12px",
+                      padding: "5px",
+                    }}
+                    onClick={() => handleBookClick(book.id)}
+                  >
+                    {book.title}
+                  </h5>
+                  <img
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleBookClick(book.id)}
+                    src={book.cover_art}
+                  />
+                  <div className="tag-container">
+                    {book.tags.map((tag) => (
+                      <div key={tag.id} className="tag">
+                        {tag.tag_name}
+                      </div>
+                    ))}
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginBottom: "20px",
+                      fontSize: "20px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <StarRating rating={averageRating} />
+                  </div>
+                  <div className="author-book-buttons">
+                    <button
+                      className="author-page-edit-buttons"
+                      onClick={() => handleEditClick(book)}
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      className="author-page-delete-buttons"
+                      style={{ backgroundColor: "red" }}
+                      onClick={() => handleDeleteClick(book.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           <div className="add-book-button">
             <IoMdAddCircle
-            className="add-circle-button"
+              className="add-circle-button"
               style={{ cursor: "pointer" }}
               title="Add a new book"
               onClick={handleAddBookNavClick}
@@ -143,25 +189,30 @@ function AuthorHomePageBooks() {
                   fontWeight: "bold",
                   fontSize: "15px",
                   padding: "10px",
-                  paddingRight:"50px"
+                  paddingRight: "50px",
                 }}
-              >Edit/Delete Chapters</h2>
+              >
+                Edit/Delete Chapters
+              </h2>
             </div>
             {chapters.map((chapter) => (
               <div key={chapter.id} className="chapters-container">
                 <div className="chapter-title">{chapter.title}</div>
                 <div className="chapter-release-date">
-                  <div className="author-book-buttons" style={{paddingRight:"50px"}}>
+                  <div
+                    className="author-book-buttons"
+                    style={{ paddingRight: "50px" }}
+                  >
                     <button
-                    className="author-page-edit-buttons"
+                      className="author-page-edit-buttons"
                       onClick={() => handleEditChapterClick(bookId, chapter.id)}
                     >
                       Edit
                     </button>
                     <button
-                    className="author-page-delete-buttons"
+                      className="author-page-delete-buttons"
                       onClick={() => handleDeleteChapterClick(chapter.id)}
-                      style={{backgroundColor:"red", border:"none"}}
+                      style={{ backgroundColor: "red", border: "none" }}
                     >
                       Delete
                     </button>
@@ -170,15 +221,27 @@ function AuthorHomePageBooks() {
               </div>
             ))}
             {bookId && (
-              <div className="add-book-button" style={{padding:"20px", justifyContent:"start", fontSize:"32px"}}>
-
-                <IoMdAddCircle className="add-circle-button" style={{cursor:"pointer"}} title="Add a new chapter" onClick={() => handleAddChapterNavClick(bookId)}>  </IoMdAddCircle>
+              <div
+                className="add-book-button"
+                style={{
+                  padding: "20px",
+                  justifyContent: "start",
+                  fontSize: "32px",
+                }}
+              >
+                <IoMdAddCircle
+                  className="add-circle-button"
+                  style={{ cursor: "pointer" }}
+                  title="Add a new chapter"
+                  onClick={() => handleAddChapterNavClick(bookId)}
+                >
+                  {" "}
+                </IoMdAddCircle>
               </div>
             )}
           </div>
         )}
       </div>
-
     </div>
   );
 }

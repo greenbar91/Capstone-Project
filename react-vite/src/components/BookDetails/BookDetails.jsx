@@ -95,7 +95,7 @@ const BookDetails = () => {
                 <StarRating rating={averageRating}/>
 
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div className="start-reading-button" style={{ display: "flex", justifyContent: "center" }}>
                 <button
                   onClick={handleStartReadingClick}
                   style={{
