@@ -19,8 +19,8 @@ def get_chapters_by_book_id(bookId):
 
     chapters = Chapter.query.filter_by(book_id=bookId).all()
 
-    if not chapters:
-        return jsonify({"errors":"Chapters not found"}),404
+    # if not chapters:
+    #     return jsonify({"errors":"Chapters not found"}),404
 
     chapter_list = []
 
