@@ -93,7 +93,7 @@ function ChapterDetails() {
           <button className="index-button" onClick={handleBackToIndexClick}>
             Back to Index
           </button>
-          <button className="donate-button">Donate</button>
+          {/* <button className="donate-button">Donate</button> */}
         </div>
       </div>
 

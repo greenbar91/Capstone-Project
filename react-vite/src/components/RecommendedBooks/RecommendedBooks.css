@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   position: relative;
-
 }
 
 .books-container {
@@ -11,7 +10,6 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-
 }
 
 .books-list {
@@ -35,10 +33,9 @@
   cursor: pointer;
   width: 30px;
   height: 30px;
-
 }
 
-.io-arrows:hover{
+.io-arrows:hover {
   box-shadow: none;
 }
 

@@ -1,8 +1,9 @@
 .recently-updated-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
   height: 100%;
+  overflow: hidden;
 }
 
 .recent-books-container {
