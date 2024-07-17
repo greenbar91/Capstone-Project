@@ -17,7 +17,7 @@
 .nav-home-link {
   text-align: center;
   width: 47%;
-  height: 5vh;
+  height: 5%;
 }
 
 .nav-home-container {
@@ -27,7 +27,7 @@
 }
 
 .nav-bar {
-  height: 5vh;
+  height: 5%;
   background-color: #2a3642;
   color: white;
   width: 100vw;

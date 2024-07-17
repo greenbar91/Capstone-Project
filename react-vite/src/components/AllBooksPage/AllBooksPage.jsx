@@ -44,7 +44,7 @@ function AllBooksPage() {
               <div>{book.author_name}</div>
             </div>
             <div className="book-cover">
-              <img src={book.cover_art} alt={`${book.title} cover`} />
+              <img className="book-cover-art" src={book.cover_art} alt={`${book.title} cover`} />
             </div>
             <div
               className="tag-container"

@@ -82,7 +82,7 @@ function ReviewModal({ type, review, bookId }) {
         <div
           style={{ display: "flex", justifyContent: "center", padding: "10px" }}
         >
-          <button className="leave-review-button" disabled={!body} type="submit">
+          <button className="leave-review-button" disabled={!body.trim().length} type="submit">
             {type === "Create" ? "Submit Review" : "Update Review"}
           </button>
         </div>

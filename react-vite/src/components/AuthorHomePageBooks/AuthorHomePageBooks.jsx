@@ -65,6 +65,15 @@ function AuthorHomePageBooks() {
     return totalRating / reviews.length;
   };
 
+  const handleDeleteBook = (bookId) => {
+    dispatch(deleteBookThunk(bookId));
+    setBookId(null);
+  };
+
+  const handleDeleteChapter = (bookId, chapterId) => {
+    dispatch(deleteChapterThunk(bookId, chapterId));
+  };
+
   return (
     <div>
       <div className="author-page-books-container">
@@ -73,7 +82,8 @@ function AuthorHomePageBooks() {
             padding: "10px",
             backgroundColor: "#2A3642",
             color: "white",
-            marginBottom: "10px",
+            marginBottom: "10px"
+            , borderRadius:".5rem"
           }}
         >
           Books
@@ -96,6 +106,7 @@ function AuthorHomePageBooks() {
                     {book.title}
                   </h5>
                   <img
+                    className="book-cover-art"
                     style={{ cursor: "pointer" }}
                     onClick={() => handleBookClick(book.id)}
                     src={book.cover_art}
@@ -130,8 +141,7 @@ function AuthorHomePageBooks() {
                         buttonText={"Delete"}
                         modalComponent={
                           <DeleteConfirmModal
-                            identifiers={book.id}
-                            deleteAction={deleteBookThunk}
+                            handleDelete={() => handleDeleteBook(book.id)}
                           />
                         }
                       />
@@ -156,7 +166,7 @@ function AuthorHomePageBooks() {
             padding: "10px",
             backgroundColor: "#2A3642",
             color: "white",
-            marginBottom: "10px",
+            marginBottom: "10px", borderRadius:".5rem"
           }}
         >
           Chapters
@@ -196,10 +206,7 @@ function AuthorHomePageBooks() {
               <div key={chapter.id} className="chapters-container">
                 <div className="chapter-title">{chapter.title}</div>
                 <div className="chapter-release-date">
-                  <div
-                    className="author-book-buttons"
-                    style={{ paddingRight: "50px" }}
-                  >
+                  <div className="author-book-buttons">
                     <button
                       className="author-page-edit-buttons"
                       onClick={() => handleEditChapterClick(bookId, chapter.id)}
@@ -208,11 +215,13 @@ function AuthorHomePageBooks() {
                     </button>
                     <div className="author-page-delete-buttons">
                       <OpenModalButton
+                        //  onModalClose={setBookId(null)}
                         buttonText={"Delete"}
                         modalComponent={
                           <DeleteConfirmModal
-                            identifiers={{ bookId, chapterId: chapter.id }}
-                            deleteAction={deleteChapterThunk}
+                            handleDelete={() =>
+                              handleDeleteChapter(bookId, chapter.id)
+                            }
                           />
                         }
                       />

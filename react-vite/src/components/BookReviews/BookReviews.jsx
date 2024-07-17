@@ -23,9 +23,9 @@ function BookReviews({ bookId }) {
     dispatch(getAllReviewsThunk(bookId));
   }, [bookId, dispatch]);
 
-  // const handleDeleteReviewClick = (reviewId) => {
-  //   dispatch(deleteReviewThunk(bookId, reviewId));
-  // };
+  const handleDeleteReviewClick = (reviewId) => {
+    dispatch(deleteReviewThunk(bookId, reviewId));
+  };
 
   const getTimeAgo = (createdAt) => {
     return formatDistanceToNow(new Date(createdAt), { addSuffix: true });
@@ -137,8 +137,7 @@ function BookReviews({ bookId }) {
                     buttonText={"Delete"}
                     modalComponent={
                       <DeleteConfirmModal
-                        identifiers={{ bookId, reviewId: review.id }}
-                        deleteAction={deleteReviewThunk}
+                        handleDelete={()=> handleDeleteReviewClick(review.id)}
                       />
                     }
                   />

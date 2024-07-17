@@ -38,6 +38,10 @@ function Comments({ chapterId }) {
     return formatDistanceToNow(new Date(createdAt), { addSuffix: true });
   };
 
+  const handleDeleteComment = (commentId) => {
+    dispatch(deleteCommentThunk(chapterId, commentId))
+  }
+
   return (
     <div className="comments-container">
       {user && (
@@ -112,8 +116,7 @@ function Comments({ chapterId }) {
                         buttonText={"Delete"}
                         modalComponent={
                           <DeleteConfirmModal
-                            identifiers={{ chapterId, commentId: comment.id }}
-                            deleteAction={deleteCommentThunk}
+                            handleDelete={()=> handleDeleteComment(comment.id)}
                           />
                         }
                       />

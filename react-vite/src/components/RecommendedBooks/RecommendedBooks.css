@@ -1,11 +1,13 @@
 .recommended-books {
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
+  /* border-radius: .5rem; */
 }
 
 .books-container {
-  display: flex;
+  /* display: flex; */
   overflow: hidden;
   width: 100%;
   justify-content: center;
@@ -25,14 +27,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
 }
 
 .io-arrows {
   background: none;
   border: none;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .io-arrows:hover {
@@ -53,3 +56,31 @@
 .io-arrows-button.right {
   right: 0;
 }
+
+.recommended-books-title-text{
+  word-wrap: break-word;
+  width: 6rem;
+  text-align: center;
+}
+
+/* .loading-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  width: 100%;
+}
+
+.spinner {
+  font-size: 2rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */

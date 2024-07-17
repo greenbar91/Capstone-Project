@@ -1,7 +1,8 @@
-.signup-container{
+.signup-container {
   width: 90%;
-  height: 100%;
+  max-height: 100%;
   padding: 30px;
+  /* overflow-y: auto; */
 }
 
 .signup-header-title{
@@ -14,6 +15,7 @@
 .signup-form-container{
   background-color: #eff3f8;
   padding: 20px;
+  overflow-y: auto;
 }
 
 
@@ -25,13 +27,15 @@
 
   .profile-pic-options {
     display: grid;
-    grid-template-columns: repeat(5, 110px);
+    grid-template-columns: repeat(7, 1fr);
+
+    padding-bottom: 10px;
     grid-gap: 10px;
   }
 
   .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 4rem;
+    height: 4rem;
     cursor: pointer;
     transition: transform 0.2s, border 0.2s;
     border-radius: 8px;

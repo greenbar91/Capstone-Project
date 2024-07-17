@@ -13,8 +13,8 @@
 
   .books-grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
   }
 
   .book-item {
@@ -41,9 +41,11 @@
     padding: 5px;
   }
 
-  .book-cover img {
-    max-width: 100%;
-    height: auto;
+  .book-cover-art {
+    height: 10rem;
+    width: 6.25rem;
+    /* max-width: 100%; */
+    /* height: auto; */
     display: block;
     margin: 0 auto;
   }

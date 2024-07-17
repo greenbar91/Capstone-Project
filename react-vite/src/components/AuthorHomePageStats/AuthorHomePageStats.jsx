@@ -42,7 +42,8 @@ function AuthorHomePageStats() {
 
     userChapters?.forEach((chapter) => {
       if (chapter.body) {
-        wordCount += chapter.body.split(" ").length;
+        const words = chapter.body.split(" ").filter(word => word.trim().length > 0);
+        wordCount += words.length;
       }
     });
 
@@ -88,7 +89,7 @@ function AuthorHomePageStats() {
   return (
     <div>
       <div className="author-page-header">
-        <h2 style={{padding:"30px"}}>Author Dashboard</h2>
+        <h1 style={{padding:"30px"}}>Author Dashboard</h1>
       </div>
       <div className="author-stats-container">
         <div className="author-stats">
@@ -97,6 +98,7 @@ function AuthorHomePageStats() {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
+              
             }}
           >
             <FaBook style={{ paddingRight: "5px", fontSize: "24px" }} />

@@ -2,6 +2,7 @@
   background-color: white;
   margin-top: 20px;
   cursor: default;
+  border-radius: .5rem;
 }
 
 .author-books-container {
@@ -43,6 +44,7 @@
   background-color: white;
   margin-top: 20px;
   cursor: default;
+  border-radius: .5rem;
 }
 
 .author-page-delete-buttons button {

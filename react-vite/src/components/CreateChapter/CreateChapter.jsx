@@ -19,6 +19,17 @@ function CreateChapter() {
     navigate(`/books/my_books`);
   };
 
+  const isFormValid = () => {
+    const trimmedTitle = chapterTitle.trim();
+    const trimmedContent = chapterContent.trim();
+    return (
+      trimmedTitle.length > 0 &&
+      trimmedContent.length > 0 &&
+      trimmedTitle.length <= 255 &&
+      trimmedContent.length <= 20000
+    );
+  };
+
   return (
     <div className="create-update-chapter-container">
       <h2 className="create-update-chapter-header">Add a new chapter</h2>
@@ -43,10 +54,7 @@ function CreateChapter() {
         <div className="create-update-chapter-button-container">
           <button
             disabled={
-              !chapterTitle ||
-              !chapterContent ||
-              chapterTitle.length > 255 ||
-              chapterContent.length > 20000
+              !isFormValid()
             }
             type="submit"
           >

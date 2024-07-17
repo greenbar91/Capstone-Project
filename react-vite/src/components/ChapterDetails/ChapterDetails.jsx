@@ -81,7 +81,7 @@ function ChapterDetails() {
     <div className="chapter-details-container">
       <div className="chapter-header-container">
         <div className="book-cover-art-container">
-          <img src={chapterObject.cover_art} />
+          <img className="book-cover-art" src={chapterObject.cover_art} />
           <StarRating rating={averageRating} />
         </div>
         <header className="book-and-chapter-header-info">

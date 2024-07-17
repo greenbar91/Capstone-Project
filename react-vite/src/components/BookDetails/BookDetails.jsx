@@ -70,7 +70,7 @@ const BookDetails = () => {
               by {book.author_name}
             </h4>
             <div className="book-details-cover-art">
-              <img src={book.cover_art} alt={book.title} />
+              <img className="book-cover-art" src={book.cover_art} alt={book.title} />
             </div>
           </div>
           <div className="book-details-blurb">

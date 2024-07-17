@@ -1,14 +1,11 @@
-import { useDispatch } from 'react-redux';
-import './DeleteConfirmModal.css';
-import { useModal } from '../../context/Modal';
+import { useModal } from "../../context/Modal";
+import "./DeleteConfirmModal.css";
 
-const DeleteConfirmModal = ({ identifiers, deleteAction }) => {
-  const dispatch = useDispatch();
-  const {closeModal} = useModal()
-
+const DeleteConfirmModal = ({ handleDelete }) => {
+  const { closeModal } = useModal();
 
   const handleDeleteClick = () => {
-    dispatch(deleteAction( identifiers ));
+    handleDelete();
     closeModal();
   };
 
