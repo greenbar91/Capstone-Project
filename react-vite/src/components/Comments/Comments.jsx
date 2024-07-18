@@ -37,6 +37,7 @@ function Comments({ chapterId }) {
       };
       dispatch(postCommentThunk(chapterId, newComment));
       setBody("");
+      setErrors({})
     } else {
       setErrors(newErrors);
     }
