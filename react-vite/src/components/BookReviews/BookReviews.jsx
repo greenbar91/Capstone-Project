@@ -11,11 +11,15 @@ import "./BookReviews.css";
 import { formatDistanceToNow } from "date-fns";
 import StarRating from "../StarRating/StarRating.jsx";
 import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal.jsx";
+import { selectAllBooks } from "../../redux/book.js";
 
 function BookReviews({ bookId }) {
   const dispatch = useDispatch();
   const reviews = useSelector(selectAllReviews);
   const user = useSelector((state) => state.session.user);
+  const books = useSelector(selectAllBooks)
+  const selectedBook = books[bookId]
+
 
   // const userHasReviewed = reviews.some((review) => review.user_id === user?.id);
 
@@ -33,7 +37,7 @@ function BookReviews({ bookId }) {
 
   return (
     <div className="reviews">
-      {user && !reviews.some((review) => review.user_id === user?.id) && (
+      {user && !reviews.some((review) => review.user_id === user?.id) && !(selectedBook?.author_id === user?.id) &&  (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div
             className="review-button"
@@ -48,7 +52,7 @@ function BookReviews({ bookId }) {
               marginBottom: "10px",
             }}
           >
-            {user && !reviews.some((review) => review.user_id === user?.id) && (
+            {user && !reviews.some((review) => review.user_id === user?.id) &&  (
               <OpenModalButton
                 buttonText={"Leave a Review"}
                 modalComponent={<ReviewModal type="Create" bookId={bookId} />}
@@ -74,7 +78,7 @@ function BookReviews({ bookId }) {
       {reviews.map((review) => (
         <div className="reviews-container" key={review.id}>
           <div className="review-user">
-            <img src={review.profile_pic} />
+            <img src={review.profile_pic} style={{width:"5rem", height:"auto"}} />
             <div>
               <StarRating rating={review.star_rating} />
             </div>

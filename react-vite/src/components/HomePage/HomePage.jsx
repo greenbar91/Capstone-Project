@@ -20,10 +20,10 @@ export default function HomePage() {
   return (
     <div className="home-page-container">
       <div className="newsfeed-grid-container"><NewsFeed/> </div>
-      {user ? (<div className="recommended-books-grid-container"><h2 style={{ textAlign: "center", backgroundColor: "#2a3642", color:"white", borderRadius:".5rem" }}>Recommended books for you</h2><RecommendedBooks type="recommended"/> </div>): <div className="adds-for-lurkers"></div>}
-      <div className="popular-books-grid-container"><h2 style={{ textAlign: "center", backgroundColor: "#2a3642" , color:"white", borderRadius:".5rem"}}>Popular books</h2><RecommendedBooks type="popular"/> </div>
-      <div className="recently-updated-grid-container"><h2 style={{ textAlign: "center", backgroundColor: "#2a3642" , color:"white", borderRadius:".5rem"}}>Recently updated</h2><RecentlyUpdatedBooks/> </div>
-      <div className="heavily-discussed-grid-container"><h2 style={{ textAlign: "center", backgroundColor: "#2a3642" , color:"white", borderRadius:".5rem"}}>Heavily discussed</h2><HeavilyDiscussedBooks/> </div>
+      {user ? (<div className="recommended-books-grid-container"><h2 style={{ textAlign: "center", backgroundColor: "#2a3642", color:"white", borderTopLeftRadius:".5rem", borderTopRightRadius:".5rem" }}>Recommended books for you</h2><RecommendedBooks type="recommended"/> </div>): <div className="adds-for-lurkers"></div>}
+      <div className="popular-books-grid-container"><h2 style={{ textAlign: "center", backgroundColor: "#2a3642" , color:"white", borderTopLeftRadius:".5rem", borderTopRightRadius:".5rem"}}>Popular books</h2><RecommendedBooks type="popular"/> </div>
+      <div className="recently-updated-grid-container"><h2 style={{ textAlign: "center", backgroundColor: "#2a3642" , color:"white", borderTopLeftRadius:".5rem", borderTopRightRadius:".5rem"}}>Recently updated</h2><RecentlyUpdatedBooks/> </div>
+      <div className="heavily-discussed-grid-container"><h2 style={{ textAlign: "center", backgroundColor: "#2a3642" , color:"white", borderTopLeftRadius:".5rem", borderTopRightRadius:".5rem"}}>Heavily discussed</h2><HeavilyDiscussedBooks/> </div>
 
     </div>
   );

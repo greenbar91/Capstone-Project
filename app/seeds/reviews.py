@@ -6,7 +6,7 @@ def seed_reviews():
    review_data = [
     {
         "book_id": 1,
-        "user_id": 1,
+        "user_id": 11,
         "body": "Dragons of Ansalon is a thrilling epic that dives deep into political intrigue and ancient prophecies. The characters Kara and Lorien are compelling, and their journey is filled with suspense and bravery.",
         "star_rating": 5,
         "created_at": "2020-06-19T15:45:30Z"

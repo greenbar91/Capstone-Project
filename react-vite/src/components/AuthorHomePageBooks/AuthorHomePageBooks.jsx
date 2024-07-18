@@ -83,7 +83,7 @@ function AuthorHomePageBooks() {
             backgroundColor: "#2A3642",
             color: "white",
             marginBottom: "10px"
-            , borderRadius:".5rem"
+            , borderTopLeftRadius:".5rem", borderTopRightRadius:".5rem"
           }}
         >
           Books
@@ -166,7 +166,7 @@ function AuthorHomePageBooks() {
             padding: "10px",
             backgroundColor: "#2A3642",
             color: "white",
-            marginBottom: "10px", borderRadius:".5rem"
+            marginBottom: "10px", borderTopLeftRadius:".5rem", borderTopRightRadius:".5rem"
           }}
         >
           Chapters

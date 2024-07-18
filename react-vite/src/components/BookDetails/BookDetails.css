@@ -33,6 +33,7 @@
   color: white;
   /* height: 90%; */
   padding-bottom: 20px;
+  border-radius: 1rem;
 }
 .book-details-blurb {
   grid-area: 2 / 1 / 4 / 7;
@@ -83,5 +84,5 @@
 
 .start-reading-button button:hover{
   background-color: #4f7eae !important;
- 
+
 }

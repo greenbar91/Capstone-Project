@@ -88,7 +88,7 @@ function Navigation() {
                 <p style={{ color: "white", paddingLeft: "5px", fontWeight:"bold" }}>Write</p>
               </div>
             )}
-            <div
+            {/* <div
               className="search-bar"
               style={{
                 gridColumn: "12/13",
@@ -101,7 +101,7 @@ function Navigation() {
               }}
             >
               <input placeholder="Search title..."></input>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

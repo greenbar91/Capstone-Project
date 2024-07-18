@@ -11,6 +11,7 @@
 .review-user {
   grid-area: 1 / 1 / 2 / 2;
   padding: 20px;
+  text-align: center;
 }
 .review-body {
   grid-area: 1 / 2 / 2 / 9;
