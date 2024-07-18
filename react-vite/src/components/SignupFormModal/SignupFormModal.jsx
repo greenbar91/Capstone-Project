@@ -62,8 +62,8 @@ function SignupFormModal() {
       setErrors(serverResponse);
     } else {
       closeModal();
+      navigate(``)
     }
-    navigate(``)
   };
 
   const handleProfilePicSelect = (pic) => {

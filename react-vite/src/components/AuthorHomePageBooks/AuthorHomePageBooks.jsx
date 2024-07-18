@@ -13,12 +13,14 @@ import { IoMdAddCircle } from "react-icons/io";
 import StarRating from "../StarRating/StarRating";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal";
+import { FaSpinner } from "react-icons/fa";
 
 function AuthorHomePageBooks() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [bookId, setBookId] = useState(null);
   const [userBooks, setUserBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
   const chapters = useSelector(selectAllChapters);
   const books = useSelector(selectAllBooks);
 
@@ -29,6 +31,7 @@ function AuthorHomePageBooks() {
       if (res.ok) {
         const data = await res.json();
         setUserBooks(data.Books);
+        setLoading(false);
       }
     };
 
@@ -82,83 +85,90 @@ function AuthorHomePageBooks() {
             padding: "10px",
             backgroundColor: "#2A3642",
             color: "white",
-            marginBottom: "10px"
-            , borderTopLeftRadius:".5rem", borderTopRightRadius:".5rem"
+            marginBottom: "10px",
+            borderTopLeftRadius: ".5rem",
+            borderTopRightRadius: ".5rem",
           }}
         >
           Books
         </h3>
-        <div className="author-books-container">
-          {userBooks &&
-            userBooks.map((book) => {
-              const averageRating = getAverageRating(book.reviews);
+        {loading ? (
+          <div className="loading-circle">
+            <FaSpinner className="spinner" />
+          </div>
+        ) : (
+          <div className="author-books-container">
+            {userBooks &&
+              userBooks.map((book) => {
+                const averageRating = getAverageRating(book.reviews);
 
-              return (
-                <div key={book.id} className="author-book">
-                  <h5
-                    style={{
-                      cursor: "pointer",
-                      fontSize: "12px",
-                      padding: "5px",
-                    }}
-                    onClick={() => handleBookClick(book.id)}
-                  >
-                    {book.title}
-                  </h5>
-                  <img
-                    className="book-cover-art"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleBookClick(book.id)}
-                    src={book.cover_art}
-                  />
-                  <div className="tag-container">
-                    {book.tags.map((tag) => (
-                      <div key={tag.id} className="tag">
-                        {tag.tag_name}
-                      </div>
-                    ))}
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      marginBottom: "20px",
-                      fontSize: "20px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <StarRating rating={averageRating} />
-                  </div>
-                  <div className="author-book-buttons">
-                    <button
-                      className="author-page-edit-buttons"
-                      onClick={() => handleEditClick(book)}
+                return (
+                  <div key={book.id} className="author-book">
+                    <h5
+                      style={{
+                        cursor: "pointer",
+                        fontSize: "12px",
+                        padding: "5px",
+                      }}
+                      onClick={() => handleBookClick(book.id)}
                     >
-                      Edit
-                    </button>
-                    <div className="author-page-delete-buttons">
-                      <OpenModalButton
-                        buttonText={"Delete"}
-                        modalComponent={
-                          <DeleteConfirmModal
-                            handleDelete={() => handleDeleteBook(book.id)}
-                          />
-                        }
-                      />
+                      {book.title}
+                    </h5>
+                    <img
+                      className="book-cover-art"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleBookClick(book.id)}
+                      src={book.cover_art}
+                    />
+                    <div className="tag-container">
+                      {book.tags.map((tag) => (
+                        <div key={tag.id} className="tag">
+                          {tag.tag_name}
+                        </div>
+                      ))}
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginBottom: "20px",
+                        fontSize: "20px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <StarRating rating={averageRating} />
+                    </div>
+                    <div className="author-book-buttons">
+                      <button
+                        className="author-page-edit-buttons"
+                        onClick={() => handleEditClick(book)}
+                      >
+                        Edit
+                      </button>
+                      <div className="author-page-delete-buttons">
+                        <OpenModalButton
+                          buttonText={"Delete"}
+                          modalComponent={
+                            <DeleteConfirmModal
+                              handleDelete={() => handleDeleteBook(book.id)}
+                            />
+                          }
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          <div className="add-book-button">
-            <IoMdAddCircle
-              className="add-circle-button"
-              style={{ cursor: "pointer" }}
-              title="Add a new book"
-              onClick={handleAddBookNavClick}
-            ></IoMdAddCircle>
+                );
+              })}
+            <div className="add-book-button">
+              <IoMdAddCircle
+                className="add-circle-button"
+                style={{ cursor: "pointer" }}
+                title="Add a new book"
+                onClick={handleAddBookNavClick}
+              ></IoMdAddCircle>
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <div className="author-chapters-container">
         <h3
@@ -166,7 +176,9 @@ function AuthorHomePageBooks() {
             padding: "10px",
             backgroundColor: "#2A3642",
             color: "white",
-            marginBottom: "10px", borderTopLeftRadius:".5rem", borderTopRightRadius:".5rem"
+            marginBottom: "10px",
+            borderTopLeftRadius: ".5rem",
+            borderTopRightRadius: ".5rem",
           }}
         >
           Chapters
@@ -177,7 +189,6 @@ function AuthorHomePageBooks() {
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                // padding: "10px",
                 borderBottom: "2px solid #E5E5E5",
               }}
             >
@@ -215,7 +226,6 @@ function AuthorHomePageBooks() {
                     </button>
                     <div className="author-page-delete-buttons">
                       <OpenModalButton
-                        //  onModalClose={setBookId(null)}
                         buttonText={"Delete"}
                         modalComponent={
                           <DeleteConfirmModal
