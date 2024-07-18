@@ -8,7 +8,7 @@ import SignupFormModal from "../SignupFormModal";
 import { useNavigate } from "react-router-dom";
 import "./ProfileButton.css";
 
-function ProfileButton() {
+function ProfileButton({ setLoading }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
@@ -36,9 +36,10 @@ function ProfileButton() {
 
   const closeMenu = () => setShowMenu(false);
 
-  const logout = (e) => {
-    e.preventDefault();
+  const logout = async () => {
+    setLoading(true);
     dispatch(thunkLogout());
+    setLoading(false);
     closeMenu();
     navigate("");
   };
@@ -64,34 +65,25 @@ function ProfileButton() {
               >
                 Author Dashboard
               </li>
-              {/* <li style={{ cursor: "pointer", fontWeight: "bold" }}>
-                Favorites
-              </li> */}
               <li
-                onClick={logout}
                 style={{ cursor: "pointer", fontWeight: "bold" }}
+                onClick={logout}
               >
                 Log Out
               </li>
             </>
           ) : (
             <>
-              <>
-                <OpenModalMenuItem
-                  itemText="Log In"
-                  onItemClick={closeMenu}
-                  modalComponent={<LoginFormModal />}
-                />
-
-              </>
-
-              <>
-                <OpenModalMenuItem
-                  itemText="Sign Up"
-                  onItemClick={closeMenu}
-                  modalComponent={<SignupFormModal />}
-                />
-              </>
+              <OpenModalMenuItem
+                itemText="Log In"
+                onItemClick={closeMenu}
+                modalComponent={<LoginFormModal />}
+              />
+              <OpenModalMenuItem
+                itemText="Sign Up"
+                onItemClick={closeMenu}
+                modalComponent={<SignupFormModal />}
+              />
             </>
           )}
         </ul>

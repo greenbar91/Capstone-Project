@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
@@ -6,6 +7,7 @@ import { useSelector } from "react-redux";
 import { FaPencil } from "react-icons/fa6";
 
 function Navigation() {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const user = useSelector((state) => state.session.user);
 
@@ -32,7 +34,6 @@ function Navigation() {
             </NavLink>
           </div>
         </div>
-        {/* <div className="nav-bar-container"> */}
         <div className="nav-bar">
           <div
             className="nav-bar-buttons"
@@ -54,7 +55,7 @@ function Navigation() {
                 alignItems: "center",
               }}
             >
-              <ProfileButton />
+              <ProfileButton setLoading={setLoading} />
             </div>
             <div
               onClick={handleReadClick}
@@ -90,7 +91,8 @@ function Navigation() {
                   color: "black",
                   justifyContent: "center",
                   textAlign: "center",
-                  cursor: "pointer",
+                  cursor: loading ? "not-allowed" : "pointer",
+                  pointerEvents: loading ? "none" : "auto",
                 }}
                 onClick={handleAuthorClick}
               >
@@ -106,25 +108,10 @@ function Navigation() {
                 </p>
               </div>
             )}
-            {/* <div
-              className="search-bar"
-              style={{
-                gridColumn: "12/13",
-                display: "flex",
-                alignItems: "center",
-                color: "black",
-                justifyContent: "center",
-                textAlign: "center",
-                paddingLeft: "30px",
-              }}
-            >
-              <input placeholder="Search title..."></input>
-            </div> */}
           </div>
         </div>
       </div>
     </div>
-    // </div>
   );
 }
 
