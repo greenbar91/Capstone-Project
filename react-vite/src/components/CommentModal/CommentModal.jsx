@@ -16,13 +16,27 @@ function CommentModal({ comment }) {
   }, [chapter_id, dispatch]);
 
   const [editBody, setEditBody] = useState(body);
+  const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedCommentData = { body: editBody };
-    dispatch(updateCommentThunk(chapter_id, id, updatedCommentData));
-    closeModal();
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length === 0) {
+      const updatedCommentData = { body: editBody.trim() };
+      dispatch(updateCommentThunk(chapter_id, id, updatedCommentData));
+      closeModal();
+    } else {
+      setErrors(newErrors);
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    const trimmedBody = editBody.trim();
+    if (!trimmedBody) newErrors.body = "Comment body is required.";
+    if (trimmedBody.length > 2000) newErrors.body = "Comments can't be longer than 2000 characters.";
+    return newErrors;
   };
 
   return (
@@ -30,13 +44,13 @@ function CommentModal({ comment }) {
       <h2>Edit Comment</h2>
       <form onSubmit={handleSubmit}>
         <div>
-
           <textarea
             value={editBody}
             onChange={(e) => setEditBody(e.target.value)}
-          />
+            />
+            {errors.body && <p className="edit-comment-error-message">{errors.body}</p>}
         </div>
-        <button disabled={!editBody.length} type="submit">Update comment</button>
+        <button type="submit" >Update comment</button>
       </form>
     </div>
   );

@@ -13,8 +13,8 @@ def get_book_reviews(bookId):
 
     reviews = Review.query.filter_by(book_id=bookId).all()
 
-    if not reviews:
-        return jsonify({"errors":"Reviews not found"}), 404
+    # if not reviews:
+    #     return jsonify({"errors":"Reviews not found"}), 404
 
     review_list = []
 

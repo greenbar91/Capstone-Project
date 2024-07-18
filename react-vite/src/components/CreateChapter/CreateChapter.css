@@ -89,3 +89,18 @@
      background-color:  #a0bcd4;
      cursor:not-allowed
  }
+
+ .create-update-chapter-title-container,
+.create-update-chapter-body-container,
+.create-update-chapter-button-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    bottom: 5px;
+    left: 10;
+  }

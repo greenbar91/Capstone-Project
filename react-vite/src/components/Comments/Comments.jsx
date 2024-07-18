@@ -15,23 +15,39 @@ import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal";
 function Comments({ chapterId }) {
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
+  const [errors, setErrors] = useState({});
   const comments = useSelector(selectAllComments);
   const user = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(getChapterCommentsThunk(chapterId));
+    setBody("");
+    setErrors({});
   }, [chapterId, dispatch]);
 
   const handleOnSubmitComment = (e) => {
     e.preventDefault();
-    const newComment = {
-      user_id: user.id,
-      chapter_id: chapterId,
-      body: body,
-      created_at: new Date(),
-    };
-    dispatch(postCommentThunk(chapterId, newComment));
-    setBody("");
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length === 0) {
+      const newComment = {
+        user_id: user.id,
+        chapter_id: chapterId,
+        body: body.trim(),
+        created_at: new Date(),
+      };
+      dispatch(postCommentThunk(chapterId, newComment));
+      setBody("");
+    } else {
+      setErrors(newErrors);
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    const trimmedBody = body.trim();
+    if (!trimmedBody) newErrors.body = "Comment body is required.";
+    if (trimmedBody.length > 2000) newErrors.body = "Comments can't be longer then 2000 characters."
+    return newErrors;
   };
 
   const getTimeAgo = (createdAt) => {
@@ -39,8 +55,8 @@ function Comments({ chapterId }) {
   };
 
   const handleDeleteComment = (commentId) => {
-    dispatch(deleteCommentThunk(chapterId, commentId))
-  }
+    dispatch(deleteCommentThunk(chapterId, commentId));
+  };
 
   return (
     <div className="comments-container">
@@ -58,11 +74,12 @@ function Comments({ chapterId }) {
                 type="text"
                 onChange={(e) => setBody(e.target.value)}
                 className="comment-text-area"
-              />
+                />
             </div>
+                {errors.body && <p className="comment-error-message">{errors.body}</p>}
             <div className="post-comment-button-container">
               <button
-                disabled={body.length === 0}
+
                 className="post-comment-button"
                 type="submit"
               >
@@ -78,7 +95,7 @@ function Comments({ chapterId }) {
             <div className="comment-container" key={comment.id}>
               <div className="comment-user">
                 <div>
-                  <img src={comment.profile_pic} />
+                  <img src={comment.profile_pic} alt="profile" />
                 </div>
                 <div
                   style={{
@@ -105,7 +122,7 @@ function Comments({ chapterId }) {
                 >
                   {getTimeAgo(comment.created_at)}
                 </div>
-                {user && comment.user_id == user.id && (
+                {user && comment.user_id === user.id && (
                   <div className="edit-delete-button-container">
                     <OpenModalButton
                       buttonText={"Edit"}
@@ -116,7 +133,7 @@ function Comments({ chapterId }) {
                         buttonText={"Delete"}
                         modalComponent={
                           <DeleteConfirmModal
-                            handleDelete={()=> handleDeleteComment(comment.id)}
+                            handleDelete={() => handleDeleteComment(comment.id)}
                           />
                         }
                       />

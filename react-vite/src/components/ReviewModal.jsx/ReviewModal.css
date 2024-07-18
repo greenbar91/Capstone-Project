@@ -32,6 +32,10 @@
     display: flex;
     justify-content: center;
 }
+.review-button-container{
+    display: flex;
+    justify-content: center;
+}
 
 .leave-review-button{
     width: 150px;
@@ -50,3 +54,24 @@
      background-color:  #a0bcd4;
      cursor:not-allowed
 }
+
+.review-error-message {
+    color: red;
+    font-size: 14px;
+   padding: 5px;
+   padding-left: 1.3rem;
+    text-align: center;
+    position: absolute;
+  }
+
+  .star-rating-title{
+    text-align: center;
+  }
+
+  /* .review-text-area-container{
+    position: relative;
+  } */
+
+  .review-modal-header{
+    position: relative;
+  }

@@ -10,22 +10,36 @@ function ReviewModal({ type, review, bookId }) {
   const [body, setBody] = useState(review ? review.body : "");
   const [starRating, setStarRating] = useState(review ? review.star_rating : 1);
   const [hoverRating, setHoverRating] = useState(0);
+  const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const reviewData = {
-      body,
-      star_rating: starRating,
-    };
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length === 0) {
+      const reviewData = {
+        body,
+        star_rating: starRating,
+      };
 
-    if (type === "Create") {
-      await dispatch(postReviewThunk(bookId, reviewData));
-      closeModal();
-    } else if (type === "Edit") {
-      await dispatch(updateReviewThunk(bookId, review.id, reviewData));
-      closeModal();
+      if (type === "Create") {
+        await dispatch(postReviewThunk(bookId, reviewData));
+        closeModal();
+      } else if (type === "Edit") {
+        await dispatch(updateReviewThunk(bookId, review.id, reviewData));
+        closeModal();
+      }
+    } else {
+      setErrors(newErrors);
     }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    const trimmedBody = body.trim();
+    if (!trimmedBody) newErrors.body = "Review body is required.";
+    if (trimmedBody.length > 2000) newErrors.body = "Review body must be less than 2000 characters.";
+    return newErrors;
   };
 
   const handleStarClick = (rating) => {
@@ -42,31 +56,22 @@ function ReviewModal({ type, review, bookId }) {
 
   return (
     <div className="review-modal-container">
-      <h2
-        style={{ color: "white", backgroundColor: "#2a3642", padding: "10px" }}
-      >
+      <h2 className="review-modal-header">
         {type === "Create" ? "Leave a Review" : "Edit Review"}
       </h2>
+          {errors.body && <p className="review-error-message">{errors.body}</p>}
       <form className="review-modal" onSubmit={handleSubmit}>
-        <div>
+        <div className="review-text-area-container">
           <textarea
             className="review-text-area"
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            required
+
             placeholder="Leave your review here..."
           />
         </div>
         <div>
-          <h3
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              padding: "10px",
-            }}
-          >
-            Leave your rating
-          </h3>
+          <h3 className="star-rating-title">Leave your rating</h3>
           <div className="star-rating">
             {[1, 2, 3, 4, 5].map((rating) => (
               <ReviewStars
@@ -79,10 +84,8 @@ function ReviewModal({ type, review, bookId }) {
             ))}
           </div>
         </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", padding: "10px" }}
-        >
-          <button className="leave-review-button" disabled={!body.trim().length} type="submit">
+        <div className="review-button-container">
+          <button className="leave-review-button"  type="submit">
             {type === "Create" ? "Submit Review" : "Update Review"}
           </button>
         </div>

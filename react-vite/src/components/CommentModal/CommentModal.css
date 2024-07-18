@@ -1,12 +1,13 @@
 .comment-modal {
     padding: 20px;
-    background-color: #fff;
+    background-color: #eff3f8;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 25vw;
     margin: auto;
     text-align: center;
     cursor: default;
+
   }
 
   .comment-modal h2 {
@@ -29,7 +30,7 @@
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ddd;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     font-size: 14px;
 
     resize: none;
@@ -39,6 +40,7 @@
   }
 
   .comment-modal button {
+    margin-top: 40px;
     padding: 10px 20px;
     background-color: #3c84c3;
     color: #fff;
@@ -55,4 +57,10 @@
   .comment-modal button:disabled{
     cursor: not-allowed;
   background-color:  #a0bcd4;;
+  }
+
+  .edit-comment-error-message{
+    color: red;
+    font-size: 14px;
+    position: absolute;
   }
