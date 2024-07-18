@@ -7,6 +7,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useNavigate } from "react-router-dom";
 import "./ProfileButton.css";
+import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal";
 
 function ProfileButton({ setLoading }) {
   const dispatch = useDispatch();
@@ -65,12 +66,14 @@ function ProfileButton({ setLoading }) {
               >
                 Author Dashboard
               </li>
-              <li
+              <OpenModalMenuItem itemText="Logout" modalComponent={<DeleteConfirmModal handleDelete={()=> logout()} type="logout"/>}/>
+
+              {/* <li
                 style={{ cursor: "pointer", fontWeight: "bold" }}
                 onClick={logout}
               >
                 Log Out
-              </li>
+              </li> */}
             </>
           ) : (
             <>

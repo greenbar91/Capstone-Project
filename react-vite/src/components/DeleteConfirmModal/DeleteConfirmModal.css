@@ -1,5 +1,5 @@
 .delete-confirm-modal {
-    padding: 20px;
+    padding: 40px;
     text-align: center;
   }
 
@@ -7,10 +7,11 @@
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+
   }
 
   .confirm-delete-button, .cancel-delete-button {
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     cursor: pointer;
   }
