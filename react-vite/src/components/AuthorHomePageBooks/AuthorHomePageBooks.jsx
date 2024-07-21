@@ -109,6 +109,7 @@ function AuthorHomePageBooks() {
                         cursor: "pointer",
                         fontSize: "12px",
                         padding: "5px",
+                        wordBreak:"break-word"
                       }}
                       onClick={() => handleBookClick(book.id)}
                     >
@@ -116,13 +117,13 @@ function AuthorHomePageBooks() {
                     </h5>
                     <img
                       className="book-cover-art"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", border:".5px solid black" }}
                       onClick={() => handleBookClick(book.id)}
                       src={book.cover_art}
                     />
-                    <div className="tag-container">
+                    <div className="tag-container" style={{display:"flex", justifyContent:"center"}}>
                       {book.tags.map((tag) => (
-                        <div key={tag.id} className="tag">
+                        <div key={tag.id} className="tag" >
                           {tag.tag_name}
                         </div>
                       ))}
@@ -215,7 +216,7 @@ function AuthorHomePageBooks() {
             </div>
             {chapters.map((chapter) => (
               <div key={chapter.id} className="chapters-container">
-                <div className="chapter-title">{chapter.title}</div>
+                <div className="chapter-title" style={{wordBreak:"break-all"}}>{chapter.title}</div>
                 <div className="chapter-release-date">
                   <div className="author-book-buttons">
                     <button

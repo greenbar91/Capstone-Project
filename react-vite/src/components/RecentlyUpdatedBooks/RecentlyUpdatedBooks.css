@@ -26,12 +26,13 @@
   color: black;
   font-weight: bold;
   text-decoration: none;
-
+  word-break: break-all;
 }
 .recent-books-chapter-title {
   grid-area: 2 / 3 / 3 / 7;
   color: rgb(63, 63, 203);
   font-size: 14px;
+  word-break: break-all;
 }
 
 .recent-books-tags { grid-area: 3 / 3 / 6 / 7; }

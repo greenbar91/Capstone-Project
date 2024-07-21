@@ -76,6 +76,7 @@ body {
   /* height: auto; */
   display: block;
   margin: 0 auto;
+  border: .5px solid rgb(223, 223, 223);
 }
 
 .loading-circle {

@@ -85,9 +85,9 @@ function ChapterDetails() {
           <StarRating rating={averageRating} />
         </div>
         <header className="book-and-chapter-header-info">
-          <h3 style={{ padding: "5px" }}>{chapterObject.book_title}</h3>
+          <h3 style={{ padding: "5px", wordBreak:"break-word" }}>{chapterObject.book_title}</h3>
           <h4 style={{ padding: "5px" }}>by {chapterObject.author_name}</h4>
-          <h2 style={{ padding: "5px" }}> {chapterObject.title}</h2>
+          <h2 style={{ padding: "5px", wordBreak:"break-word"}}> {chapterObject.title}</h2>
         </header>
         <div className="donate-and-back-to-book-details">
           <button className="index-button" onClick={handleBackToIndexClick}>

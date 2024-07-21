@@ -77,6 +77,10 @@
 
 }
 
+.chapter-body-test{
+  word-wrap: break-word;
+}
+
 .chapter-navigation-container{
     background-color: white;
     display: flex;

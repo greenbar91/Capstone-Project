@@ -62,6 +62,7 @@ const BookDetails = () => {
                 paddingBottom: "10px",
                 paddingTop: "20px",
                 fontSize: "28px",
+                wordBreak:"break-all"
               }}
             >
               {book.title}
@@ -172,7 +173,7 @@ const BookDetails = () => {
             <div key={chapter.id} className="chapters-container">
               <div className="chapter-title">
                 <NavLink
-                  style={{ textDecoration: "none" }}
+                  style={{ textDecoration: "none", wordBreak:"break-all" }}
                   to={`/books/${bookId}/chapters/${chapter.id}`}
                 >
                   {chapter.title}
