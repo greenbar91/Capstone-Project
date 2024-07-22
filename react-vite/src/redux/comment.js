@@ -96,7 +96,7 @@ export const deleteCommentThunk =
         },
       }
     );
-    console.log(res)
+    // console.log(res)
 
     if (res.ok) {
       dispatch(deleteComment(commentId));
