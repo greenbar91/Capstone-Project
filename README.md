@@ -11,4 +11,29 @@ FantasyScribe is a site for new and veteran authors and their readers to share t
 
 On FantasyScribe, users can:
 
-* 
+* Select from an ever expanding collection of novels that are constantly having new pages and chapters added.
+  <div align="center">   
+  <img src="https://image-storage-portfolio.s3.us-east-2.amazonaws.com/allbooks.png" alt="drawing" width="500" height="500" />
+  </div>
+
+
+* Read the newest books and review their favorite authors
+  <div align="center">
+   <img src="https://image-storage-portfolio.s3.us-east-2.amazonaws.com/bookdetails.png" alt="drawing" width="500" height="500"/>
+  </div>
+
+
+* Read the newest chapters in a sleek format
+  <div align="center">
+   <img src="https://image-storage-portfolio.s3.us-east-2.amazonaws.com/chapterdetails.png" alt="drawing" width="500" height="500"/>
+  </div>
+
+* Write new books/chapters with the Author Dashboard
+  <div align="center">
+   <img src="https://image-storage-portfolio.s3.us-east-2.amazonaws.com/authordashboard.png" alt="drawing" width="500" height="500"/>
+  </div>
+
+# Index
+
+
+ 
