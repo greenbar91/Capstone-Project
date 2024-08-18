@@ -5,6 +5,10 @@ import "./Navigation.css";
 import { FaBook } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { FaPencil } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+
+
 
 function Navigation() {
   const [loading, setLoading] = useState(false);
@@ -24,6 +28,10 @@ function Navigation() {
   return (
     <div className="nav-header-container">
       <div className="nav-header">
+        <div className="github-link" style={{color:"black", fontSize:"24px", position:"absolute", top:"2%", left:"1%"}}>
+          <a title="GitHub repository" style={{paddingRight:"1rem"}} href="https://github.com/greenbar91/Capstone-Project"><FaGithub/></a>
+          <a title="LinkedIn profile" href="https://www.linkedin.com/in/jacob-a-dietz/"><FaLinkedin/></a>
+        </div>
         <div className="nav-home-container">
           <div className="nav-home-link">
             <NavLink to="/">
