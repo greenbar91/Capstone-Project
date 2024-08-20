@@ -84,9 +84,23 @@ One of the features I wanted most on my landing page was a recommended books lis
 
 
 
+
 # Challenges
 
 Another feature that I heavily leaned on (and is a key component in book sites) is tags to represent sub-genres or other specified terms in order to better categorize books. All of the initial setup was fairly simple but I came across a challenge when trying to delete or edit tags from the frontend. Because I had set up my delete method to only accept single tags I wanted a DRY method to accept multiple tags when deleting/updating. After looking through docs and old lessons, I remembered that `Promise.all()` accounts for this situation perfectly! Using this method I could write a single statement in my handleSubmit for both `POST` and `DELETE`. 
 
 ![](https://image-storage-portfolio.s3.us-east-2.amazonaws.com/tagsEX.png)
+
+Another challenge I had was coming up with a way for my Recommended Books and Popular Books to show as a sliding list, showing a certain amount of books per "page" and seamlessly translating between them. In order to do this I needed to seperate the list and toggle between previous and next states.
+
+![](https://image-storage-portfolio.s3.us-east-2.amazonaws.com/prevnext.png)
+
+Next, I needed to adjust the shown books based on the current state index so only the 5 books on the first or second page would be shown.
+
+![](https://image-storage-portfolio.s3.us-east-2.amazonaws.com/translateX.png)
+
+Lastly, I needed to make sure that my styling would follow these rules without clipping and being adjustable for various resolutions.
+
+![](https://image-storage-portfolio.s3.us-east-2.amazonaws.com/slideCSS.png)
+
 
