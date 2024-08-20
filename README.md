@@ -86,4 +86,7 @@ One of the features I wanted most on my landing page was a recommended books lis
 
 # Challenges
 
+Another feature that I heavily leaned on (and is a key component in book sites) is tags to represent sub-genres or other specified terms in order to better categorize books. All of the initial setup was fairly simple but I came across a challenge when trying to delete or edit tags from the frontend. Because I had set up my delete method to only accept single tags I wanted a DRY method to accept multiple tags when deleting/updating. After looking through docs and old lessons, I remembered that `Promise.all()` accounts for this situation perfectly! Using this method I could write a single statement in my handleSubmit for both `POST` and `DELETE`. 
+
+![](https://image-storage-portfolio.s3.us-east-2.amazonaws.com/tagsEX.png)
 
