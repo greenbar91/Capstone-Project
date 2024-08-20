@@ -74,3 +74,16 @@ FLASK_RUN_PORT=8000
 - CSS
 - Python
 - Flask/SQLAlchemy
+
+
+# Technical showcase
+
+One of the features I wanted most on my landing page was a recommended books list using an algorithm based on a users already favorited books. I went through a few variations, including a weighted tier system that gave certain tags a higher weight but I decided it was too arbitrary and finalized on an equal weighting to insure all books would be sorted without bias. Using a mix of sets and lists, I was able to optimize the run time of this api call to reduce loading time on the frontend and ensure better UX. Eventually I want to add random seeds to all generated users in order to fill the initial recommended books until enough books are favorited.
+
+![](https://image-storage-portfolio.s3.us-east-2.amazonaws.com/capstonerec.png)
+
+
+
+# Challenges
+
+
